@@ -1,11 +1,8 @@
 import React from 'react';
 import {
-  SafeAreaView,
   StyleSheet,View,
   Text,
-  useColorScheme,
   TouchableOpacity,
-  useWindowDimensions,
 } from 'react-native';
 
 class Inicio extends React.Component{
