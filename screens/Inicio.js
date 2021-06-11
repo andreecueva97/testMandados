@@ -18,7 +18,7 @@ class Inicio extends React.Component{
           <View styles={styles.inicio_View}>
            
             <Text style={styles.inicio_Title}>Test de los Mandados</Text>
-              <Text style={styles.inicio_Logo}>Logo</Text>
+              <Text style={styles.inicio_Logo}>Logooo</Text>
               <TouchableOpacity 
                 style={styles.inicio_Button}
                 onPress={()=>{}}
