@@ -2,23 +2,24 @@ import React from 'react';
 import {
   StyleSheet,
   View,
-  useColorScheme,
+  useColorScheme,Text
 } from 'react-native';
 
 import {
   Colors
 } from 'react-native/Libraries/NewAppScreen';
 import Inicio from './screens/Inicio';
-
+import Datos from './screens/Datos';
 const App= () => {
-  const isDarkMode = useColorScheme() === 'dark';
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  // const isDarkMode = useColorScheme() === 'dark';
+  // const backgroundStyle = {
+  //   backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  // };
 
   return (
-    <View style={{backgroundColor:"blue",flex:1}}>
-      <Inicio/>
+    <View style={{backgroundColor:"green",flex:1,flexDirection:'column'}}>
+      <Datos/>
+      <Text>hola</Text>
     </View>
   );
 };
