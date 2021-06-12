@@ -10,6 +10,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import Inicio from './screens/Inicio';
 import Datos from './screens/Datos';
+import RevisionGeneral from './screens/RevisionGeneral';
 const App= () => {
   // const isDarkMode = useColorScheme() === 'dark';
   // const backgroundStyle = {
@@ -18,7 +19,7 @@ const App= () => {
 
   return (
     <View style={{backgroundColor:"green",flex:1,flexDirection:'column'}}>
-      <Datos/>
+      <RevisionGeneral/>
       <Text>hola</Text>
     </View>
   );

@@ -33,7 +33,7 @@ class Datos extends React.Component{
         <TextInput style={styles.datos_textinput}
           underlineColorAndroid="transparent"
           placeholder="nombre"
-          placeholderTextColor="blue"
+          placeholderTextColor="white"
           autoCapitalize = "none"
           onChangeText={this.handleNombre}
         />
@@ -43,7 +43,7 @@ class Datos extends React.Component{
         <TextInput style={styles.datos_textinput}
           underlineColorAndroid="transparent"
           placeholder="apellido"
-          placeholderTextColor="blue"
+          placeholderTextColor="white"
           autoCapitalize = "none"
           onChangeText={this.handleApellido}
         />
@@ -53,9 +53,11 @@ class Datos extends React.Component{
         <TextInput style={styles.datos_textinput}
           underlineColorAndroid="transparent"
           placeholder="edad"
-          placeholderTextColor="blue"
+          keyboardType="numeric"
+          placeholderTextColor="white"
           autoCapitalize = "none"
           onChangeText={this.handleApellido}
+          maxLength={3}
         />
         <View style={styles.inicio_Title}>
               <Text style={styles.inicio_Text}>DNI</Text>
@@ -63,9 +65,11 @@ class Datos extends React.Component{
         <TextInput style={styles.datos_textinput}
           underlineColorAndroid="transparent"
           placeholder="dni"
-          placeholderTextColor="blue"
+          keyboardType="numeric"
+          placeholderTextColor="white"
           autoCapitalize = "none"
           onChangeText={this.handleApellido}
+          maxLength={10}
         />
         <View style={{paddingTop:36,backgroundColor:'red',alignContent: 'center', justifyContent: 'center',flexDirection: 'row', borderRadius: 3,
 marginBottom: 10}}>
