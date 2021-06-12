@@ -24,7 +24,7 @@ class Inicio extends React.Component{
     marginBottom: 10}}>
             <TouchableOpacity 
                 style={styles.inicio_Button}
-                onPress={()=>{}}
+                onPress={() => { this.props.navigation.navigate('Datos') }}
               >
                   <Text style={styles.inicio_Text}>INICIAR</Text>
               </TouchableOpacity>

@@ -1,8 +1,8 @@
 import React from 'react';
 import {
-    Dimensions,
+    Dimensions,Modal,
   StyleSheet,FlatList,
-  Text,TouchableOpacity,
+  Text,TouchableOpacity,TouchableHighlight,
   View
 } from 'react-native';
 
@@ -13,13 +13,18 @@ class RevisionGeneral extends React.Component{
         this.state={
             shouldShow: false,
             filtrarPor:'filtrar por',
+            modalVisible:false,
         }
+        
     }
 
-    
+    setModalVisible = (visible) => {
+      this.setState({ modalVisible: visible });
+  }
 
     render(){
         const {shouldShow}=this.state;
+        const {modalVisible}=this.state;
         return(
             <View style={styles.inicio_View}>
             <Text style ={{textAlign:'center',backgroundColor:'white',alignContent:'center',justifyContent:'center'}}>ACA REVISION GENERAL</Text>
@@ -64,31 +69,52 @@ class RevisionGeneral extends React.Component{
             <View style={[styles.inicio_Logo,{width:Dimensions.get('window').width/2,top:-20}]}>
               <Text style={styles.inicio_Text}>Tu puntuacion: 10.Gracias por participar</Text>
             </View>
-            <View style={{flex:2,backgroundColor:'red',alignContent: 'center', justifyContent: 'center',flexDirection: 'row', borderRadius: 3,
+            <View style={{alignContent: 'center', justifyContent: 'center',flexDirection: 'row', borderRadius: 3,
+    marginBottom: 10,top:-180,width:Dimensions.get('window').width/2,left:200,height:100}}>
+            <TouchableOpacity 
+                style={[styles.inicio_Button,{height:60,zIndex:10,backgroundColor:'grey'}]}
+                onPress={() => { this.props.navigation.navigate('Inicio') }}
+              >
+                  <Text style={{}}>Terminar</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={{zIndex:10,alignContent: 'center', justifyContent: 'center',flexDirection: 'row', borderRadius: 3,
     marginBottom: 10,top:-180,width:Dimensions.get('window').width/2,left:200,height:100}}>
             <TouchableOpacity 
                 style={[styles.inicio_Button,{height:60}]}
-                onPress={()=>{}}
+                onPress={() => { this.props.navigation.navigate('Datos') }}
               >
-                  <Text style={[styles.inicio_Text,{height:60}]}>Terminar</Text>
+                  <Text style={{}}>Repetir Juego</Text>
               </TouchableOpacity>
             </View>
-            <View style={{flex:2,backgroundColor:'red',alignContent: 'center', justifyContent: 'center',flexDirection: 'row', borderRadius: 3,
-    marginBottom: 10,top:-80,width:Dimensions.get('window').width/2,left:200,height:100}}>
-            <TouchableOpacity 
-                style={[styles.inicio_Button,{height:60}]}
-                onPress={()=>{}}
-              >
-                  <Text style={[{fontSize:15},styles.inicio_Text,]}>Repetir Juego</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={[styles.RevisionGeneral_Button_info,{}]}>
+            <View style={[styles.RevisionGeneral_Button_info,{top:-140,zIndex:10,left:20}]}>
+
             <TouchableOpacity 
                 style={{justifyContent:'center',borderRadius: 40/2, height:40,width:40,borderWidth: 3,borderColor:'lightgrey'}}
-                onPress={()=>{}}
+                onPress={() => { this.setModalVisible(!modalVisible); }}
               >
                   <Text style={{fontSize:14,textAlign:'center'}}>info</Text>
               </TouchableOpacity>
+            </View>
+            <View styles={{}}>
+            <Modal
+                    animationType="none"
+                    transparent={true}
+                    visible={modalVisible}
+                    onRequestClose={() => { Alert.alert("Modal fue cerrado."); }}
+                >
+                    <View style={{zIndex:10,left:1,top:300,backgroundColor:'white'}}>
+                        <View style={{}}>
+                            <Text style={{}}>Esta tarea consiste en hacer varios mandados. Tenés que salir de tu hogar a las 9:15 hs., hacer varios mandados o diligencias y estar de regreso a las 13:00 hs. Para recorrer el camino de tu hogar a la estación, se tardan 30 minutos. La oficina donde se pagan los impuestos cierra a las 10 hs. Los negocios y el correo cierran a las 12:00 hs. y la panadería abre después de las 11:00 hs. Tenés que hacer las siguientes tareas</Text>
+                            <TouchableHighlight
+                                style={{ backgroundColor: "#34495E" }}
+                                onPress={() => { this.setModalVisible(!modalVisible); }}
+                            >
+                                <Text style={{}}>continuar</Text>
+                            </TouchableHighlight>
+                        </View>
+                    </View>
+                </Modal>
             </View>
         </View>  
         )
@@ -99,10 +125,10 @@ class RevisionGeneral extends React.Component{
 const styles = StyleSheet.create({
     RevisionGeneral_Button_info:{
         backgroundColor:'white',alignContent: 'center',
-        flexDirection: 'row', 
+      
         borderRadius: 40/2, 
         height:40,width:40,
-        top:-1, left:10,
+        left:100
       },
     inicio_View:{
       flexDirection:'column',backgroundColor:'blue',
