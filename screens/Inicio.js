@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     fontSize:30,
     position:'relative',
     alignContent: 'center', justifyContent: 'center',
-    textAlign:'center',
+    textAlign:'center',width:300,
   },
   inicio_Button:{
     fontSize:30,
