@@ -26,7 +26,7 @@ class Datos extends React.Component{
     render(){
       return(
         <View style={styles.inicio_View}>
-        <Text style ={{textAlign:'center',backgroundColor:'white',alignContent:'center',justifyContent:'center'}}>ACA DATOS</Text>
+        {/* <Text style ={{textAlign:'center',backgroundColor:'white',alignContent:'center',justifyContent:'center'}}>ACA DATOS</Text> */}
         <View style={styles.inicio_Title}>
               <Text style={styles.inicio_Text}>Nombre</Text>
             </View>
@@ -71,13 +71,13 @@ class Datos extends React.Component{
           onChangeText={this.handleApellido}
           maxLength={10}
         />
-        <View style={{paddingTop:36,backgroundColor:'red',alignContent: 'center', justifyContent: 'center',flexDirection: 'row', borderRadius: 3,
-marginBottom: 10}}>
+        <View style={{alignContent: 'center', justifyContent: 'center',flexDirection: 'row', borderRadius: 3,
+marginBottom: 10,paddingTop:20}}>
         <TouchableOpacity 
             style={styles.inicio_Button}
             onPress={() => { this.props.navigation.navigate('Juego_Mapa') }}
           >
-              <Text style={styles.inicio_Text}>Iniciar Juego</Text>
+              <Text style={styles.inicio_TextButton}>Iniciar Juego</Text>
           </TouchableOpacity>
         </View>
         
@@ -94,21 +94,26 @@ const styles = StyleSheet.create({
     borderWidth:1,
   },
   inicio_View:{
-    flexDirection:'column',backgroundColor:'green',
+    flexDirection:'column',backgroundColor:'#3671A3',
     flex:1,
     alignContent: 'center', justifyContent: 'center',
-    paddingTop:23,
+    paddingTop:0,
   },
+  inicio_TextButton:{
+    fontSize:30,
+   alignContent: 'center', justifyContent: 'center',
+   alignItems: 'center',textAlign:'center',
+ },
   inicio_Text:{
-    backgroundColor:'yellow', fontSize:30,
+    backgroundColor:'#3671A3', fontSize:30,
     alignContent: 'center', justifyContent: 'center',
-    borderWidth: 2,alignItems: 'center',textAlign:'center',
+    alignItems: 'center',textAlign:'center'
   },
   inicio_Button:{
     fontSize:30,
     borderRadius:10,
     width:300,
-    backgroundColor:'grey',
+    backgroundColor:'#AABECF',
     padding: 10,
     elevation: 2,
     justifyContent: "center",alignItems: "center",

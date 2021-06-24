@@ -12,6 +12,8 @@ target 'TestMandados' do
     :hermes_enabled => false
   )
 
+  pod 'RealmJS', :path => '../node_modules/realm'
+
   target 'TestMandadosTests' do
     inherit! :complete
     # Pods for testing
