@@ -21,8 +21,12 @@ const App= () => {
   return (
      //<View style={{backgroundColor:"green",flex:1,flexDirection:'column'}}>
    
-      <NavigationContainer>
-        <Stack.Navigator>
+      <NavigationContainer
+      >
+        <Stack.Navigator  
+        screenOptions={{
+      headerShown: false
+                    }}>
   
           <Stack.Screen name="Inicio" component={Inicio} />
           {/* <Stack.Screen name="Datos" component={Datos} /> */}
