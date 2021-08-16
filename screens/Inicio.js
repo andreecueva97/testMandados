@@ -13,29 +13,36 @@ class Inicio extends React.Component{
     render(){
       return(
         <View style={styles.inicio_View}>
-            {/* <Text style ={{textAlign:'center',backgroundColor:'white',alignContent:'center',justifyContent:'center'}}>ACA INICIO</Text> */}
-            <View style={styles.inicio_Title}>
-              <Text style={styles.inicio_Text}>Test de los Mandados</Text>
-            </View>          
-            <View style={{alignItems:'center',justifyContent:'center'}}>
-            
-             <Image 
-              style={{width:300,height:300}}
-              source={require('@img/logo.png')}
-             />  
-          
-            </View>
-            <View style={{alignContent: 'center', justifyContent: 'center',flexDirection: 'row', borderRadius: 3,
-    marginBottom: 10}}>
-            <TouchableOpacity 
-                style={styles.inicio_Button}
-                onPress={() => { this.props.navigation.navigate('Datos') }}
-              >
-                  <Text style={styles.inicio_TextButton}>INICIAR</Text>
-              </TouchableOpacity>
-            </View>
-            
-        </View>  
+<View style={styles.inicio_Title}>
+<Text style={styles.inicio_Text}>Test de los Mandados</Text>
+</View>          
+<View style={{alignItems:'center',justifyContent:'center'}}>
+
+<Image 
+style={{width:300,height:300}}
+source={require('@img/logo.png')}
+/>  
+
+</View>
+<View style={{alignContent: 'center', justifyContent: 'center',flexDirection: 'row', borderRadius: 3,
+marginBottom: 10}}>
+<TouchableOpacity 
+  style={styles.inicio_Button}
+  onPress={() => {  this.props.navigation.navigate('Datos')}}
+>
+    <Text style={styles.inicio_TextButton}>INICIAR</Text>
+</TouchableOpacity>
+</View>
+<View style={{alignContent: 'center', justifyContent: 'center',flexDirection: 'row', borderRadius: 3,
+marginBottom: 10}}>
+<TouchableOpacity 
+  style={styles.inicio_Button}
+  onPress={() => {  this.props.navigation.navigate('Datos')}}
+>
+    <Text style={styles.inicio_TextButton}>Puntuaciones</Text>
+</TouchableOpacity>
+</View>
+            </View>  
       )
   }
 }
@@ -85,3 +92,6 @@ const styles = StyleSheet.create({
 });
 
 export default Inicio;
+
+
+

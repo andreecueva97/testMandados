@@ -9,8 +9,15 @@ import {
 class Datos extends React.Component{
     constructor(props){
         super(props);
+        this.state={
+          nombre:'',
+          apellido:'',
+          edad:"",
+          dni:'',
+          check:0,
+        };
     }
-    state={nombre:'',apellido:'',edad:"",dni:''};
+    
     handleNombre=(texto)=>{
       this.setState({nombre:texto})
     }
@@ -22,6 +29,15 @@ class Datos extends React.Component{
     }
     handleNombre=(texto)=>{
       this.setState({dni:texto})
+    }
+    handleVerificateOfData(){
+      // if(this.state.check>4){
+      //         this.props.navigation.navigate('Juego_Mapa') ;
+      // }
+      // else{
+      //   console.log('dfsadfafd');
+      // }
+      this.props.navigation.navigate('Juego_Mapa') ;
     }
     render(){
       return(
@@ -75,7 +91,7 @@ class Datos extends React.Component{
 marginBottom: 10,paddingTop:20}}>
         <TouchableOpacity 
             style={styles.inicio_Button}
-            onPress={() => { this.props.navigation.navigate('Juego_Mapa') }}
+            onPress={() => {  this.props.navigation.navigate('Juego_Mapa')}}
           >
               <Text style={styles.inicio_TextButton}>Iniciar Juego</Text>
           </TouchableOpacity>
