@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Image,StyleSheet,Dimensions,  Text,View,TouchableOpacity,TouchableHighlight,Modal,
 } from 'react-native';
+import Clock from '../components/Clock';
 class Juego_Mapa extends React.Component{
     constructor(props){
         super(props);
@@ -130,11 +131,16 @@ class Juego_Mapa extends React.Component{
 
 
         </View>     
-           
         <View style={{zIndex:10,top:250,alignContent: 'center', justifyContent: 'center',flexDirection: 'row', borderRadius: 3,
-marginBottom: 10,left:0}}>
+marginBottom: 10,left:-280}}>
+
+<Clock style={{}}/>
+</View>
+
+        <View style={{zIndex:10,top:250,alignContent: 'center', justifyContent: 'center',flexDirection: 'row', borderRadius: 3,
+marginBottom: 10,left:-280}}>
         <TouchableOpacity 
-            style={[styles.inicio_Button,{left:-280}]}
+            style={[styles.inicio_Button,]}
             onPress={() => { 
               
               this.funcionnOpacity();
@@ -143,18 +149,9 @@ marginBottom: 10,left:0}}>
           >
               <Text style={styles.inicio_Text}>Terminar</Text>
           </TouchableOpacity>
+         
         </View>
-        <View style={{zIndex:10,top:230,alignContent: 'center', justifyContent: 'center',flexDirection: 'row', borderRadius: 3,
-marginBottom: 0}}>
-        <TouchableOpacity 
-            style={[styles.inicio_ButtonTime,{left:-290,top:20,alignContent: 'center', justifyContent: 'center',textAlign:'center'}]}
-            onPress={()=>{}}
-          >
-              {/* <Text style={styles.inicio_Text}>00:00:00</Text> */}
-              
-          </TouchableOpacity>
-          
-        </View>
+       
         
         <View style={[styles.RevisionGeneral_Button_info,{top:-80}]}>
             <TouchableOpacity 
