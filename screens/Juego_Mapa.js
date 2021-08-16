@@ -10,6 +10,9 @@ class Juego_Mapa extends React.Component{
           modalVisible:false,//everything true, change later
           posiciones:['la casa',],
           almacen:['c','b'],
+          matriz:[
+            [0]	,['c','b','a'],	['e','d','c','b','a']	,['ae','a'],	['aa','ac','ad','ae','a']	,['s','r','b','a'],	['z','ag','af','ae','a'],	['y','z','ag','af','ae','a'],	['x','y','z','ag','af','ae','a'],	['j','k','v','x','y','z','ag','af','ae','a'],	['g','f','e','d','c','b','a']]
+          ,
           images:[
             {source:require('@img/a.png'),opacity:1, name:'a'},
             {source:require('@img/b.png'),opacity:1, name:'b'},
@@ -131,44 +134,41 @@ class Juego_Mapa extends React.Component{
 
 
         </View>     
-        <View style={{zIndex:10,top:250,alignContent: 'center', justifyContent: 'center',flexDirection: 'row', borderRadius: 3,
+        <View style={{zIndex:10,top:210,alignContent: 'center', justifyContent: 'center',flexDirection: 'row', borderRadius: 3,
 marginBottom: 10,left:-280}}>
 
 <Clock style={{}}/>
 </View>
 
-        <View style={{zIndex:10,top:250,alignContent: 'center', justifyContent: 'center',flexDirection: 'row', borderRadius: 3,
-marginBottom: 10,left:-280}}>
+        <View style={{zIndex:10,top:240,alignContent: 'center', justifyContent: 'center',flexDirection: 'row', borderRadius: 3,
+marginBottom: 10,left:-277}}>
         <TouchableOpacity 
             style={[styles.inicio_Button,]}
-            onPress={() => { 
-              
-              this.funcionnOpacity();
-              //this.props.navigation.navigate('Revision_General') 
-            }}
-          >
+            onPress={() => {   this.props.navigation.navigate('Revision_General')   }}>
               <Text style={styles.inicio_Text}>Terminar</Text>
-          </TouchableOpacity>
+        </TouchableOpacity>
          
         </View>
-       
-        
-        <View style={[styles.RevisionGeneral_Button_info,{top:-80}]}>
-            <TouchableOpacity 
-                style={{justifyContent:'center',borderRadius: 40/2, height:40,width:40,borderWidth: 3,borderColor:'lightgrey'}}
-                onPress={() => { this.setModalVisible(!modalVisible); }}
-              >
-                  <Text style={{fontSize:14,textAlign:'center'}}>info</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={[styles.RevisionGeneral_Button_info,{top:-160}]}>
+
+        <View style={{zIndex:10,top:-110,alignContent: 'center', justifyContent: 'center',flexDirection: 'row', borderRadius: 3,
+marginBottom: 10,left:-277}}>
+        <TouchableOpacity 
+            style={[styles.inicio_Button,]}
+            onPress={() => { this.setModalVisible(!modalVisible); }}>
+              <Text style={{fontSize:28,
+    alignContent: 'center', justifyContent: 'center',
+    alignItems: 'center',textAlign:'center',}}>Informacion</Text>
+        </TouchableOpacity>
+         
+        </View>
+            {/* <View style={[styles.RevisionGeneral_Button_info,{top:-160}]}>
             <TouchableOpacity 
                 style={{justifyContent:'center',borderRadius: 40/2, height:40,width:40,borderWidth: 3,borderColor:'lightgrey'}}
                 onPress={()=>{}}
               >
                   <Text style={{fontSize:25,textAlign:'center'}}>≡</Text>
               </TouchableOpacity>
-            </View>
+            </View> */}
             <View style={{backgroundColor:'lightblue',alignContent: 'center',
         flexDirection: 'row', 
         borderRadius: 40/2, 

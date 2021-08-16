@@ -3,7 +3,7 @@ import React, { useState, useEffect }  from 'react';
 import {Text,View,StyleSheet,Animated} from 'react-native';
 const Clock = () => {
 
-  const [minutos, setMins] = useState(0);//Variable para los minutos 
+  const [minutos, setMins] = useState(10);//Variable para los minutos 
   const [segundos, setSecs] = useState(3);//Variable para los segundos
   const [colorText, setColor]= useState('black');
   const [colorBorder, setColorB]= useState('#283747');
