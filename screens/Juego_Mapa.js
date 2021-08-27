@@ -65,8 +65,11 @@ class Juego_Mapa extends React.Component{
     const imagess = this.state.images.map(el => (
       el.name===a? {...el, opacity: 0}: el  
     ));
-    console.log(imagess);
+    //console.log(imagess);
+    this.setState({ images:[] });
+
     this.setState({ images:imagess });
+    console.log(this.state.images);
     //agregar posicion
     this.state.posiciones.push('almacen');
     //console.log(this.state.posiciones);
@@ -107,7 +110,7 @@ class Juego_Mapa extends React.Component{
     console.log('opacidad...');                     //en vez de pasarle 'b' LE PASAS POR PARAMETRO UN VALOR
 
     let images = this.state.images.map(el => (
-      el.name==='a'? {...el, opacity: 0}: el  
+      el.name==='a'? {...el, opacity:0}: el  
     ));
     this.setState({ images });
     //agregar posicion
