@@ -86,43 +86,64 @@ const Juego_Mapa = ({ navigation }) => {
     //console.log('ia');
     //console.log(ia);
   };
+  const getOc= (array,value)=>{
+    var count = 0;
+    array.forEach((v) => (v === value && count++));
+    return count;
+  };
   const funcionnOpacity2 = (camino,posicionSiguiente) => {                          //change and passing parameter and ceros for value parameter
     console.log('123opacidad...');                     //en vez de pasarle 'b' LE PASAS POR PARAMETRO UN VALOR
-    //let images=this.state.images;
-    //console.log(camino);
-    if (posiciones.length == 2) {
-      if (posiciones[1] == posicionSiguiente) {
-
-      }
-      else{
-        for (let index = 0; index < camino.length; index++) {
-          const element = camino[index];
-          funca(element);
-          //console.log(element);
+    
+    const i=0;
+    const exists = getOc(posiciones,posicionSiguiente);
+    console.log(exists);
+    
+    if(exists==0){
+      if (posiciones.length == 2) {
+        if (posiciones[1] == posicionSiguiente) {
+  
         }
-
-
-        //agregar posicion
-        posiciones.push(posicionSiguiente);
-      }
-    }
-    else {
-      if (posiciones[posiciones.length - 1] == posicionSiguiente) {
-
+        else{
+          for (let index = 0; index < camino.length; index++) {
+            const element = camino[index];
+            funca(element);
+            //console.log(element);
+          }
+  
+  
+          //agregar posicion
+          posiciones.push(posicionSiguiente);
+        }
       }
       else {
-        for (let index = 0; index < camino.length; index++) {
-          const element = camino[index];
-          funca(element);
-          //console.log(element);
+        if (posiciones[posiciones.length - 1] == posicionSiguiente) {
+  
         }
-
-
-        //agregar posicion
-        posiciones.push(posicionSiguiente);
+        else {
+          for (let index = 0; index < camino.length; index++) {
+            const element = camino[index];
+            funca(element);
+            //console.log(element);
+          }
+  
+  
+          //agregar posicion
+          posiciones.push(posicionSiguiente);
+        }
       }
     }
-
+    else{
+      //SI ES EL ULTIMO ELEMENTO SELECCIONADO DEBERIA PODERSE DAR DE BAJA o sea borrarse el ARRAY si es que le doy click de vuelta
+      if(posicionSiguiente ==posiciones[posiciones.length-1]){
+        console.log('posicionFinal ==>'+posiciones[posiciones.length-1]);
+        console.log('posicionSiguiente ==>'+posicionSiguiente);
+        posiciones.pop();
+        console.log('posicionesActualizadas==>'+posiciones);
+      }
+     
+    }
+   
+    
 
     console.log(posiciones);
     console.log("posicion agregada =>"+posiciones[posiciones.length - 1]);

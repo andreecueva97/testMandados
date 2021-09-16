@@ -38,7 +38,8 @@ Persons.schema = {
             edad:'int',
             dni:'int',
             //listDogs:'string[]',
-            listJuegos:{type: 'list', objectType: 'Juego'},
+            //listJuegos:{type: 'list', objectType: 'Juego'},/// es mejor tener juego asociados a un jugador porque un jugador puede tener varios Juegos realizados. En caso de querer los juegos
+            //que realizo un jugador miro los juegos y filtro dentro del mismo por persona.dni
     },
 };
 
