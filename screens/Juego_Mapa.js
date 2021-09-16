@@ -129,66 +129,111 @@ const Juego_Mapa = ({ navigation }) => {
               )
           }
         </>
-        <TouchableOpacity
-          style={{ left:255,top:17,backgroundColor: 'yellow',zIndex:10,justifyContent: 'center', borderRadius: 40 / 2, height: 40, width: 40, borderWidth: 3, borderColor: 'lightgrey' }}
-          onPress={() => { funcionnOpacity(almacen) }}
-        >
-          <View><Text style={{ fontSize: 8, textAlign: 'center', }}>almacen</Text></View>
+        <View style={{backgroundColor:'green',
+         alignContent: 'center',   justifyContent:'center',flexDirection:'row',
+             borderRadius: 30 / 2,         height: 30, width: 30,   
+                   top: -30, left: 640, zIndex: 12
+      }}>
+        <TouchableOpacity onPress={() => { funcionnOpacity(almacen) }}>
+        <Text style={{fontSize:10}}>ZAPATERO</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={{ left:640,top:90,backgroundColor:'yellow',zIndex:20,justifyContent: 'center', borderRadius: 40 / 2, height: 40, width: 40, borderWidth: 3, borderColor: 'lightgrey' }}
-          onPress={() => { funcionnOpacity(almacen) }}
-        >
-          <Text style={{ fontSize: 8, textAlign: 'center', }}>kiosko</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{left:648,top:9, backgroundColor: 'yellow',zIndex:20,justifyContent: 'center', borderRadius: 40 / 2, height: 40, width: 40, borderWidth: 3, borderColor: 'lightgrey' }}
-          onPress={() => { funcionnOpacity(almacen) }}
-        >
-          <Text style={{ fontSize: 8, textAlign: 'center', }}>estacion</Text>
-        </TouchableOpacity>    
        
-        <TouchableOpacity
-          style={{ left:570,top:30,backgroundColor:'yellow',zIndex:20,justifyContent: 'center', borderRadius: 40 / 2, height: 40, width: 40, borderWidth: 3, borderColor: 'lightgrey' }}
-          onPress={() => { funcionnOpacity(almacen) }}
-        >
-          <Text style={{ fontSize: 8, textAlign: 'center', }}>libreria</Text>
+      </View>
+      <View style={{backgroundColor:'green',
+         alignContent: 'center',   justifyContent:'center',flexDirection:'row',
+             borderRadius: 30 / 2,         height: 30, width: 30,   
+                   top: -96, left: 535, zIndex: 12
+      }}>
+        <TouchableOpacity onPress={() => { funcionnOpacity(almacen) }}>
+        <Text style={{fontSize:10}}>CORREO</Text>
         </TouchableOpacity>
-        <TouchableOpacity
+      
+      </View>
+      <View style={{backgroundColor:'green',
+         alignContent: 'center',   justifyContent:'center',flexDirection:'row',
+             borderRadius: 30 / 2,         height: 30, width: 30,   
+                   top: -66, left: 342, zIndex: 12
+      }}>
+        <TouchableOpacity onPress={() => { funcionnOpacity(almacen) }}>
+        <Text style={{fontSize:10}}>CAFE</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={{backgroundColor:'green',
+         alignContent: 'center',   justifyContent:'center',flexDirection:'row',
+             borderRadius: 30 / 2,         height: 30, width: 30,   
+                   top: -66, left: 258, zIndex: 12
+      }}>
+        <TouchableOpacity onPress={() => { funcionnOpacity(almacen) }}>
+        <Text style={{fontSize:10}}>ALMACEN</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={{backgroundColor:'green',
+         alignContent: 'center',   justifyContent:'center',flexDirection:'row',
+             borderRadius: 30 / 2,         height: 30, width: 30,   
+                   top: -73, left: 462, zIndex: 12
+      }}>
+        <TouchableOpacity onPress={() => { funcionnOpacity(almacen) }}>
+        <Text style={{fontSize:10}}>OFICINA</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={{backgroundColor:'green',
+         alignContent: 'center',   justifyContent:'center',flexDirection:'row',
+             borderRadius: 30 / 2,         height: 30, width: 30,   
+                   top: -66, left: 650, zIndex: 12
+      }}>
+       <TouchableOpacity onPress={() => { funcionnOpacity(almacen) }}>
+        <Text style={{fontSize:10}}>ESTACION</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={{backgroundColor:'green',
+         alignContent: 'center',   justifyContent:'center',flexDirection:'row',
+             borderRadius: 30 / 2,         height: 30, width: 30,   
+                   top: -46, left: 650, zIndex: 12
+      }}>
+        <TouchableOpacity onPress={() => { funcionnOpacity(almacen) }}>
+        <Text style={{fontSize:10}}>KIOSKO</Text>
+        </TouchableOpacity>
+       
+      </View>
+      <View style={{backgroundColor:'green',
+         alignContent: 'center',   justifyContent:'center',flexDirection:'row',
+             borderRadius: 30 / 2,         height: 30, width: 30,   
+                   top: -98, left: 520, zIndex: 12
+      }}>
+        <TouchableOpacity onPress={() => { funcionnOpacity(almacen) }}>
+        <Text style={{fontSize:10}}>AMIGA</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={{backgroundColor:'green',
+         alignContent: 'center',   justifyContent:'center',flexDirection:'row',
+             borderRadius: 30 / 2,         height: 30, width: 30,   
+                   top: -45, left: 570, zIndex: 12
+      }}>
+        <TouchableOpacity onPress={() => { funcionnOpacity(almacen) }}>
+        <Text style={{fontSize:10}}>LIBRERIA</Text>
+        </TouchableOpacity>
+       
+      </View>
+      
+        {/* <TouchableOpacity  -103   395
           style={{ left:334,backgroundColor:'yellow',zIndex:20,justifyContent: 'center', borderRadius: 40 / 2, height: 40, width: 40, borderWidth: 3, borderColor: 'lightgrey' }}
           onPress={() => { funcionnOpacity(almacen) }}
         >
           <Text style={{ fontSize: 8, textAlign: 'center', }}>oficina</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{  left:334,
-            backgroundColor:'yellow',zIndex:20,justifyContent: 'center', borderRadius: 40 / 2, height: 40, width: 40, borderWidth: 3, borderColor: 'lightgrey' }}
-          onPress={() => { funcionnOpacity(almacen) }}
-        >
-          <Text style={{ fontSize: 8, textAlign: 'center', }}>casa amiga</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{ left:380,top:-50,overflow:'visible',position:'relative',backgroundColor:'yellow',zIndex:20,justifyContent: 'center', borderRadius: 40 / 2, height: 40, width: 40, borderWidth: 3, borderColor: 'lightgrey' }}
-          onPress={() => { funcionnOpacity(almacen) }}
-        >
-          <Text style={{ fontSize: 8, textAlign: 'center', }}>panaderia</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{ left:334,backgroundColor:'yellow',zIndex:20,justifyContent: 'center', borderRadius: 40 / 2, height: 40, width: 40, borderWidth: 3, borderColor: 'lightgrey' }}
-          onPress={() => { funcionnOpacity(almacen) }}
-        >
-          <Text style={{ fontSize: 8, textAlign: 'center', }}>estacion</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{left:334,
-            backgroundColor:'yellow',zIndex:40,justifyContent: 'center', borderRadius: 40 / 2, height: 80, width: 80, borderWidth: 3, borderColor: 'lightgrey' }}
-          onPress={() => { funcionnOpacity(almacen) }}
-        >
-          <Text style={{ fontSize: 8, textAlign: 'center', }}>kiosko</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
+      
 
       </View>
-
+      <View style={{backgroundColor:'green',
+         alignContent: 'center',   justifyContent:'center',flexDirection:'row',
+             borderRadius: 30 / 2,         height: 30, width: 30,   
+                   top: 240, left: 390, zIndex: 20
+      }}>
+        <TouchableOpacity style={{}} onPress={() => { funcionnOpacity(almacen) }}>
+        <Text style={{fontSize:10}}>pan</Text>
+        </TouchableOpacity>
+       
+      </View>
       <View style={{position:'relative',zIndex: 10, top: 150, alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3,marginBottom: 10, left: -280}}>
         <Clock />
       </View>
@@ -199,7 +244,7 @@ const Juego_Mapa = ({ navigation }) => {
           onPress={() => navigation.navigate('Revision_General')}>
           <Text style={styles.inicio_Text}>Terminar</Text>
         </TouchableOpacity>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={[styles.inicio_Button,]}
           onPress={() => { setModalVisible(!modalVisible); }}>
           <Text style={{
@@ -207,7 +252,7 @@ const Juego_Mapa = ({ navigation }) => {
             alignContent: 'center', justifyContent: 'center',
             alignItems: 'center', textAlign: 'center',
           }}>Informacion</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
 
       <View style={{
@@ -219,15 +264,7 @@ const Juego_Mapa = ({ navigation }) => {
       </View>
      
             
-            <View style={{
-         alignContent: 'center',   justifyContent:'center',flexDirection:'row',
-             borderRadius: 40 / 2,         height: 40, width: 40,   
-                   top: -120, left: 250, zIndex: 12
-      }}>
-    
-            
-      
-      </View>
+           
       
      
       
