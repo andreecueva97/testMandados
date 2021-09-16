@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Image, StyleSheet, Dimensions, Text, View,  TouchableHighlight, Modal,
+  Image, StyleSheet, Dimensions, Text, View, TouchableHighlight, Modal,
 } from 'react-native';
 import Clock from '../components/Clock';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const Juego_Mapa = ({ navigation }) => {
   //const {navigation} = this.props;
@@ -75,7 +75,7 @@ const Juego_Mapa = ({ navigation }) => {
 
   const funca = (a) => {
     console.log('funca...');                     //en vez de pasarle 'b' LE PASAS POR PARAMETRO UN VALOR
-    console.log(images);
+    //console.log(images);
     let ia = images.map(el => (
       el.name === a ? { ...el, opacity: 0 } : el
     ));
@@ -83,27 +83,82 @@ const Juego_Mapa = ({ navigation }) => {
     setImages(images => images.map(el => (
       el.name === a ? { ...el, opacity: 0 } : el
     )));
-    console.log('ia');
-    console.log(ia);
+    //console.log('ia');
+    //console.log(ia);
   };
-  const funcionnOpacity = (camino) => {                          //change and passing parameter and ceros for value parameter
-    console.log('opacidad...');                     //en vez de pasarle 'b' LE PASAS POR PARAMETRO UN VALOR
+  const funcionnOpacity2 = (camino,posicionSiguiente) => {                          //change and passing parameter and ceros for value parameter
+    console.log('123opacidad...');                     //en vez de pasarle 'b' LE PASAS POR PARAMETRO UN VALOR
     //let images=this.state.images;
-    console.log(camino);
+    //console.log(camino);
+    if (posiciones.length == 2) {
+      if (posiciones[1] == posicionSiguiente) {
 
-    for (let index = 0; index < camino.length; index++) {
-      const element = camino[index];
-      funca(element);
-      //console.log(element);
+      }
+      else{
+        for (let index = 0; index < camino.length; index++) {
+          const element = camino[index];
+          funca(element);
+          //console.log(element);
+        }
+
+
+        //agregar posicion
+        posiciones.push(posicionSiguiente);
+      }
+    }
+    else {
+      if (posiciones[posiciones.length - 1] == posicionSiguiente) {
+
+      }
+      else {
+        for (let index = 0; index < camino.length; index++) {
+          const element = camino[index];
+          funca(element);
+          //console.log(element);
+        }
+
+
+        //agregar posicion
+        posiciones.push(posicionSiguiente);
+      }
     }
 
 
-    //agregar posicion
-    posiciones.push('almacen');
     console.log(posiciones);
-    console.log(matriz[5]);
+    console.log("posicion agregada =>"+posiciones[posiciones.length - 1]);
+    // console.log(matriz[5]);
   };
+  const funcionnOpacity = (camino) => {                          //change and passing parameter and ceros for value parameter
+    console.log('123opacidad...');                     //en vez de pasarle 'b' LE PASAS POR PARAMETRO UN VALOR
+    //let images=this.state.images;
+    //console.log(camino);
+    if (posiciones.length == 2) {
+      if (posiciones[1] == posiciones[0]) {
 
+      }
+    }
+    else {
+      if (posiciones[posiciones.length - 1] == posiciones[posiciones.length - 2]) {
+
+      }
+      else {
+        for (let index = 0; index < camino.length; index++) {
+          const element = camino[index];
+          funca(element);
+          //console.log(element);
+        }
+
+
+        //agregar posicion
+        posiciones.push('almacen');
+      }
+    }
+
+
+    console.log(posiciones);
+    console.log("posicion agregada"+posicionagregadaposiciones[posiciones.length - 1]);
+    // console.log(matriz[5]);
+  };
   const funcionOpacidadBasica = () => {
 
     console.log('opacidad...');                     //en vez de pasarle 'b' LE PASAS POR PARAMETRO UN VALOR
@@ -121,124 +176,134 @@ const Juego_Mapa = ({ navigation }) => {
 
   return (
     <View style={styles.inicio_View}>
-      <View style={{ flex: 2, zIndex: 10, paddingTop: 1.5}}>
-        <Image style={styles.imagenMapa }  source={require('@img/testmandados_LaCasaModificado.jpg')} />
+      <View style={{ flex: 2, zIndex: 10, paddingTop: 1.5 }}>
+        <Image style={styles.imagenMapa} source={require('@img/testmandados_LaCasaModificado.jpg')} />
         <>
           {images.map((img, i) =>
             <Image style={{ top: 350, left: 195, position: 'absolute', opacity: img.opacity }} source={img.source} key={i} />
-              )
+          )
           }
         </>
-        <View style={{backgroundColor:'green',
-         alignContent: 'center',   justifyContent:'center',flexDirection:'row',
-             borderRadius: 30 / 2,         height: 30, width: 30,   
-                   top: -30, left: 640, zIndex: 12
-      }}>
-        <TouchableOpacity onPress={() => { funcionnOpacity(almacen) }}>
-        <Text style={{fontSize:10}}>ZAPATERO</Text>
-        </TouchableOpacity>
-       
-      </View>
-      <View style={{backgroundColor:'green',
-         alignContent: 'center',   justifyContent:'center',flexDirection:'row',
-             borderRadius: 30 / 2,         height: 30, width: 30,   
-                   top: -96, left: 535, zIndex: 12
-      }}>
-        <TouchableOpacity onPress={() => { funcionnOpacity(almacen) }}>
-        <Text style={{fontSize:10}}>CORREO</Text>
-        </TouchableOpacity>
-      
-      </View>
-      <View style={{backgroundColor:'green',
-         alignContent: 'center',   justifyContent:'center',flexDirection:'row',
-             borderRadius: 30 / 2,         height: 30, width: 30,   
-                   top: -66, left: 342, zIndex: 12
-      }}>
-        <TouchableOpacity onPress={() => { funcionnOpacity(almacen) }}>
-        <Text style={{fontSize:10}}>CAFE</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={{backgroundColor:'green',
-         alignContent: 'center',   justifyContent:'center',flexDirection:'row',
-             borderRadius: 30 / 2,         height: 30, width: 30,   
-                   top: -66, left: 258, zIndex: 12
-      }}>
-        <TouchableOpacity onPress={() => { funcionnOpacity(almacen) }}>
-        <Text style={{fontSize:10}}>ALMACEN</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={{backgroundColor:'green',
-         alignContent: 'center',   justifyContent:'center',flexDirection:'row',
-             borderRadius: 30 / 2,         height: 30, width: 30,   
-                   top: -73, left: 462, zIndex: 12
-      }}>
-        <TouchableOpacity onPress={() => { funcionnOpacity(almacen) }}>
-        <Text style={{fontSize:10}}>OFICINA</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={{backgroundColor:'green',
-         alignContent: 'center',   justifyContent:'center',flexDirection:'row',
-             borderRadius: 30 / 2,         height: 30, width: 30,   
-                   top: -66, left: 650, zIndex: 12
-      }}>
-       <TouchableOpacity onPress={() => { funcionnOpacity(almacen) }}>
-        <Text style={{fontSize:10}}>ESTACION</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={{backgroundColor:'green',
-         alignContent: 'center',   justifyContent:'center',flexDirection:'row',
-             borderRadius: 30 / 2,         height: 30, width: 30,   
-                   top: -46, left: 650, zIndex: 12
-      }}>
-        <TouchableOpacity onPress={() => { funcionnOpacity(almacen) }}>
-        <Text style={{fontSize:10}}>KIOSKO</Text>
-        </TouchableOpacity>
-       
-      </View>
-      <View style={{backgroundColor:'green',
-         alignContent: 'center',   justifyContent:'center',flexDirection:'row',
-             borderRadius: 30 / 2,         height: 30, width: 30,   
-                   top: -98, left: 520, zIndex: 12
-      }}>
-        <TouchableOpacity onPress={() => { funcionnOpacity(almacen) }}>
-        <Text style={{fontSize:10}}>AMIGA</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={{backgroundColor:'green',
-         alignContent: 'center',   justifyContent:'center',flexDirection:'row',
-             borderRadius: 30 / 2,         height: 30, width: 30,   
-                   top: -45, left: 570, zIndex: 12
-      }}>
-        <TouchableOpacity onPress={() => { funcionnOpacity(almacen) }}>
-        <Text style={{fontSize:10}}>LIBRERIA</Text>
-        </TouchableOpacity>
-       
-      </View>
-      
+        <View style={{
+          backgroundColor: 'green',
+          alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
+          borderRadius: 30 / 2, height: 30, width: 30,
+          top: -30, left: 640, zIndex: 12
+        }}>
+          <TouchableOpacity onPress={() => { funcionnOpacity2(almacen,'zapatero') }}>
+            <Text style={{ fontSize: 10 }}>ZAPATERO</Text>
+          </TouchableOpacity>
+
+        </View>
+        <View style={{
+          backgroundColor: 'green',
+          alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
+          borderRadius: 30 / 2, height: 30, width: 30,
+          top: -96, left: 535, zIndex: 12
+        }}>
+          <TouchableOpacity onPress={() => { funcionnOpacity2(almacen,'correo') }}>
+            <Text style={{ fontSize: 10 }}>CORREO</Text>
+          </TouchableOpacity>
+
+        </View>
+        <View style={{
+          backgroundColor: 'green',
+          alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
+          borderRadius: 30 / 2, height: 30, width: 30,
+          top: -66, left: 342, zIndex: 12
+        }}>
+          <TouchableOpacity onPress={() => { funcionnOpacity2(almacen,'cafe') }}>
+            <Text style={{ fontSize: 10 }}>CAFE</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{
+          backgroundColor: 'green',
+          alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
+          borderRadius: 30 / 2, height: 30, width: 30,
+          top: -66, left: 258, zIndex: 12
+        }}>
+          <TouchableOpacity onPress={() => { funcionnOpacity2(almacen,'almacen') }}>
+            <Text style={{ fontSize: 10 }}>ALMACEN</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{
+          backgroundColor: 'green',
+          alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
+          borderRadius: 30 / 2, height: 30, width: 30,
+          top: -73, left: 462, zIndex: 12
+        }}>
+          <TouchableOpacity onPress={() => { funcionnOpacity2(almacen,'oficina') }}>
+            <Text style={{ fontSize: 10 }}>OFICINA</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{
+          backgroundColor: 'green',
+          alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
+          borderRadius: 30 / 2, height: 30, width: 30,
+          top: -66, left: 650, zIndex: 12
+        }}>
+          <TouchableOpacity onPress={() => { funcionnOpacity2(almacen,'estacion') }}>
+            <Text style={{ fontSize: 10 }}>ESTACION</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{
+          backgroundColor: 'green',
+          alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
+          borderRadius: 30 / 2, height: 30, width: 30,
+          top: -46, left: 650, zIndex: 12
+        }}>
+          <TouchableOpacity onPress={() => { funcionnOpacity2(almacen,'kiosko') }}>
+            <Text style={{ fontSize: 10 }}>KIOSKO</Text>
+          </TouchableOpacity>
+
+        </View>
+        <View style={{
+          backgroundColor: 'green',
+          alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
+          borderRadius: 30 / 2, height: 30, width: 30,
+          top: -98, left: 520, zIndex: 12
+        }}>
+          <TouchableOpacity onPress={() => { funcionnOpacity2(almacen,'amiga') }}>
+            <Text style={{ fontSize: 10 }}>AMIGA</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{
+          backgroundColor: 'green',
+          alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
+          borderRadius: 30 / 2, height: 30, width: 30,
+          top: -45, left: 570, zIndex: 12
+        }}>
+          <TouchableOpacity onPress={() => { funcionnOpacity2(almacen,'libreria') }}>
+            <Text style={{ fontSize: 10 }}>LIBRERIA</Text>
+          </TouchableOpacity>
+
+        </View>
+
         {/* <TouchableOpacity  -103   395
           style={{ left:334,backgroundColor:'yellow',zIndex:20,justifyContent: 'center', borderRadius: 40 / 2, height: 40, width: 40, borderWidth: 3, borderColor: 'lightgrey' }}
           onPress={() => { funcionnOpacity(almacen) }}
         >
           <Text style={{ fontSize: 8, textAlign: 'center', }}>oficina</Text>
         </TouchableOpacity> */}
-      
+
 
       </View>
-      <View style={{backgroundColor:'green',
-         alignContent: 'center',   justifyContent:'center',flexDirection:'row',
-             borderRadius: 30 / 2,         height: 30, width: 30,   
-                   top: 240, left: 390, zIndex: 20
+      <View style={{
+        backgroundColor: 'green',
+        alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
+        borderRadius: 30 / 2, height: 30, width: 30,
+        top: 240, left: 390, zIndex: 20
       }}>
-        <TouchableOpacity style={{}} onPress={() => { funcionnOpacity(almacen) }}>
-        <Text style={{fontSize:10}}>pan</Text>
+        <TouchableOpacity style={{}} onPress={() => { funcionnOpacity2(almacen,'panaderia') }}>
+          <Text style={{ fontSize: 10 }}>panaderia</Text>
         </TouchableOpacity>
-       
+
       </View>
-      <View style={{position:'relative',zIndex: 10, top: 150, alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3,marginBottom: 10, left: -280}}>
+      <View style={{ position: 'relative', zIndex: 10, top: 150, alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3, marginBottom: 10, left: -280 }}>
         <Clock />
       </View>
 
-      <View style={{zIndex: 10, top: 150, alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3,  marginBottom: 10, left: -277}}>
+      <View style={{ zIndex: 10, top: 150, alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3, marginBottom: 10, left: -277 }}>
         <TouchableOpacity
           style={[styles.inicio_Button,]}
           onPress={() => navigation.navigate('Revision_General')}>
@@ -262,14 +327,14 @@ const Juego_Mapa = ({ navigation }) => {
         {/* informacion */}
 
       </View>
-     
-            
-           
-      
-     
-      
 
-      
+
+
+
+
+
+
+
       <View style={[styles.RevisionGeneral_Button_Calle, { top: 41, zIndex: 10 }]}>
         {/* <TouchableOpacity 
                 style={{justifyContent:'center',borderRadius: 40/2, height:40,width:40,borderWidth: 3,borderColor:'lightgrey'}}
@@ -305,7 +370,7 @@ const Juego_Mapa = ({ navigation }) => {
 
 
 const styles = StyleSheet.create({
-  imagenMapa:{top: 350, left: 195, opacity: 1 },
+  imagenMapa: { top: 350, left: 195, opacity: 1 },
   RevisionGeneral_Button_info: {
     backgroundColor: 'lightblue', alignContent: 'center',
     flexDirection: 'row',
