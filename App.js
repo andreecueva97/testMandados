@@ -15,10 +15,8 @@ const Stack= createStackNavigator();
 
 const App= () => {
   
-
   return (
      <View style={{backgroundColor:"green",flex:1,flexDirection:'column'}}>
-   
       <NavigationContainer>
         <Stack.Navigator  screenOptions={{ headerShown: false}}>
           <Stack.Screen name="Inicio" component={Inicio} />
@@ -33,6 +31,5 @@ const App= () => {
     
   );
 };
-
 
 export default App;

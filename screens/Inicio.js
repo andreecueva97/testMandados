@@ -5,14 +5,9 @@ import {
   TouchableOpacity,Dimensions
 } from 'react-native';
 
-class Inicio extends React.Component{
-    constructor(props){
-        super(props);
-
-    }
-    render(){
-      return(
-        <View style={styles.inicio_View}>
+const Inicio = ({navigation})=>{
+  return(
+    <View style={styles.inicio_View}>
 <View style={styles.inicio_Title}>
 <Text style={styles.inicio_Text}>Test de los Mandados</Text>
 </View>          
@@ -27,27 +22,24 @@ source={require('@img/logo.png')}
 <View style={{alignContent: 'center', justifyContent: 'center',flexDirection: 'row', borderRadius: 3,
 marginBottom: 10}}>
 <TouchableOpacity 
-  style={styles.inicio_Button}
-  onPress={() => {  this.props.navigation.navigate('Datos')}}
+style={styles.inicio_Button}
+onPress={() => {  navigation.navigate('Datos')}}
 >
-    <Text style={styles.inicio_TextButton}>INICIAR</Text>
+<Text style={styles.inicio_TextButton}>INICIAR</Text>
 </TouchableOpacity>
 </View>
 <View style={{alignContent: 'center', justifyContent: 'center',flexDirection: 'row', borderRadius: 3,
 marginBottom: 10}}>
 <TouchableOpacity 
-  style={styles.inicio_Button}
-  onPress={() => {  this.props.navigation.navigate('Datos')}}
+style={styles.inicio_Button}
+onPress={() => {  navigation.navigate('Revision_General')}}
 >
-    <Text style={styles.inicio_TextButton}>Puntuaciones</Text>
+<Text style={styles.inicio_TextButton}>Puntuaciones</Text>
 </TouchableOpacity>
 </View>
-            </View>  
-      )
-  }
+        </View>  
+  )
 }
-
-//—Pngtree—checklist icon_3581456.png  LOGO FREE PNG
 
 
 const styles = StyleSheet.create({

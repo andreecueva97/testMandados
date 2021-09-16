@@ -6,19 +6,9 @@ import {
   useColorScheme,
 } from 'react-native';
 
-class Juego_Recorrido extends React.Component{
-    constructor(props){
-        super(props);
-
-        this.state={
-          modalVisible:true,
-        }
-    }
-    setModalVisible = (visible) => {
-      this.setState({ modalVisible: visible });
-  }
-    render(){
-      const {modalVisible}=this.state;
+const Juego_Recorrido = ({navigation})=>{
+  const [modalVisible, setModalVisible] = useState(false);
+ 
       return(
         <View style={styles.inicio_View}>
         <Text style ={{zIndex:10,top:340,textAlign:'center',backgroundColor:'white',alignContent:'center',justifyContent:'center'}}>ACA JUEGO RECORRIDO</Text>
@@ -43,7 +33,7 @@ class Juego_Recorrido extends React.Component{
 marginBottom: 10}}>
         <TouchableOpacity 
             style={[styles.inicio_Button,{left:210}]}
-            onPress={() => { this.props.navigation.navigate('Revision_General') }}
+            onPress={() => { navigation.navigate('Inicio') }}
           >
               <Text style={styles.inicio_Text}>Terminar</Text>
           </TouchableOpacity>
@@ -61,7 +51,7 @@ marginBottom: 10}}>
         <View style={[styles.RevisionGeneral_Button_info,{top:30}]}>
             <TouchableOpacity 
                 style={{justifyContent:'center',borderRadius: 40/2, height:40,width:40,borderWidth: 3,borderColor:'lightgrey'}}
-                onPress={() => { this.setModalVisible(!modalVisible); }}
+                onPress={() => { setModalVisible(!modalVisible); }}
               >
                   <Text style={{fontSize:14,textAlign:'center'}}>info</Text>
               </TouchableOpacity>
@@ -86,7 +76,7 @@ marginBottom: 10}}>
                             <Text style={{}}>Esta tarea consiste en hacer varios mandados. Tenés que salir de tu hogar a las 9:15 hs., hacer varios mandados o diligencias y estar de regreso a las 13:00 hs. Para recorrer el camino de tu hogar a la estación, se tardan 30 minutos. La oficina donde se pagan los impuestos cierra a las 10 hs. Los negocios y el correo cierran a las 12:00 hs. y la panadería abre después de las 11:00 hs. Tenés que hacer las siguientes tareas</Text>
                             <TouchableHighlight
                                 style={{ backgroundColor: "#34495E" }}
-                                onPress={() => { this.setModalVisible(!modalVisible); }}
+                                onPress={() => { setModalVisible(!modalVisible); }}
                             >
                                 <Text style={{}}>continuar</Text>
                             </TouchableHighlight>
@@ -96,7 +86,7 @@ marginBottom: 10}}>
             </View>
     </View>  
       )
-  }
+  
 }
 
 const styles = StyleSheet.create({
