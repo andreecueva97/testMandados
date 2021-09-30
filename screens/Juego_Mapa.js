@@ -45,16 +45,16 @@ const Juego_Mapa = ({ navigation }) => {
   const [almacen, setAlmacen] = useState(['a', 'b', 'c']);
   const [matriz, setMatriz] = useState([
     [{ posicion: ['0'] }, { posicion: ['c', 'b', 'a'] }, { posicion: ['e', 'd', 'c', 'b', 'a'] }, { posicion: ['ae', 'a'] }, { posicion: ['aa', 'ac', 'ad', 'ae', 'a'] }, { posicion: ['s', 'r', 'b', 'a'] }, { posicion: ['z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['x', 'y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['j', 'k', 'v', 'x', 'y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['g', 'f', 'e', 'd', 'c', 'b', 'a'] }],
-    [{ posicion: ['c', 'b', 'a'] }, { posicion: ['0'] }, { posicion: ['e', 'd'] }, { posicion: ['ae', 'b', 'c'] }, { posicion: ['c', 'r', 's', 'ab', 'aa'] }, { posicion: ['c', 'r', 's'] }, { posicion: ['z', 'an', 'ab', 's', 'q', 'p', 'e', 'd'] }, { posicion: ['x', 'v', 'k', 'i', 'h', 'g', 'f', 'e', 'd'] }, { posicion: ['w', 'aa', 'ac', 'am', 'r', 'c'] }, { posicion: ['j', 'i', 'h', 'g', 'f', 'e', 'd'] }, { posicion: ['g', 'f', 'e', 'd'] }],
+    [{ posicion: ['c', 'b', 'a'] }, { posicion: ['0'] }, { posicion: ['e', 'd'] }, { posicion: ['ae', 'b', 'c'] }, { posicion: ['c', 'r', 's', 'ab', 'aa'] }, { posicion: ['c', 'r', 's'] }, { posicion: ['z', 'an', 'ab', 's', 'q', 'p', 'e', 'd'] }, { posicion: ['x', 'v', 'k', 'i', 'h', 'g', 'f', 'e', 'd'] }, { posicion: ['w', 'aa', 'ac', 'am', 'r', 'c'] }, { posicion: ['j', 'i', 'h', 'g', 'f', 'e', 'd'] }, { posicion: ['g', 'f', 'e', 'd','l'] }],
     [{ posicion: ['e', 'd', 'c', 'b', 'a'] }, { posicion: ['e', 'd'] }, { posicion: ['0'] }, { posicion: ['p', 'q', 'am', 'ad'] }, { posicion: ['p', 'q', 'am', 'ac', 'aa'] }, { posicion: ['p', 'q', 's'] }, { posicion: ['z', 'an', 'ab', 's', 'q', 'p'] }, { posicion: ['x', 'v', 'k', 'i', 'h', 'g', 'f'] }, { posicion: ['w', 'aa', 'ac', 'am', 'q', 'p'] }, { posicion: ['j', 'i', 'h', 'g', 'f'] }, { posicion: ['g', 'f', 'p'] }],
     [{ posicion: ['ae', 'a'] }, { posicion: ['ae', 'b', 'c'] }, { posicion: ['p', 'q', 'am', 'ad'] }, { posicion: ['0'] }, { posicion: ['ad', 'ac', 'aa'] }, { posicion: ['ad', 'ac', 'ab'] }, { posicion: ['z', 'ag', 'af'] }, { posicion: ['y', 'z', 'ag', 'af'] }, { posicion: ['w', 'aa', 'ac', 'ad'] }, { posicion: ['j', 'k', 'v', 'w', 'aa', 'ac', 'ad'] }, { posicion: ['ah', 'n', 'ak', 'ab', 'ac', 'ad'] }],
-    [{ posicion: ['aa', 'ac', 'ad', 'ae', 'a'] }, { posicion: ['c', 'r', 's', 'ab', 'aa'] }, { posicion: ['p', 'q', 'am', 'ac', 'aa'] }, { posicion: ['ad', 'ac', 'aa'] }, { posicion: ['0'] }, { posicion: ['aa', 'ab'] }, { posicion: ['aa', 'an', 'z'] }, { posicion: ['x', 'w'] }, { posicion: ['w'] }, { posicion: ['j', 'k', 'v', 'w'] }, { posicion: ['ah', 'aj', 'u', 'w'] }],
+    [{ posicion: ['aa', 'ac', 'ad', 'ae', 'a'] }, { posicion: ['c', 'r', 's', 'ab', 'aa'] }, { posicion: ['p', 'q', 'am', 'ac', 'aa'] }, { posicion: ['ad', 'ac', 'aa'] }, { posicion: ['0'] }, { posicion: ['aa', 'ab'] }, { posicion: ['aa', 'an', 'z'] }, { posicion: ['x', 'w','nlg'] }, { posicion: ['w'] }, { posicion: ['j', 'k', 'v', 'w','nlg'] }, { posicion: ['ah', 'aj', 'u', 'w'] }],
     [{ posicion: ['s', 'r', 'b', 'a'] }, { posicion: ['c', 'r', 's'] }, { posicion: ['p', 'q', 's'] }, { posicion: ['ad', 'ac', 'ab'] }, { posicion: ['aa', 'ab'] }, { posicion: ['0'] }, { posicion: ['ab', 'an', 'z'] }, { posicion: ['t', 'u', 'x'] }, { posicion: ['t', 'u'] }, { posicion: ['j', 'k', 'v', 'u', 't'] }, { posicion: ['ah', 'aj', 't'] }],
     [{ posicion: ['z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['z', 'an', 'ab', 's', 'q', 'p', 'e', 'd'] }, { posicion: ['z', 'an', 'ab', 's', 'q', 'p'] }, { posicion: ['z', 'ag', 'af'] }, { posicion: ['aa', 'an', 'z'] }, { posicion: ['ab', 'an', 'z'] }, { posicion: ['0'] }, { posicion: ['y'] }, { posicion: ['x', 'y'] }, { posicion: ['j', 'k', 'v', 'x', 'y'] }, { posicion: ['h', 'i', 'k', 'v', 'x', 'y'] }],
-    [{ posicion: ['y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['x', 'v', 'k', 'i', 'h', 'g', 'f', 'e', 'd'] }, { posicion: ['x', 'v', 'k', 'i', 'h', 'g', 'f'] }, { posicion: ['y', 'z', 'ag', 'af'] }, { posicion: ['x', 'w'] }, { posicion: ['t', 'u', 'x'] }, { posicion: ['y'] }, { posicion: ['0'] }, { posicion: ['x'] }, { posicion: ['j', 'k', 'v', 'x'] }, { posicion: ['h', 'i', 'k', 'v', 'x'] }],
+    [{ posicion: ['y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['x', 'v', 'k', 'i', 'h', 'g', 'f', 'e', 'd'] }, { posicion: ['x', 'v', 'k', 'i', 'h', 'g', 'f'] }, { posicion: ['y', 'z', 'ag', 'af'] }, { posicion: ['x', 'w','nlg'] }, { posicion: ['t', 'u', 'x'] }, { posicion: ['y'] }, { posicion: ['0'] }, { posicion: ['x'] }, { posicion: ['j', 'k', 'v', 'x'] }, { posicion: ['h', 'i', 'k', 'v', 'x'] }],
     [{ posicion: ['x', 'y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['w', 'aa', 'ac', 'am', 'r', 'c'] }, { posicion: ['w', 'aa', 'ac', 'am', 'q', 'p'] }, { posicion: ['w', 'aa', 'ac', 'ad'] }, { posicion: ['w'] }, { posicion: ['t', 'u'] }, { posicion: ['x', 'y'] }, { posicion: ['x'] }, { posicion: ['0'] }, { posicion: ['v', 'k', 'j'] }, { posicion: ['h', 'i', 'k', 'v'] }],
-    [{ posicion: ['j', 'k', 'v', 'x', 'y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['j', 'i', 'h', 'g', 'f', 'e', 'd'] }, { posicion: ['j', 'i', 'h', 'g', 'f'] }, { posicion: ['j', 'k', 'v', 'w', 'aa', 'ac', 'ad'] }, { posicion: ['j', 'k', 'v', 'w'] }, { posicion: ['j', 'k', 'v', 'u', 't'] }, { posicion: ['j', 'k', 'v', 'x', 'y'] }, { posicion: ['j', 'k', 'v', 'x'] }, { posicion: ['v', 'k', 'j'] }, { posicion: ['0'] }, { posicion: ['h', 'i', 'j'] }],
-    [{ posicion: ['g', 'f', 'e', 'd', 'c', 'b', 'a'] }, { posicion: ['g', 'f', 'e', 'd'] }, { posicion: ['g', 'f', 'p'] }, { posicion: ['ah', 'n', 'ak', 'ab', 'ac', 'ad'] }, { posicion: ['ah', 'aj', 'u', 'w'] }, { posicion: ['ah', 'aj', 't'] }, { posicion: ['h', 'i', 'k', 'v', 'x', 'y'] }, { posicion: ['h', 'i', 'k', 'v', 'x'] }, { posicion: ['h', 'i', 'k', 'v'] }, { posicion: ['h', 'i', 'j'] }, { posicion: ['0'] }],
+    [{ posicion: ['j', 'k', 'v', 'x', 'y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['j', 'i', 'h', 'g', 'f', 'e', 'd'] }, { posicion: ['j', 'i', 'h', 'g', 'f'] }, { posicion: ['j', 'k', 'v', 'w', 'aa', 'ac', 'ad'] }, { posicion: ['j', 'k', 'v', 'w','nlg'] }, { posicion: ['j', 'k', 'v', 'u', 't'] }, { posicion: ['j', 'k', 'v', 'x', 'y'] }, { posicion: ['j', 'k', 'v', 'x'] }, { posicion: ['v', 'k', 'j'] }, { posicion: ['0'] }, { posicion: ['h', 'i', 'j'] }],
+    [{ posicion: ['g', 'f', 'e', 'd', 'c', 'b', 'a'] }, { posicion: ['g', 'f', 'e', 'd'] }, { posicion: ['g', 'f', 'p','l'] }, { posicion: ['ah', 'n', 'ak', 'ab', 'ac', 'ad'] }, { posicion: ['ah', 'aj', 'u', 'w'] }, { posicion: ['ah', 'aj', 't'] }, { posicion: ['h', 'i', 'k', 'v', 'x', 'y'] }, { posicion: ['h', 'i', 'k', 'v', 'x'] }, { posicion: ['h', 'i', 'k', 'v'] }, { posicion: ['h', 'i', 'j'] }, { posicion: ['0'] }],
 
 
 
@@ -63,57 +63,58 @@ const Juego_Mapa = ({ navigation }) => {
   );
   const [images, setImages] = useState(
     [
-      { source: require('@img/a.png'), opacity: 1, name: 'a' },
-      { source: require('@img/b.png'), opacity: 1, name: 'b' },
-      { source: require('@img/c.png'), opacity: 1, name: 'c' },
-      { source: require('@img/d.png'), opacity: 1, name: 'd' },
-      { source: require('@img/e.png'), opacity: 1, name: 'e' },
-      { source: require('@img/f.png'), opacity: 1, name: 'f' },
-      { source: require('@img/g.png'), opacity: 1, name: 'g' },
-      { source: require('@img/h.png'), opacity: 1, name: 'h' },
-      { source: require('@img/i.png'), opacity: 1, name: 'i' },
-      { source: require('@img/j.png'), opacity: 1, name: 'j' },
-      { source: require('@img/k.png'), opacity: 1, name: 'k' },
-      { source: require('@img/l.png'), opacity: 1, name: 'l' },//AI-EXT => L ahora, es una pequena difurcasion que me di cuenta luego
-      { source: require('@img/m.png'), opacity: 1, name: 'm' },
-      { source: require('@img/n.png'), opacity: 1, name: 'n' },
-      { source: require('@img/o.png'), opacity: 1, name: 'o' },
-      { source: require('@img/p.png'), opacity: 1, name: 'p' },
-      { source: require('@img/q.png'), opacity: 1, name: 'q' },
-      { source: require('@img/r.png'), opacity: 1, name: 'r' },
-      { source: require('@img/s.png'), opacity: 1, name: 's' },
-      { source: require('@img/t.png'), opacity: 1, name: 't' },
-      { source: require('@img/u.png'), opacity: 1, name: 'u' },
-      { source: require('@img/v.png'), opacity: 1, name: 'v' },
-      { source: require('@img/w.png'), opacity: 1, name: 'w' },
-      { source: require('@img/x.png'), opacity: 1, name: 'x' },
-      { source: require('@img/y.png'), opacity: 1, name: 'y' },
-      { source: require('@img/z.png'), opacity: 1, name: 'z' },
-      { source: require('@img/aa.png'), opacity: 1, name: 'aa' },
-      { source: require('@img/ab.png'), opacity: 1, name: 'ab' },
-      { source: require('@img/ac.png'), opacity: 1, name: 'ac' },
-      { source: require('@img/ad.png'), opacity: 1, name: 'ad' },
-      { source: require('@img/ae.png'), opacity: 1, name: 'ae' },
-      { source: require('@img/af.png'), opacity: 1, name: 'af' },
-      { source: require('@img/ag.png'), opacity: 1, name: 'ag' },
-      { source: require('@img/ah.png'), opacity: 1, name: 'ah' },
-      { source: require('@img/ai.png'), opacity: 1, name: 'ai' },
-      { source: require('@img/aj.png'), opacity: 1, name: 'aj' },
-      { source: require('@img/ak.png'), opacity: 1, name: 'ak' },
-      { source: require('@img/am.png'), opacity: 1, name: 'am' },
-      { source: require('@img/an.png'), opacity: 1, name: 'an' },
+      { source: require('@img/a.png'), opacity: 0, name: 'a' },
+      { source: require('@img/b.png'), opacity: 0, name: 'b' },
+      { source: require('@img/c.png'), opacity: 0, name: 'c' },
+      { source: require('@img/d.png'), opacity: 0, name: 'd' },
+      { source: require('@img/e.png'), opacity: 0, name: 'e' },
+      { source: require('@img/f.png'), opacity: 0, name: 'f' },
+      { source: require('@img/g.png'), opacity: 0, name: 'g' },
+      { source: require('@img/h.png'), opacity: 0, name: 'h' },
+      { source: require('@img/i.png'), opacity: 0, name: 'i' },
+      { source: require('@img/j.png'), opacity: 0, name: 'j' },
+      { source: require('@img/k.png'), opacity: 0, name: 'k' },
+      { source: require('@img/l.png'), opacity: 0, name: 'l' },//AI-EXT => L ahora, es una pequena difurcasion que me di cuenta luego
+      { source: require('@img/m.png'), opacity: 0, name: 'm' },
+      { source: require('@img/n.png'), opacity: 0, name: 'n' },
+      { source: require('@img/o.png'), opacity: 0, name: 'o' },
+      { source: require('@img/p.png'), opacity: 0, name: 'p' },
+      { source: require('@img/q.png'), opacity: 0, name: 'q' },
+      { source: require('@img/r.png'), opacity: 0, name: 'r' },
+      { source: require('@img/s.png'), opacity: 0, name: 's' },
+      { source: require('@img/t.png'), opacity: 0, name: 't' },
+      { source: require('@img/u.png'), opacity: 0, name: 'u' },
+      { source: require('@img/v.png'), opacity: 0, name: 'v' },
+      { source: require('@img/w.png'), opacity: 0, name: 'w' },
+      { source: require('@img/x.png'), opacity: 0, name: 'x' },
+      { source: require('@img/y.png'), opacity: 0, name: 'y' },
+      { source: require('@img/z.png'), opacity: 0, name: 'z' },
+      { source: require('@img/aa.png'), opacity: 0, name: 'aa' },
+      { source: require('@img/ab.png'), opacity: 0, name: 'ab' },
+      { source: require('@img/ac.png'), opacity: 0, name: 'ac' },
+      { source: require('@img/ad.png'), opacity: 0, name: 'ad' },
+      { source: require('@img/ae.png'), opacity: 0, name: 'ae' },
+      { source: require('@img/af.png'), opacity: 0, name: 'af' },
+      { source: require('@img/ag.png'), opacity: 0, name: 'ag' },
+      { source: require('@img/ah.png'), opacity: 0, name: 'ah' },
+      { source: require('@img/ai.png'), opacity: 0, name: 'ai' },
+      { source: require('@img/aj.png'), opacity: 0, name: 'aj' },
+      { source: require('@img/ak.png'), opacity: 0, name: 'ak' },
+      { source: require('@img/am.png'), opacity: 0, name: 'am' },
+      { source: require('@img/an.png'), opacity: 0, name: 'an' },
+      { source: require('@img/nuevaLineaAgregada.png'), opacity: 0, name: 'nlg' },//nuevalineaagregada
     ]
 
   );
-
+    
   const funca = (a) => {
     
     let ia = images.map(el => (
-      el.name === a ? { ...el, opacity: 0 } : el
+      el.name === a ? { ...el, opacity: 1 } : el
     ));
     
     setImages(images => images.map(el => (
-      el.name === a ? { ...el, opacity: 0 } : el
+      el.name === a ? { ...el, opacity: 1 } : el
     )));
     
   };
@@ -188,6 +189,13 @@ const Juego_Mapa = ({ navigation }) => {
       return 10;
     }
   }
+  const vueltaCaminoEstadoAnterior=(estadoAnterior)=>{
+    for (let index = 0; index < estadoAnterior.length; index++) {
+      const element = estadoAnterior[index];
+      funca(element);
+      //console.log(element);
+    }
+  }
   const popEstado = (array) =>{
     if(array.length-1  ==1){//PASA DEL ESTADO 0 => ESTADO 1
      empty(estado0);  
@@ -195,51 +203,91 @@ const Juego_Mapa = ({ navigation }) => {
      empty(estadoT0);
      empty(estadoT1);
      empty(estadoC1);
+     setImages(images => images.map(el => (
+      { ...el, opacity: 0 } 
+    )));
     }
     if(array.length -1 ==2){//ESTADO 1 => ESTADO 2
       empty(estado2);     
       empty(estadoT2);
       empty(estadoC2);
+      setImages(images => images.map(el => (
+        { ...el, opacity: 0 } 
+      )));
+      vueltaCaminoEstadoAnterior(estadoC1);
     }
     if(array.length-1 ==3){//ESTADO 2 => ESTADO 3
       empty(estado3);
       empty(estadoT3);
       empty(estadoC3);
+      setImages(images => images.map(el => (
+        { ...el, opacity: 0 } 
+      )));
+      vueltaCaminoEstadoAnterior(estadoC2);
     }
     if(array.length-1 ==4){//ESTADO 3 => ESTADO 4
       empty(estado4);
       empty(estadoT4);
       empty(estadoC4);  
+      setImages(images => images.map(el => (
+        { ...el, opacity: 0 } 
+      )));
+      vueltaCaminoEstadoAnterior(estadoC3);
     }
     if(array.length-1 ==5){//ESTADO 4 => ESTADO 5
       empty(estado5);
       empty(estadoT5);
       empty(estadoC5);
+      setImages(images => images.map(el => (
+        { ...el, opacity: 0 } 
+      )));
+      vueltaCaminoEstadoAnterior(estadoC4);
     }
     if(array.length-1 ==6){//ESTADO 5 => ESTADO 6
       empty(estado6);
       empty(estadoT6);
       empty(estadoC6);
+      setImages(images => images.map(el => (
+        { ...el, opacity: 0 } 
+      )));
+      vueltaCaminoEstadoAnterior(estadoC5);
     }
     if(array.length-1 ==7){//ESTADO 6 => ESTADO 7
       empty(estado7);
       empty(estadoT7);
       empty(estadoC7);
+      setImages(images => images.map(el => (
+        { ...el, opacity: 0 } 
+      )));
+      vueltaCaminoEstadoAnterior(estadoC6);
     }
     if(array.length-1 ==8){//ESTADO 7 => ESTADO 8
       empty(estado8);
       empty(estadoT8);
       empty(estadoC8);
+      setImages(images => images.map(el => (
+        { ...el, opacity: 0 } 
+      )));
+      vueltaCaminoEstadoAnterior(estadoC7);
     }
     if(array.length-1 ==9){//ESTADO 8 => ESTADO 9
       empty(estado9);
       empty(estadoT9);
       empty(estadoC9);
+      setImages(images => images.map(el => (
+        { ...el, opacity: 0 } 
+      )));
+      vueltaCaminoEstadoAnterior(estadoC8);
     }
     if(array.length-1 ==10){//ESTADO 9 => ESTADO 10
       empty(estado10);
       empty(estadoT10);
       empty(estadoC10);
+      setImages(images => images.map(el => (
+        { ...el, opacity: 0 } 
+      )));
+      vueltaCaminoEstadoAnterior(estadoC9);
+      
     }
     console.log(estado1+'=>'+estadoT1);
       console.log(estado2+'=>'+estadoT2);
@@ -281,6 +329,12 @@ const Juego_Mapa = ({ navigation }) => {
                  };
     })
     console.log('ESTADO NUEVO =>>>'+ estadox2);
+
+    for (let index = 0; index < estadox2.length; index++) {
+      const element = estadox2[index];
+      funca(element);
+      //console.log(element);
+    }
   }
 
   const asociarArray = (array,value)=>{
@@ -291,15 +345,23 @@ const Juego_Mapa = ({ navigation }) => {
         
         estadoT0.push(minutoMapa.toString()+':'+segundoMapa.toString());
         estadoT1.push(minutoMapa.toString()+':'+segundoMapa.toString());
-        estadoC1.push(matriz[0][asignarNumero(value)].posicion);
+       // estadoC1.push(matriz[0][asignarNumero(value)].posicion);
+       ( matriz[0][asignarNumero(value)].posicion).map((item)=>estadoC1.push(item))
         console.log('estadoC1 ~~~~~~~'+estadoC1);
+        console.log(estadoC1);
+        for (let index = 0; index < estadoC1.length; index++) {
+          const element = estadoC1[index];
+          funca(element);
+          //console.log(element);
+        }
         //console.log(matriz[0][0].posicion)
       }
       if(array.length ==2){//ESTADO 1 => ESTADO 2
         estado1.map((item)=>estado2.push(item))
         estado2.push(value);
         estadoT2.push(minutoMapa.toString()+':'+segundoMapa.toString());
-        estadoC2.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        //estadoC2.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        ( matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion).map((item)=>estadoC2.push(item))
         console.log('estadoC2 ~~~~~~~'+estadoC2);
         marcarRutaEstado(estadoC1,estadoC2);
       }
@@ -307,7 +369,8 @@ const Juego_Mapa = ({ navigation }) => {
         estado2.map((item)=>estado3.push(item))
         estado3.push(value);
         estadoT3.push(minutoMapa.toString()+':'+segundoMapa.toString());
-        estadoC3.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        //estadoC3.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        ( matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion).map((item)=>estadoC3.push(item))
         console.log('estadoC3 ~~~~~~~'+estadoC3);
         marcarRutaEstado(estadoC2,estadoC3);
       }
@@ -315,7 +378,8 @@ const Juego_Mapa = ({ navigation }) => {
         estado3.map((item)=>estado4.push(item))
         estado4.push(value);
         estadoT4.push(minutoMapa.toString()+':'+segundoMapa.toString());
-        estadoC4.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        //estadoC4.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        ( matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion).map((item)=>estadoC4.push(item))
         console.log('estadoC4 ~~~~~~~'+estadoC4);
         marcarRutaEstado(estadoC3,estadoC4);
       }
@@ -323,7 +387,8 @@ const Juego_Mapa = ({ navigation }) => {
         estado4.map((item)=>estado5.push(item))
         estado5.push(value);
         estadoT5.push(minutoMapa.toString()+':'+segundoMapa.toString());
-        estadoC5.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        //estadoC5.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        ( matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion).map((item)=>estadoC5.push(item))
         console.log('estadoC5 ~~~~~~~'+estadoC5);
         marcarRutaEstado(estadoC4,estadoC5);
       }
@@ -331,7 +396,8 @@ const Juego_Mapa = ({ navigation }) => {
         estado5.map((item)=>estado6.push(item))
         estado6.push(value);
         estadoT6.push(minutoMapa.toString()+':'+segundoMapa.toString());
-        estadoC6.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        //estadoC6.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        ( matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion).map((item)=>estadoC6.push(item))
         console.log('estadoC6 ~~~~~~~'+estadoC6);
         marcarRutaEstado(estadoC5,estadoC6);
       }
@@ -341,7 +407,8 @@ const Juego_Mapa = ({ navigation }) => {
         estado7.push(value);
        
         estadoT7.push(minutoMapa.toString()+':'+segundoMapa.toString());
-        estadoC7.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        //estadoC7.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        ( matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion).map((item)=>estadoC7.push(item))
         console.log('estadoC7 ~~~~~~~'+estadoC7);
         marcarRutaEstado(estadoC6,estadoC7);
       }
@@ -349,7 +416,8 @@ const Juego_Mapa = ({ navigation }) => {
        estado7.map((item)=>estado8.push(item))
         estado8.push(value);
         estadoT8.push(minutoMapa.toString()+':'+segundoMapa.toString());
-        estadoC8.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        //estadoC8.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        ( matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion).map((item)=>estadoC8.push(item))
         console.log('estadoC8 ~~~~~~~'+estadoC8);
         marcarRutaEstado(estadoC7,estadoC8);
       }
@@ -357,7 +425,8 @@ const Juego_Mapa = ({ navigation }) => {
         estado8.map((item)=>estado9.push(item))
         estado9.push(value);
         estadoT9.push(minutoMapa.toString()+':'+segundoMapa.toString());
-        estadoC9.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+       // estadoC9.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        ( matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion).map((item)=>estadoC9.push(item))
         console.log('estadoC9 ~~~~~~~'+estadoC9);
         marcarRutaEstado(estadoC8,estadoC9);
       }
@@ -365,7 +434,8 @@ const Juego_Mapa = ({ navigation }) => {
         estado9.map((item)=>estado10.push(item))
         estado10.push(value);
         estadoT10.push(minutoMapa.toString()+':'+segundoMapa.toString());
-        estadoC10.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        //estadoC10.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        ( matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion).map((item)=>estadoC10.push(item))
         console.log('estadoC2 ~~~~~~~'+estadoC10);
         marcarRutaEstado(estadoC9,estadoC10);
       }
@@ -381,7 +451,7 @@ const Juego_Mapa = ({ navigation }) => {
       console.log(estado10+'=>'+estadoT10);
   }
 
-  const funcionnOpacity2 = (camino,posicionSiguiente) => {                          //change and passing parameter and ceros for value parameter
+  const funcionnOpacity2 = (posicionSiguiente) => {                          //change and passing parameter and ceros for value parameter
     console.log('funcionOpacity2...');                     //en vez de pasarle 'b' LE PASAS POR PARAMETRO UN VALOR
     
     const aa =[];
@@ -397,11 +467,13 @@ const Juego_Mapa = ({ navigation }) => {
         else{
           asociarArray(posiciones,posicionSiguiente);
           asignarCaminoNumerico(posicionSiguiente);
-          for (let index = 0; index < camino.length; index++) {
-            const element = camino[index];
-            funca(element);
-            //console.log(element);
-          }
+          //----------------------------------------------------------------------------- OPACITY DE IMAGENES -------------------------------
+          // for (let index = 0; index < camino.length; index++) {
+          //   const element = camino[index];
+          //   funca(element);
+          //   //console.log(element);
+          // }
+          //----------------------------------------------------------------------------------------------------------------------------------
           //agregar posicion
           posiciones.push(posicionSiguiente);
           aa.push( posiciones);
@@ -420,11 +492,13 @@ const Juego_Mapa = ({ navigation }) => {
         else {
           asociarArray(posiciones,posicionSiguiente);
           asignarCaminoNumerico(posicionSiguiente);
-          for (let index = 0; index < camino.length; index++) {
-            const element = camino[index];
-            funca(element);
-            //console.log(element);
-          }
+          //----------------------------------------------------------------------------- OPACITY DE IMAGENES -------------------------------
+          // for (let index = 0; index < camino.length; index++) {
+          //   const element = camino[index];
+          //   funca(element);
+          //   //console.log(element);
+          // }
+          //---------------------------------------------------------------------------------------------------------------------------------
           //agregar posicion
           posiciones.push(posicionSiguiente);
           
@@ -521,7 +595,7 @@ const Juego_Mapa = ({ navigation }) => {
           borderRadius: 30 / 2, height: 30, width: 30,
           top: -30, left: 640, zIndex: 12
         }}>
-          <TouchableOpacity onPress={() => { funcionnOpacity2(almacen,'zapatero') }}>
+          <TouchableOpacity onPress={() => { funcionnOpacity2('zapatero') }}>
             <Text style={{ fontSize: 10 }}>ZAPATERO</Text>
           </TouchableOpacity>
 
@@ -532,7 +606,7 @@ const Juego_Mapa = ({ navigation }) => {
           borderRadius: 30 / 2, height: 30, width: 30,
           top: -96, left: 535, zIndex: 12
         }}>
-          <TouchableOpacity onPress={() => { funcionnOpacity2(almacen,'correo') }}>
+          <TouchableOpacity onPress={() => { funcionnOpacity2('correo') }}>
             <Text style={{ fontSize: 10 }}>CORREO</Text>
           </TouchableOpacity>
 
@@ -543,7 +617,7 @@ const Juego_Mapa = ({ navigation }) => {
           borderRadius: 30 / 2, height: 30, width: 30,
           top: -66, left: 342, zIndex: 12
         }}>
-          <TouchableOpacity onPress={() => { funcionnOpacity2(almacen,'cafe') }}>
+          <TouchableOpacity onPress={() => { funcionnOpacity2('cafe') }}>
             <Text style={{ fontSize: 10 }}>CAFE</Text>
           </TouchableOpacity>
         </View>
@@ -553,7 +627,7 @@ const Juego_Mapa = ({ navigation }) => {
           borderRadius: 30 / 2, height: 30, width: 30,
           top: -66, left: 258, zIndex: 12
         }}>
-          <TouchableOpacity onPress={() => { funcionnOpacity2(almacen,'almacen') }}>
+          <TouchableOpacity onPress={() => { funcionnOpacity2('almacen') }}>
             <Text style={{ fontSize: 10 }}>ALMACEN</Text>
           </TouchableOpacity>
         </View>
@@ -563,7 +637,7 @@ const Juego_Mapa = ({ navigation }) => {
           borderRadius: 30 / 2, height: 30, width: 30,
           top: -73, left: 462, zIndex: 12
         }}>
-          <TouchableOpacity onPress={() => { funcionnOpacity2(almacen,'oficina') }}>
+          <TouchableOpacity onPress={() => { funcionnOpacity2('oficina') }}>
             <Text style={{ fontSize: 10 }}>OFICINA</Text>
           </TouchableOpacity>
         </View>
@@ -573,7 +647,7 @@ const Juego_Mapa = ({ navigation }) => {
           borderRadius: 30 / 2, height: 30, width: 30,
           top: -66, left: 650, zIndex: 12
         }}>
-          <TouchableOpacity onPress={() => { funcionnOpacity2(almacen,'estacion') }}>
+          <TouchableOpacity onPress={() => { funcionnOpacity2('estacion') }}>
             <Text style={{ fontSize: 10 }}>ESTACION</Text>
           </TouchableOpacity>
         </View>
@@ -583,7 +657,7 @@ const Juego_Mapa = ({ navigation }) => {
           borderRadius: 30 / 2, height: 30, width: 30,
           top: -46, left: 650, zIndex: 12
         }}>
-          <TouchableOpacity onPress={() => { funcionnOpacity2(almacen,'kiosko') }}>
+          <TouchableOpacity onPress={() => { funcionnOpacity2('kiosko') }}>
             <Text style={{ fontSize: 10 }}>KIOSKO</Text>
           </TouchableOpacity>
 
@@ -594,7 +668,7 @@ const Juego_Mapa = ({ navigation }) => {
           borderRadius: 30 / 2, height: 30, width: 30,
           top: -98, left: 520, zIndex: 12
         }}>
-          <TouchableOpacity onPress={() => { funcionnOpacity2(almacen,'amiga') }}>
+          <TouchableOpacity onPress={() => { funcionnOpacity2('amiga') }}>
             <Text style={{ fontSize: 10 }}>AMIGA</Text>
           </TouchableOpacity>
         </View>
@@ -604,7 +678,7 @@ const Juego_Mapa = ({ navigation }) => {
           borderRadius: 30 / 2, height: 30, width: 30,
           top: -45, left: 570, zIndex: 12
         }}>
-          <TouchableOpacity onPress={() => { funcionnOpacity2(almacen,'libreria') }}>
+          <TouchableOpacity onPress={() => { funcionnOpacity2('libreria') }}>
             <Text style={{ fontSize: 10 }}>LIBRERIA</Text>
           </TouchableOpacity>
 
@@ -625,7 +699,7 @@ const Juego_Mapa = ({ navigation }) => {
         borderRadius: 30 / 2, height: 30, width: 30,
         top: 240, left: 390, zIndex: 20
       }}>
-        <TouchableOpacity style={{}} onPress={() => { funcionnOpacity2(almacen,'panaderia') }}>
+        <TouchableOpacity style={{}} onPress={() => { funcionnOpacity2('panaderia') }}>
           <Text style={{ fontSize: 10 }}>panaderia</Text>
         </TouchableOpacity>
 
