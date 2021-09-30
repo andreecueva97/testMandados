@@ -156,48 +156,90 @@ const Juego_Mapa = ({ navigation }) => {
       posicionesNumericas.push(10);
     }
   }
+  const asignarNumero= (posicionSiguiente)=>{
+    if('almacen'==posicionSiguiente){
+      return 1;
+    }
+    if('cafe'==posicionSiguiente){
+      return 2;
+    } 
+    if('panaderia'==posicionSiguiente){
+      return 3;
+    }
+    if('amiga'==posicionSiguiente){
+      return 4;
+    }
+    if('oficina'==posicionSiguiente){
+     return 5;
+    }
+    if('libreria'==posicionSiguiente){
+      return 6;
+    } 
+    if('kiosko'==posicionSiguiente){
+      return 7;
+    }
+    if('estacion'==posicionSiguiente){
+      return 8;
+    }
+    if('zapatero'==posicionSiguiente){
+      return 9;
+    }
+    if('correo'==posicionSiguiente){
+      return 10;
+    }
+  }
   const popEstado = (array) =>{
     if(array.length-1  ==1){//PASA DEL ESTADO 0 => ESTADO 1
      empty(estado0);  
      empty(estado1);
      empty(estadoT0);
      empty(estadoT1);
+     empty(estadoC1);
     }
     if(array.length -1 ==2){//ESTADO 1 => ESTADO 2
       empty(estado2);     
       empty(estadoT2);
+      empty(estadoC2);
     }
     if(array.length-1 ==3){//ESTADO 2 => ESTADO 3
       empty(estado3);
       empty(estadoT3);
+      empty(estadoC3);
     }
     if(array.length-1 ==4){//ESTADO 3 => ESTADO 4
       empty(estado4);
-      empty(estadoT4);  
+      empty(estadoT4);
+      empty(estadoC4);  
     }
     if(array.length-1 ==5){//ESTADO 4 => ESTADO 5
       empty(estado5);
       empty(estadoT5);
+      empty(estadoC5);
     }
     if(array.length-1 ==6){//ESTADO 5 => ESTADO 6
       empty(estado6);
       empty(estadoT6);
+      empty(estadoC6);
     }
     if(array.length-1 ==7){//ESTADO 6 => ESTADO 7
       empty(estado7);
       empty(estadoT7);
+      empty(estadoC7);
     }
     if(array.length-1 ==8){//ESTADO 7 => ESTADO 8
       empty(estado8);
       empty(estadoT8);
+      empty(estadoC8);
     }
     if(array.length-1 ==9){//ESTADO 8 => ESTADO 9
       empty(estado9);
       empty(estadoT9);
+      empty(estadoC9);
     }
     if(array.length-1 ==10){//ESTADO 9 => ESTADO 10
       empty(estado10);
       empty(estadoT10);
+      empty(estadoC10);
     }
     console.log(estado1+'=>'+estadoT1);
       console.log(estado2+'=>'+estadoT2);
@@ -210,6 +252,37 @@ const Juego_Mapa = ({ navigation }) => {
       console.log(estado9+'=>'+estadoT9);
       console.log(estado10+'=>'+estadoT10);
   }
+  const marcarRutaEstado =(estadox1,estadox2)=>{
+    //const array1 = [1, 2, 3, 4, 5];//estado 1    estadoCx1
+    //const array2 = [1,6];         //estado 2     estadoCx2
+    //const found = array1.findIndex(element => element ===5);
+    // expected output: -1 si no esta en el arreglo
+    //array2.map((item)=>
+    //            {
+    //              if(array1.findIndex(element => element ===item)==-1)
+    //              {
+    //                console.log('no esta en el array1')//array1.push(item) //estadoCx.push(item)
+    //              }
+    //         else
+    //              {
+    //                console.log('esta en el array1') // NO AGREGAR AL ARRAY1 principal
+    //              };
+    // })
+    estadox1.map((item)=>
+               {
+                 if(estadox2.findIndex(element => element ===item)==-1)
+                 {
+                   console.log('calle no esta en el nuevo estado agregarlo porfavor')//array1.push(item) 
+                   estadox2.push(item);
+                 }
+            else
+                 {
+                   console.log('calle si existe en este estado No agregar') // NO AGREGAR AL ARRAY1 principal
+                 };
+    })
+    console.log('ESTADO NUEVO =>>>'+ estadox2);
+  }
+
   const asociarArray = (array,value)=>{
       if(array.length ==1){//PASA DEL ESTADO 0 => ESTADO 1
         estado0.push('la casa');
@@ -218,31 +291,49 @@ const Juego_Mapa = ({ navigation }) => {
         
         estadoT0.push(minutoMapa.toString()+':'+segundoMapa.toString());
         estadoT1.push(minutoMapa.toString()+':'+segundoMapa.toString());
+        estadoC1.push(matriz[0][asignarNumero(value)].posicion);
+        console.log('estadoC1 ~~~~~~~'+estadoC1);
+        //console.log(matriz[0][0].posicion)
       }
       if(array.length ==2){//ESTADO 1 => ESTADO 2
         estado1.map((item)=>estado2.push(item))
         estado2.push(value);
         estadoT2.push(minutoMapa.toString()+':'+segundoMapa.toString());
+        estadoC2.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        console.log('estadoC2 ~~~~~~~'+estadoC2);
+        marcarRutaEstado(estadoC1,estadoC2);
       }
       if(array.length ==3){//ESTADO 2 => ESTADO 3
         estado2.map((item)=>estado3.push(item))
         estado3.push(value);
         estadoT3.push(minutoMapa.toString()+':'+segundoMapa.toString());
+        estadoC3.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        console.log('estadoC3 ~~~~~~~'+estadoC3);
+        marcarRutaEstado(estadoC2,estadoC3);
       }
       if(array.length ==4){//ESTADO 3 => ESTADO 4
         estado3.map((item)=>estado4.push(item))
         estado4.push(value);
         estadoT4.push(minutoMapa.toString()+':'+segundoMapa.toString());
+        estadoC4.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        console.log('estadoC4 ~~~~~~~'+estadoC4);
+        marcarRutaEstado(estadoC3,estadoC4);
       }
       if(array.length ==5){//ESTADO 4 => ESTADO 5
         estado4.map((item)=>estado5.push(item))
         estado5.push(value);
         estadoT5.push(minutoMapa.toString()+':'+segundoMapa.toString());
+        estadoC5.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        console.log('estadoC5 ~~~~~~~'+estadoC5);
+        marcarRutaEstado(estadoC4,estadoC5);
       }
       if(array.length ==6){//ESTADO 5 => ESTADO 6
         estado5.map((item)=>estado6.push(item))
         estado6.push(value);
         estadoT6.push(minutoMapa.toString()+':'+segundoMapa.toString());
+        estadoC6.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        console.log('estadoC6 ~~~~~~~'+estadoC6);
+        marcarRutaEstado(estadoC5,estadoC6);
       }
       if(array.length ==7){//ESTADO 6 => ESTADO 7
         estado6.map((item)=>estado7.push(item))
@@ -250,21 +341,33 @@ const Juego_Mapa = ({ navigation }) => {
         estado7.push(value);
        
         estadoT7.push(minutoMapa.toString()+':'+segundoMapa.toString());
+        estadoC7.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        console.log('estadoC7 ~~~~~~~'+estadoC7);
+        marcarRutaEstado(estadoC6,estadoC7);
       }
       if(array.length ==8){//ESTADO 7 => ESTADO 8
        estado7.map((item)=>estado8.push(item))
         estado8.push(value);
         estadoT8.push(minutoMapa.toString()+':'+segundoMapa.toString());
+        estadoC8.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        console.log('estadoC8 ~~~~~~~'+estadoC8);
+        marcarRutaEstado(estadoC7,estadoC8);
       }
       if(array.length ==9){//ESTADO 8 => ESTADO 9
         estado8.map((item)=>estado9.push(item))
         estado9.push(value);
         estadoT9.push(minutoMapa.toString()+':'+segundoMapa.toString());
+        estadoC9.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        console.log('estadoC9 ~~~~~~~'+estadoC9);
+        marcarRutaEstado(estadoC8,estadoC9);
       }
       if(array.length ==10){//ESTADO 9 => ESTADO 10
         estado9.map((item)=>estado10.push(item))
         estado10.push(value);
         estadoT10.push(minutoMapa.toString()+':'+segundoMapa.toString());
+        estadoC10.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
+        console.log('estadoC2 ~~~~~~~'+estadoC10);
+        marcarRutaEstado(estadoC9,estadoC10);
       }
       console.log(estado1+'=>'+estadoT1);
       console.log(estado2+'=>'+estadoT2);
@@ -536,7 +639,7 @@ const Juego_Mapa = ({ navigation }) => {
           style={[styles.inicio_Button,]}
           onPress={() => {
             //navigation.navigate('Revision_General');
-            console.log(minutoMapa)
+            console.log(matriz[0][0].posicion)
           }}>
           <Text style={styles.inicio_Text}>Terminar</Text>
         </TouchableOpacity>
