@@ -1,10 +1,10 @@
 import React, { useState, useEffect }  from 'react';
 // import Realm from 'C:\Users\Andre\nodeProyect\TestMandados\REALMDB.js';
 import {Text,View,StyleSheet,Animated} from 'react-native';
-const Clock = () => {
-
-  const [minutos, setMins] = useState(10);//Variable para los minutos 
-  const [segundos, setSecs] = useState(3);//Variable para los segundos
+const Clock = (props) => {
+  //const a = props.minuto;
+  const [minutos, setMins] = useState(props.minuto);//Variable para los minutos //10
+  const [segundos, setSecs] = useState(props.segundo);//Variable para los segundos   //3
   const [colorText, setColor]= useState('black');
   const [colorBorder, setColorB]= useState('#283747');
   useEffect(() => {

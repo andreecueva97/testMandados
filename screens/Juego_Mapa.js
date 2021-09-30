@@ -1,14 +1,47 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Image, StyleSheet, Dimensions, Text, View, TouchableHighlight, Modal,
-} from 'react-native';
+import {  Image, StyleSheet, Dimensions, Text, View, TouchableHighlight, Modal,} from 'react-native';
 import Clock from '../components/Clock';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const Juego_Mapa = ({ navigation }) => {
   //const {navigation} = this.props;
+  const [minutoMapa,setMinutoMapa]=useState(10);
+  const [segundoMapa,setSegundoMapa]=useState(3);
+
   const [modalVisible, setModalVisible] = useState(false);
-  const [posiciones, setPosiciones] = useState(['la casa',]);
+
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      if (segundoMapa <= 0) {
+        if (minutoMapa <= 0){
+          
+          setMinutoMapa(minuto => minuto - 1)
+          setSegundoMapa(59)
+        }
+        else {
+          setMinutoMapa(minuto => minuto - 1)
+          setSegundoMapa(59)
+        }
+      }
+      else setSegundoMapa(s => s - 1)
+    }, 1000)
+    return () => clearInterval(timerId);
+  }, [segundoMapa, minutoMapa]);
+  const [posiciones, setPosiciones] = useState(['la casa']);
+  const [estado0, setEstado0] = useState([]);const [estado1, setEstado1] = useState([]);const [estado2, setEstado2] = useState([]);const [estado3, setEstado3] = useState([]);
+  const [estado4, setEstado4] = useState([]);const [estado5, setEstado5] = useState([]);const [estado6, setEstado6] = useState([]);const [estado7, setEstado7] = useState([]);
+  const [estado8, setEstado8] = useState([]);const [estado9, setEstado9] = useState([]);const [estado10, setEstado10] = useState([]);const [estado11, setEstado11] = useState([]);
+  const [estadoT0, setEstadoT0] = useState([]);const [estadoT1, setEstadoT1] = useState([]);const [estadoT2, setEstadoT2] = useState([]);const [estadoT3, setEstadoT3] = useState([]);
+  const [estadoT4, setEstadoT4] = useState([]);const [estadoT5, setEstadoT5] = useState([]);const [estadoT6, setEstadoT6] = useState([]);const [estadoT7, setEstadoT7] = useState([]);
+  const [estadoT8, setEstadoT8] = useState([]);const [estadoT9, setEstadoT9] = useState([]);const [estadoT10, setEstadoT10] = useState([]);const [estadoT11, setEstadoT11] = useState([]);
+  const [estadoC0, setEstadoC0] = useState([]);const [estadoC1, setEstadoC1] = useState([]);const [estadoC2, setEstadoC2] = useState([]);const [estadoC3, setEstadoC3] = useState([]);
+  const [estadoC4, setEstadoC4] = useState([]);const [estadoC5, setEstadoC5] = useState([]);const [estadoC6, setEstadoC6] = useState([]);const [estadoC7, setEstadoC7] = useState([]);
+  const [estadoC8, setEstadoC8] = useState([]);const [estadoC9, setEstadoC9] = useState([]);const [estadoC10, setEstadoC10] = useState([]);const [estadoC11, setEstadoC11] = useState([]);
+  const [posicionesNumericas,setPosicionesNumericas] = useState([0]);
+  //[['la casa'],[],[],[],[],[],[],[],[],[],[]]
+  const [estadoPosiciones,setEstadoPosiciones] = useState([['la casa']]);
+  
+  //console.log(estadoPosiciones);
   const [almacen, setAlmacen] = useState(['a', 'b', 'c']);
   const [matriz, setMatriz] = useState([
     [{ posicion: ['0'] }, { posicion: ['c', 'b', 'a'] }, { posicion: ['e', 'd', 'c', 'b', 'a'] }, { posicion: ['ae', 'a'] }, { posicion: ['aa', 'ac', 'ad', 'ae', 'a'] }, { posicion: ['s', 'r', 'b', 'a'] }, { posicion: ['z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['x', 'y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['j', 'k', 'v', 'x', 'y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['g', 'f', 'e', 'd', 'c', 'b', 'a'] }],
@@ -74,45 +107,207 @@ const Juego_Mapa = ({ navigation }) => {
   );
 
   const funca = (a) => {
-    console.log('funca...');                     //en vez de pasarle 'b' LE PASAS POR PARAMETRO UN VALOR
-    //console.log(images);
+    
     let ia = images.map(el => (
       el.name === a ? { ...el, opacity: 0 } : el
     ));
-    //console.log(imagess);
+    
     setImages(images => images.map(el => (
       el.name === a ? { ...el, opacity: 0 } : el
     )));
-    //console.log('ia');
-    //console.log(ia);
+    
   };
   const getOc= (array,value)=>{
     var count = 0;
     array.forEach((v) => (v === value && count++));
     return count;
   };
+  const empty = arr => arr.length = 0;
+
+  const asignarCaminoNumerico= (posicionSiguiente)=>{
+    if('almacen'==posicionSiguiente){
+      posicionesNumericas.push(1);
+    }
+    if('cafe'==posicionSiguiente){
+      posicionesNumericas.push(2);
+    } 
+    if('panaderia'==posicionSiguiente){
+      posicionesNumericas.push(3);
+    }
+    if('amiga'==posicionSiguiente){
+      posicionesNumericas.push(4);
+    }
+    if('oficina'==posicionSiguiente){
+      posicionesNumericas.push(5);
+    }
+    if('libreria'==posicionSiguiente){
+      posicionesNumericas.push(6);
+    } 
+    if('kiosko'==posicionSiguiente){
+      posicionesNumericas.push(7);
+    }
+    if('estacion'==posicionSiguiente){
+      posicionesNumericas.push(8);
+    }
+    if('zapatero'==posicionSiguiente){
+      posicionesNumericas.push(9);
+    }
+    if('correo'==posicionSiguiente){
+      posicionesNumericas.push(10);
+    }
+  }
+  const popEstado = (array) =>{
+    if(array.length-1  ==1){//PASA DEL ESTADO 0 => ESTADO 1
+     empty(estado0);  
+     empty(estado1);
+     empty(estadoT0);
+     empty(estadoT1);
+    }
+    if(array.length -1 ==2){//ESTADO 1 => ESTADO 2
+      empty(estado2);     
+      empty(estadoT2);
+    }
+    if(array.length-1 ==3){//ESTADO 2 => ESTADO 3
+      empty(estado3);
+      empty(estadoT3);
+    }
+    if(array.length-1 ==4){//ESTADO 3 => ESTADO 4
+      empty(estado4);
+      empty(estadoT4);  
+    }
+    if(array.length-1 ==5){//ESTADO 4 => ESTADO 5
+      empty(estado5);
+      empty(estadoT5);
+    }
+    if(array.length-1 ==6){//ESTADO 5 => ESTADO 6
+      empty(estado6);
+      empty(estadoT6);
+    }
+    if(array.length-1 ==7){//ESTADO 6 => ESTADO 7
+      empty(estado7);
+      empty(estadoT7);
+    }
+    if(array.length-1 ==8){//ESTADO 7 => ESTADO 8
+      empty(estado8);
+      empty(estadoT8);
+    }
+    if(array.length-1 ==9){//ESTADO 8 => ESTADO 9
+      empty(estado9);
+      empty(estadoT9);
+    }
+    if(array.length-1 ==10){//ESTADO 9 => ESTADO 10
+      empty(estado10);
+      empty(estadoT10);
+    }
+    console.log(estado1+'=>'+estadoT1);
+      console.log(estado2+'=>'+estadoT2);
+      console.log(estado3+'=>'+estadoT3);
+      console.log(estado4+'=>'+estadoT4);
+      console.log(estado5+'=>'+estadoT5);
+      console.log(estado6+'=>'+estadoT6);
+      console.log(estado7+'=>'+estadoT7);
+      console.log(estado8+'=>'+estadoT8);
+      console.log(estado9+'=>'+estadoT9);
+      console.log(estado10+'=>'+estadoT10);
+  }
+  const asociarArray = (array,value)=>{
+      if(array.length ==1){//PASA DEL ESTADO 0 => ESTADO 1
+        estado0.push('la casa');
+        estado1.push('casa');
+        estado1.push(value);
+        
+        estadoT0.push(minutoMapa.toString()+':'+segundoMapa.toString());
+        estadoT1.push(minutoMapa.toString()+':'+segundoMapa.toString());
+      }
+      if(array.length ==2){//ESTADO 1 => ESTADO 2
+        estado1.map((item)=>estado2.push(item))
+        estado2.push(value);
+        estadoT2.push(minutoMapa.toString()+':'+segundoMapa.toString());
+      }
+      if(array.length ==3){//ESTADO 2 => ESTADO 3
+        estado2.map((item)=>estado3.push(item))
+        estado3.push(value);
+        estadoT3.push(minutoMapa.toString()+':'+segundoMapa.toString());
+      }
+      if(array.length ==4){//ESTADO 3 => ESTADO 4
+        estado3.map((item)=>estado4.push(item))
+        estado4.push(value);
+        estadoT4.push(minutoMapa.toString()+':'+segundoMapa.toString());
+      }
+      if(array.length ==5){//ESTADO 4 => ESTADO 5
+        estado4.map((item)=>estado5.push(item))
+        estado5.push(value);
+        estadoT5.push(minutoMapa.toString()+':'+segundoMapa.toString());
+      }
+      if(array.length ==6){//ESTADO 5 => ESTADO 6
+        estado5.map((item)=>estado6.push(item))
+        estado6.push(value);
+        estadoT6.push(minutoMapa.toString()+':'+segundoMapa.toString());
+      }
+      if(array.length ==7){//ESTADO 6 => ESTADO 7
+        estado6.map((item)=>estado7.push(item))
+       
+        estado7.push(value);
+       
+        estadoT7.push(minutoMapa.toString()+':'+segundoMapa.toString());
+      }
+      if(array.length ==8){//ESTADO 7 => ESTADO 8
+       estado7.map((item)=>estado8.push(item))
+        estado8.push(value);
+        estadoT8.push(minutoMapa.toString()+':'+segundoMapa.toString());
+      }
+      if(array.length ==9){//ESTADO 8 => ESTADO 9
+        estado8.map((item)=>estado9.push(item))
+        estado9.push(value);
+        estadoT9.push(minutoMapa.toString()+':'+segundoMapa.toString());
+      }
+      if(array.length ==10){//ESTADO 9 => ESTADO 10
+        estado9.map((item)=>estado10.push(item))
+        estado10.push(value);
+        estadoT10.push(minutoMapa.toString()+':'+segundoMapa.toString());
+      }
+      console.log(estado1+'=>'+estadoT1);
+      console.log(estado2+'=>'+estadoT2);
+      console.log(estado3+'=>'+estadoT3);
+      console.log(estado4+'=>'+estadoT4);
+      console.log(estado5+'=>'+estadoT5);
+      console.log(estado6+'=>'+estadoT6);
+      console.log(estado7+'=>'+estadoT7);
+      console.log(estado8+'=>'+estadoT8);
+      console.log(estado9+'=>'+estadoT9);
+      console.log(estado10+'=>'+estadoT10);
+  }
+
   const funcionnOpacity2 = (camino,posicionSiguiente) => {                          //change and passing parameter and ceros for value parameter
-    console.log('123opacidad...');                     //en vez de pasarle 'b' LE PASAS POR PARAMETRO UN VALOR
+    console.log('funcionOpacity2...');                     //en vez de pasarle 'b' LE PASAS POR PARAMETRO UN VALOR
     
-    const i=0;
+    const aa =[];
     const exists = getOc(posiciones,posicionSiguiente);
+    console.log('veces repetidas posicionSiguiente:');
     console.log(exists);
     
     if(exists==0){
-      if (posiciones.length == 2) {
+      if (posiciones.length == 2) { //condicion de dos localidades unicamente inicialmente
         if (posiciones[1] == posicionSiguiente) {
   
         }
         else{
+          asociarArray(posiciones,posicionSiguiente);
+          asignarCaminoNumerico(posicionSiguiente);
           for (let index = 0; index < camino.length; index++) {
             const element = camino[index];
             funca(element);
             //console.log(element);
           }
-  
-  
           //agregar posicion
           posiciones.push(posicionSiguiente);
+          aa.push( posiciones);
+          console.log("posicion agregada =>"+posiciones[posiciones.length - 1]);
+          //estadoPosiciones[posiciones.length-1]=posiciones;
+          // console.log("estado => ");
+          setEstadoPosiciones([...estadoPosiciones,aa]);
+          //estadoPosiciones.push(posiciones);
+          // console.log(estadoPosiciones);
         }
       }
       else {
@@ -120,34 +315,46 @@ const Juego_Mapa = ({ navigation }) => {
   
         }
         else {
+          asociarArray(posiciones,posicionSiguiente);
+          asignarCaminoNumerico(posicionSiguiente);
           for (let index = 0; index < camino.length; index++) {
             const element = camino[index];
             funca(element);
             //console.log(element);
           }
-  
-  
           //agregar posicion
           posiciones.push(posicionSiguiente);
+          
+          console.log("posicion agregada =>"+posiciones[posiciones.length - 1]);
+          aa.push(posiciones);
+          setEstadoPosiciones(old=>[...old,aa]);
+          //console.log("estado => ");
+
+          //estadoPosiciones[0].push(posiciones);
+         // console.log(estadoPosiciones);
         }
       }
     }
     else{
       //SI ES EL ULTIMO ELEMENTO SELECCIONADO DEBERIA PODERSE DAR DE BAJA o sea borrarse el ARRAY si es que le doy click de vuelta
       if(posicionSiguiente ==posiciones[posiciones.length-1]){
+        console.log('posicion final y nueva son iguales:');
         console.log('posicionFinal ==>'+posiciones[posiciones.length-1]);
         console.log('posicionSiguiente ==>'+posicionSiguiente);
+        popEstado(posiciones);
         posiciones.pop();
+        posicionesNumericas.pop();
         console.log('posicionesActualizadas==>'+posiciones);
+        //console.log("estado => ");
+        estadoPosiciones.pop();
+        //console.log(estadoPosiciones);
       }
      
     }
-   
-    
-
-    console.log(posiciones);
-    console.log("posicion agregada =>"+posiciones[posiciones.length - 1]);
-    // console.log(matriz[5]);
+    console.log('posiciones==> '+posiciones);
+    console.log('posicioNum==> '+posicionesNumericas);
+    console.log(estadoPosiciones);
+    console.log("___________________________________________________");
   };
   const funcionnOpacity = (camino) => {                          //change and passing parameter and ceros for value parameter
     console.log('123opacidad...');                     //en vez de pasarle 'b' LE PASAS POR PARAMETRO UN VALOR
@@ -321,13 +528,16 @@ const Juego_Mapa = ({ navigation }) => {
 
       </View>
       <View style={{ position: 'relative', zIndex: 10, top: 150, alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3, marginBottom: 10, left: -280 }}>
-        <Clock />
+        <Clock minuto={minutoMapa} segundo={segundoMapa} />
       </View>
 
       <View style={{ zIndex: 10, top: 150, alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3, marginBottom: 10, left: -277 }}>
         <TouchableOpacity
           style={[styles.inicio_Button,]}
-          onPress={() => navigation.navigate('Revision_General')}>
+          onPress={() => {
+            //navigation.navigate('Revision_General');
+            console.log(minutoMapa)
+          }}>
           <Text style={styles.inicio_Text}>Terminar</Text>
         </TouchableOpacity>
         {/* <TouchableOpacity
