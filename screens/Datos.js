@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import {
   SafeAreaView,
   StyleSheet, TextInput,
   Text, View,
   useColorScheme, TouchableOpacity
 } from 'react-native';
-import TextInputS from '../components/TextInputS';
+import realm from '../REALMDB.js';
 // import { UserState } from 'realm';
 
 const Datos = ({ navigation }) => {
@@ -13,7 +13,35 @@ const Datos = ({ navigation }) => {
   const [apellido, setApellido] = useState('');
   const [edad, setEdad] = useState('');
   const [dni, setDni] = useState('');
- 
+  const [userId,setUserId] = useState(0);
+  useEffect(() => {
+    // action on update of userId
+    setUserId(realm.objects('User').length +1);
+    
+    setNombre('nombre');setApellido('apellido');setEdad('edad');setDni('dni');
+}, [userId]);
+  agregarUser =()=>{
+    let last = realm.objects('User').length +1;
+   
+    realm.write(()=>{
+      realm.create('User',{
+        id:last,
+        name: nombre,
+        apellido:apellido,
+        edad:edad,
+        dni:dni,
+      });
+    });
+    console.log(realm.objects('User'));
+    setUserId(realm.objects('User').length +1);
+    // ref['name'].setNativeProps({ text: 'name' });
+    // ref['apellido'].setNativeProps({ text: 'apellido' });
+    // ref['edad'].setNativeProps({ text: 'edad' });
+    // ref['dni'].setNativeProps({ text: 'dni' });
+    console.log(userId);
+
+  }
+
   handleVerificateOfData = () => {
     // if(this.state.check>4){
     //         this.props.navigation.navigate('Juego_Mapa') ;
@@ -23,6 +51,7 @@ const Datos = ({ navigation }) => {
     console.log(apellido);
     console.log(edad);
     console.log(dni);
+
     // }
     // this.props.navigation.navigate('Juego_Mapa') ;
   }
@@ -33,6 +62,7 @@ const Datos = ({ navigation }) => {
         <Text style={styles.inicio_Text}>Nombre</Text>
       </View>
       <TextInput style={styles.datos_textinput}
+        //ref={"nombre"}
         underlineColorAndroid="transparent"
         placeholder="nombre"
         placeholderTextColor="white"
@@ -45,6 +75,7 @@ const Datos = ({ navigation }) => {
         <Text style={styles.inicio_Text}>Apellido</Text>
       </View>
       <TextInput style={styles.datos_textinput}
+       // ref={"apellido"}
         underlineColorAndroid="transparent"
         placeholder="apellido"
         placeholderTextColor="white"
@@ -56,6 +87,7 @@ const Datos = ({ navigation }) => {
         <Text style={styles.inicio_Text}>Edad</Text>
       </View>
       <TextInput style={styles.datos_textinput}
+      //  ref={"edad"}
         underlineColorAndroid="transparent"
         placeholder="edad"
         keyboardType="numeric"
@@ -69,6 +101,7 @@ const Datos = ({ navigation }) => {
         <Text style={styles.inicio_Text}>DNI</Text>
       </View>
       <TextInput style={styles.datos_textinput}
+       // ref={"dni"}
         underlineColorAndroid="transparent"
         placeholder="dni"
         keyboardType="numeric"
@@ -85,8 +118,10 @@ const Datos = ({ navigation }) => {
         <TouchableOpacity
           style={styles.inicio_Button}
           onPress={() => {
-            navigation.navigate('Juego_Mapa');
-            handleVerificateOfData()
+            navigation.navigate('Juego_Mapa',{ user:realm.objects('User')[realm.objects('User').length-1]});
+            //{ names: ['Brent', 'Satya', 'Michaś'] }
+            handleVerificateOfData();
+            agregarUser();
           }}
         >
           <Text style={styles.inicio_TextButton}>Iniciar Juego</Text>

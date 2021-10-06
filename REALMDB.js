@@ -19,29 +19,31 @@ Juego.schema = {
     name: 'Juego',
     properties: {
       id: 'int',
-      tipo:'int[]',     //posiciones de localidades en la partida
-      persona:'Persons'
+      tipo:'int',     //posiciones de localidades en la partida
+      user:'User',
+      posiciones:'string[]',
+      posicionesTiempo:'int[]',
     },
 };
 //////////////////////////////////////////////////////////////
 
 //---------------------------------
 //---------------------------------
-export class UserLogin extends Realm.Object {}//PERSONS
-Persons.schema = {
-    name: 'Persons',
+// export class UserLogin extends Realm.Object {}//PERSONS
+// Persons.schema = {
+//     name: 'Persons',
     
-    properties: {
-            id: 'int',
-            name: 'string',
-            apellido:'string',
-            edad:'int',
-            dni:'int',
-            //listDogs:'string[]',
-            //listJuegos:{type: 'list', objectType: 'Juego'},/// es mejor tener juego asociados a un jugador porque un jugador puede tener varios Juegos realizados. En caso de querer los juegos
-            //que realizo un jugador miro los juegos y filtro dentro del mismo por persona.dni
-    },
-};
+//     properties: {
+//             id: 'int',
+//             name: 'string',
+//             apellido:'string',
+//             edad:'int',
+//             dni:'int',
+//             //listDogs:'string[]',
+//             //listJuegos:{type: 'list', objectType: 'Juego'},/// es mejor tener juego asociados a un jugador porque un jugador puede tener varios Juegos realizados. En caso de querer los juegos
+//             //que realizo un jugador miro los juegos y filtro dentro del mismo por persona.dni
+//     },
+// };
 
 //////////////////////////////////////
 export class User extends Realm.Object {}//PERSONS  USERS
@@ -51,10 +53,10 @@ User.schema = {
       id: 'int',
       name: 'string',
       apellido:'string',
-      edad:'int',
-      dni:'int',
+      edad:'string',
+      dni:'string',
       //listDogs:'string[]',
-      listJuegos:{type: 'list', objectType: 'Juego'},
+      //listJuegos:{type: 'list', objectType: 'Juego'},
      // imagen:'Imagee'       // una persona loggeada debe tener una foto
     },
 };
@@ -72,7 +74,13 @@ User.schema = {
 //   schema: heheh,
 //   schemaVersion:222,
 // };
-
+export const version3 ={
+  path:'version4.realm',
+  schema:[User,Juego],
+  schemaVersion:4,
+};
+export default new Realm(version3);
 //export default new Realm(heeeqSchema);
 //export default new Realm({schema: [AppSetting, Gps, ...], schemaVersion: 0});
-export default new Realm({schema:[User,Juego,UserLogin],schemaVersion:1});
+
+//export default new Realm({schema:[User,Juego],schemaVersion:3});

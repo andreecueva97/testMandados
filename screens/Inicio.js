@@ -4,6 +4,7 @@ import {
   Text,
   TouchableOpacity,Dimensions
 } from 'react-native';
+import realm from '../REALMDB.js';
 
 const Inicio = ({navigation})=>{
   return(
@@ -32,7 +33,7 @@ onPress={() => {  navigation.navigate('Datos')}}
 marginBottom: 10}}>
 <TouchableOpacity 
 style={styles.inicio_Button}
-onPress={() => {  navigation.navigate('Revision_General')}}
+onPress={() => {  navigation.navigate('Revision_General',{juego:realm.objects('Juego')[realm.objects('Juego').length-1]})}}
 >
 <Text style={styles.inicio_TextButton}>Puntuaciones</Text>
 </TouchableOpacity>

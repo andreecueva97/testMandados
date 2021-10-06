@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import {  Image, StyleSheet, Dimensions, Text, View, TouchableHighlight, Modal,} from 'react-native';
 import Clock from '../components/Clock';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import realm from '../REALMDB.js';
 
-const Juego_Mapa = ({ navigation }) => {
+const Juego_Mapa = ({ navigation,route }) => {
   //const {navigation} = this.props;
   const [minutoMapa,setMinutoMapa]=useState(10);
   const [segundoMapa,setSegundoMapa]=useState(3);
-
+  console.log('USER===>'+route.params.user);
   const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
@@ -42,7 +43,8 @@ const Juego_Mapa = ({ navigation }) => {
   const [estadoPosiciones,setEstadoPosiciones] = useState([['la casa']]);
   
   //console.log(estadoPosiciones);
-  const [almacen, setAlmacen] = useState(['a', 'b', 'c']);
+  const [zapatero, setZapatero] = useState('   ');
+
   const [matriz, setMatriz] = useState([
     [{ posicion: ['0'] }, { posicion: ['c', 'b', 'a'] }, { posicion: ['e', 'd', 'c', 'b', 'a'] }, { posicion: ['ae', 'a'] }, { posicion: ['aa', 'ac', 'ad', 'ae', 'a'] }, { posicion: ['s', 'r', 'b', 'a'] }, { posicion: ['z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['x', 'y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['j', 'k', 'v', 'x', 'y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['g', 'f', 'e', 'd', 'c', 'b', 'a'] }],
     [{ posicion: ['c', 'b', 'a'] }, { posicion: ['0'] }, { posicion: ['e', 'd'] }, { posicion: ['ae', 'b', 'c'] }, { posicion: ['c', 'r', 's', 'ab', 'aa'] }, { posicion: ['c', 'r', 's'] }, { posicion: ['z', 'an', 'ab', 's', 'q', 'p', 'e', 'd'] }, { posicion: ['x', 'v', 'k', 'i', 'h', 'g', 'f', 'e', 'd'] }, { posicion: ['w', 'aa', 'ac', 'am', 'r', 'c'] }, { posicion: ['j', 'i', 'h', 'g', 'f', 'e', 'd'] }, { posicion: ['g', 'f', 'e', 'd','l'] }],
@@ -156,6 +158,35 @@ const Juego_Mapa = ({ navigation }) => {
     if('correo'==posicionSiguiente){
       posicionesNumericas.push(10);
     }
+  }
+  const [juegoId,setJuegoId] = useState(0);
+  useEffect(() => {
+    // action on update of userId
+    setJuegoId(realm.objects('Juego').length +1);
+    
+}, [juegoId]);
+  const agregarJuego_User=()=>{
+    let last = realm.objects('Juego').length +1;
+   
+    realm.write(()=>{
+      realm.create('Juego',{
+        id:last,
+      tipo:0,     //posiciones de localidades en la partida
+      user:route.params.user,
+      
+      posiciones:posiciones,
+      posicionesTiempo:posicionesNumericas,
+
+      });
+    });
+    console.log(realm.objects('Juego'));
+    //setUserId(realm.objects('Juego').length +1);
+    // ref['name'].setNativeProps({ text: 'name' });
+    // ref['apellido'].setNativeProps({ text: 'apellido' });
+    // ref['edad'].setNativeProps({ text: 'edad' });
+    // ref['dni'].setNativeProps({ text: 'dni' });
+    //console.log(userId);
+
   }
   const asignarNumero= (posicionSiguiente)=>{
     if('almacen'==posicionSiguiente){
@@ -320,12 +351,12 @@ const Juego_Mapa = ({ navigation }) => {
                {
                  if(estadox2.findIndex(element => element ===item)==-1)
                  {
-                   console.log('calle no esta en el nuevo estado agregarlo porfavor')//array1.push(item) 
+                  /// console.log('calle no esta en el nuevo estado agregarlo porfavor')//array1.push(item) 
                    estadox2.push(item);
                  }
             else
                  {
-                   console.log('calle si existe en este estado No agregar') // NO AGREGAR AL ARRAY1 principal
+                   //console.log('calle si existe en este estado No agregar') // NO AGREGAR AL ARRAY1 principal
                  };
     })
     console.log('ESTADO NUEVO =>>>'+ estadox2);
@@ -577,7 +608,20 @@ const Juego_Mapa = ({ navigation }) => {
     console.log(posiciones);
   };
 
-
+  const ubicacionNumericaLocalidad=(localidad)=>{
+    if(estadoPosiciones.findIndex(element => element ===localidad)==-1)
+    {
+      //console.log('calle no esta en el nuevo estado agregarlo porfavor')//array1.push(item) 
+      //estadox2.push(item);
+      return '  ';
+    }
+else
+    {
+      //console.log('calle si existe en este estado No agregar') // NO AGREGAR AL ARRAY1 principal
+      //return estadoPosiciones.findIndex(element => element ===localidad);
+      console.log('ubicacion'+estadoPosiciones.findIndex(element => element ===localidad));
+    };
+  }
 
   return (
     <View style={styles.inicio_View}>
@@ -595,8 +639,8 @@ const Juego_Mapa = ({ navigation }) => {
           borderRadius: 30 / 2, height: 30, width: 30,
           top: -30, left: 640, zIndex: 12
         }}>
-          <TouchableOpacity onPress={() => { funcionnOpacity2('zapatero') }}>
-            <Text style={{ fontSize: 10 }}>ZAPATERO</Text>
+          <TouchableOpacity onPress={() => { funcionnOpacity2('zapatero');}}>
+            <Text style={{ fontSize: 10 }}> zapatero </Text>
           </TouchableOpacity>
 
         </View>
@@ -712,8 +756,9 @@ const Juego_Mapa = ({ navigation }) => {
         <TouchableOpacity
           style={[styles.inicio_Button,]}
           onPress={() => {
-            //navigation.navigate('Revision_General');
-            console.log(matriz[0][0].posicion)
+            navigation.navigate('Revision_General',{juego:realm.objects('Juego')[realm.objects('Juego').length-1]});
+            agregarJuego_User();
+            //console.log(matriz[0][0].posicion)
           }}>
           <Text style={styles.inicio_Text}>Terminar</Text>
         </TouchableOpacity>

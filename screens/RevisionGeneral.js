@@ -5,13 +5,14 @@ import {
   Text,TouchableOpacity,TouchableHighlight,
   View
 } from 'react-native';
+import realm from '../REALMDB.js';
 
-const RevisionGeneral = ({navigation})=>{
+const RevisionGeneral = ({navigation,route})=>{
 
   const [shouldShow, setShouldShow] = useState(false);
   const [filtrarPor,setFiltrarPor] = useState('filtrar por');
   const [modalVisible, setModalVisible] = useState(false);
-
+  const [juego, setJuego]=useState(route.params.juego);
   return(
     <View style={styles.inicio_View}>
     <Text style ={{textAlign:'center',backgroundColor:'white',alignContent:'center',justifyContent:'center'}}>ACA REVISION GENERAL</Text>
@@ -42,7 +43,7 @@ const RevisionGeneral = ({navigation})=>{
     ) : null}
     <View style={{color:'red',height:400,width:500,top:4}}>
   <FlatList //lista de perrros en vista con sus nombres y ids
-    data={['ana','junior','flor','anra','juniorr','florr']}
+    data={realm.objects('Juego')}
     
     style={{fontSize:40,color:'white'}}
     renderItem={({ item }) =>
