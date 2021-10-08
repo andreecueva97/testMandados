@@ -12,13 +12,13 @@ const Instrucciones = ({ navigation }) => {
             <View style={styles.Instrucciones_Title}>
                 <Text style={styles.Instrucciones_Text}>Instrucciones del Juego</Text>
             </View>
-            <View style={{ alignItems: 'center', justifyContent: 'center' ,paddingBottom:"10%"}}>
+            <View style={{ alignItems: 'center', justifyContent: 'center' ,textAlign:'center',paddingBottom:"10%",width: Dimensions.get('window').width-3}}>
 
                 {/* <Image
                     style={{ width: 300, height: 300 }}
                     source={require('@img/logo.png')}
                 /> */}
-                <Text style={{fontSize:25}}>Esta tarea consiste en hacer varios mandados. Tenés que salir de tu hogar a las 9:15 hs., hacer varios mandados o diligencias y estar de regreso a las 13:00 hs. Para recorrer el camino de tu hogar a la estación, se tardan 30 minutos. La oficina donde se pagan los impuestos cierra a las 10 hs. Los negocios y el correo cierran a las 12:00 hs. y la panadería abre después de las 11:00 hs. Tenés que hacer las siguientes tareas</Text>
+                <Text style={{fontSize:25,textAlign:'center'}}>Esta tarea consiste en hacer varios mandados. Tenés que salir de tu hogar a las 9:15 hs., hacer varios mandados o diligencias y estar de regreso a las 13:00 hs. Para recorrer el camino de tu hogar a la estación, se tardan 30 minutos. La oficina donde se pagan los impuestos cierra a las 10 hs. Los negocios y el correo cierran a las 12:00 hs. y la panadería abre después de las 11:00 hs. Tenés que hacer las siguientes tareas</Text>
                             
             </View>
             <View style={{
