@@ -11,12 +11,14 @@ import Datos from './screens/Datos.js';
  import RevisionGeneral from './screens/RevisionGeneral';
 import Juego_Mapa from './screens/Juego_Mapa';
  import Juego_Recorrido from './screens/Juego_Recorrido';
+ 
+ import Instrucciones from './screens/Instrucciones';
 const Stack= createStackNavigator();
 
 const App= () => {
   
   return (
-     <View style={{backgroundColor:"green",flex:1,flexDirection:'column'}}>
+     <View style={{flex:1,flexDirection:'column'}}>
       <NavigationContainer>
         <Stack.Navigator  screenOptions={{ headerShown: false}}>
           <Stack.Screen name="Inicio" component={Inicio} />
@@ -24,6 +26,7 @@ const App= () => {
           <Stack.Screen name="Datos" component={Datos} />
           <Stack.Screen name="Revision_General" component={RevisionGeneral} /> 
           <Stack.Screen name="Juego_Recorrido" component={Juego_Recorrido} /> 
+          <Stack.Screen name="Juego_Instrucciones" component={Instrucciones} />
         </Stack.Navigator>
       </NavigationContainer>
 

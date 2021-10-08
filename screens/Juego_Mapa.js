@@ -8,7 +8,7 @@ const Juego_Mapa = ({ navigation,route }) => {
   //const {navigation} = this.props;
   const [minutoMapa,setMinutoMapa]=useState(10);
   const [segundoMapa,setSegundoMapa]=useState(3);
-  console.log('USER===>'+route.params.user);
+  //console.log('USER===>'+route.params.user);
   const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
@@ -166,8 +166,23 @@ const Juego_Mapa = ({ navigation,route }) => {
     
 }, [juegoId]);
   const agregarJuego_User=()=>{
+    let timePosition = [];
+    estadoT0.map((item)=>timePosition.push(item));
+    estadoT1.map((item)=>timePosition.push(item));
+    estadoT2.map((item)=>timePosition.push(item));
+    estadoT3.map((item)=>timePosition.push(item));
+    estadoT4.map((item)=>timePosition.push(item));
+    estadoT5.map((item)=>timePosition.push(item));
+    estadoT6.map((item)=>timePosition.push(item));
+    estadoT7.map((item)=>timePosition.push(item));
+    estadoT8.map((item)=>timePosition.push(item));
+    estadoT9.map((item)=>timePosition.push(item));
+    estadoT10.map((item)=>timePosition.push(item));
     let last = realm.objects('Juego').length +1;
-   
+    console.log('timePosition');
+    console.log(timePosition);
+    console.log('juegos realiados');
+    console.log(realm.objects('Juego'));
     realm.write(()=>{
       realm.create('Juego',{
         id:last,
@@ -175,17 +190,13 @@ const Juego_Mapa = ({ navigation,route }) => {
       user:route.params.user,
       
       posiciones:posiciones,
-      posicionesTiempo:posicionesNumericas,
+      posicionesTiempo:timePosition,
+      posicionesNumericas:posicionesNumericas,
 
       });
     });
+   
     console.log(realm.objects('Juego'));
-    //setUserId(realm.objects('Juego').length +1);
-    // ref['name'].setNativeProps({ text: 'name' });
-    // ref['apellido'].setNativeProps({ text: 'apellido' });
-    // ref['edad'].setNativeProps({ text: 'edad' });
-    // ref['dni'].setNativeProps({ text: 'dni' });
-    //console.log(userId);
 
   }
   const asignarNumero= (posicionSiguiente)=>{
@@ -756,7 +767,9 @@ else
         <TouchableOpacity
           style={[styles.inicio_Button,]}
           onPress={() => {
-            navigation.navigate('Revision_General',{juego:realm.objects('Juego')[realm.objects('Juego').length-1]});
+            console.log("JUEGO ID JUEGOMAPA");
+            console.log(realm.objects('Juego').length-1);
+            navigation.navigate('Revision_General',{juegoId:realm.objects('Juego').length+1});
             agregarJuego_User();
             //console.log(matriz[0][0].posicion)
           }}>

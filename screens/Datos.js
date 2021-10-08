@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   SafeAreaView,
   StyleSheet, TextInput,
@@ -13,47 +13,46 @@ const Datos = ({ navigation }) => {
   const [apellido, setApellido] = useState('');
   const [edad, setEdad] = useState('');
   const [dni, setDni] = useState('');
-  const [userId,setUserId] = useState(0);
+  const [userId, setUserId] = useState(0);
   useEffect(() => {
     // action on update of userId
-    setUserId(realm.objects('User').length +1);
-    
-    setNombre('nombre');setApellido('apellido');setEdad('edad');setDni('dni');
-}, [userId]);
-  agregarUser =()=>{
-    let last = realm.objects('User').length +1;
-   
-    realm.write(()=>{
-      realm.create('User',{
-        id:last,
+    setUserId(realm.objects('User').length + 1);
+
+    //setNombre('nombre'); setApellido('apellido'); setEdad('edad'); setDni('dni');
+  }, [userId]);
+  agregarUser = () => {
+    let last = realm.objects('User').length + 1;
+  //   realm.write(() => {
+  //     realm.deleteAll();
+  // });
+  //this.setState({ realm });
+ 
+
+    realm.write(() => {
+      realm.create('User', {
+        id: last,
         name: nombre,
-        apellido:apellido,
-        edad:edad,
-        dni:dni,
+        apellido: apellido,
+        edad: edad,
+        dni: dni,
       });
     });
     console.log(realm.objects('User'));
-    setUserId(realm.objects('User').length +1);
-    // ref['name'].setNativeProps({ text: 'name' });
-    // ref['apellido'].setNativeProps({ text: 'apellido' });
-    // ref['edad'].setNativeProps({ text: 'edad' });
-    // ref['dni'].setNativeProps({ text: 'dni' });
+    setUserId(realm.objects('User').length + 1);
+
+
     console.log(userId);
-
+    console.log(nombre);
   }
-
+  // <TextInput ref={'textInput1'} style={styles.textInputAyudar} onChangeText={value => this.setState({ inputApellido: value })} />
+                 
   handleVerificateOfData = () => {
-    // if(this.state.check>4){
-    //         this.props.navigation.navigate('Juego_Mapa') ;
-    // }
-    // else{
+ 
     console.log(nombre);
     console.log(apellido);
     console.log(edad);
     console.log(dni);
-
-    // }
-    // this.props.navigation.navigate('Juego_Mapa') ;
+ 
   }
   return (
     <View style={styles.inicio_View}>
@@ -62,36 +61,37 @@ const Datos = ({ navigation }) => {
         <Text style={styles.inicio_Text}>Nombre</Text>
       </View>
       <TextInput style={styles.datos_textinput}
-        //ref={"nombre"}
+        //ref={"textInput1"}
         underlineColorAndroid="transparent"
         placeholder="nombre"
-        placeholderTextColor="white"
+        placeholderTextColor="black"
         autoCapitalize="none"
         // defaultValue={apellido}
         onChangeText={nombre => setNombre(nombre)}
-      
-    />
+// <TextInput ref={'textInput1'} style={styles.textInputAyudar} onChangeText={value => this.setState({ inputApellido: value })} />
+          
+      />
       <View style={styles.inicio_Title}>
         <Text style={styles.inicio_Text}>Apellido</Text>
       </View>
       <TextInput style={styles.datos_textinput}
-       // ref={"apellido"}
-        underlineColorAndroid="transparent"
+        // ref={"apellido"}
+        //underlineColorAndroid="transparent"
         placeholder="apellido"
-        placeholderTextColor="white"
-        autoCapitalize="none"
-        // defaultValue={apellido}
-        onChangeText={apellido => setApellido(apellido)}
+        placeholderTextColor="black"
+       // autoCapitalize="none"
+        //value={apellido}
+        onChangeText={setApellido}
       />
       <View style={styles.inicio_Title}>
         <Text style={styles.inicio_Text}>Edad</Text>
       </View>
       <TextInput style={styles.datos_textinput}
-      //  ref={"edad"}
+        //  ref={"edad"}
         underlineColorAndroid="transparent"
         placeholder="edad"
         keyboardType="numeric"
-        placeholderTextColor="white"
+        placeholderTextColor="black"
         autoCapitalize="none"
         // defaultValue={edad}
         onChangeText={edad => setEdad(edad)}
@@ -101,11 +101,11 @@ const Datos = ({ navigation }) => {
         <Text style={styles.inicio_Text}>DNI</Text>
       </View>
       <TextInput style={styles.datos_textinput}
-       // ref={"dni"}
+        // ref={"dni"}
         underlineColorAndroid="transparent"
         placeholder="dni"
         keyboardType="numeric"
-        placeholderTextColor="white"
+        placeholderTextColor="black"
         autoCapitalize="none"
         // defaultValue={dni}
         onChangeText={dni => setDni(dni)}
@@ -118,9 +118,9 @@ const Datos = ({ navigation }) => {
         <TouchableOpacity
           style={styles.inicio_Button}
           onPress={() => {
-            navigation.navigate('Juego_Mapa',{ user:realm.objects('User')[realm.objects('User').length-1]});
-            //{ names: ['Brent', 'Satya', 'Michaś'] }
-            handleVerificateOfData();
+           navigation.navigate('Juego_Mapa', { user: realm.objects('User')[realm.objects('User').length - 1] });
+            
+           handleVerificateOfData();
             agregarUser();
           }}
         >

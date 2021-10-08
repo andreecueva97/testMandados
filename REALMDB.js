@@ -22,7 +22,8 @@ Juego.schema = {
       tipo:'int',     //posiciones de localidades en la partida
       user:'User',
       posiciones:'string[]',
-      posicionesTiempo:'int[]',
+      posicionesTiempo:'string[]',
+      posicionesNumericas:'int[]'
     },
 };
 //////////////////////////////////////////////////////////////
@@ -75,7 +76,7 @@ User.schema = {
 //   schemaVersion:222,
 // };
 export const version3 ={
-  path:'version4.realm',
+  path:'version5.realm',
   schema:[User,Juego],
   schemaVersion:4,
 };
