@@ -34,11 +34,14 @@ const RevisionGeneral = ({ navigation, route }) => {
       <View style={{ flexDirection: 'row', width: Dimensions.get('window').width, justifyContent: "center", alignItems: "center" }}>
         <Text style={{ textAlign: 'center', fontSize: 30 }}>REVISION GENERAL</Text>
       </View>
-      <View style={styles.inicio_Logo} >
+      <View style={{ flexDirection: 'row', width: Dimensions.get('window').width, justifyContent: "center", alignItems: "center" }}>
+        <Text style={{ textAlign: 'center', fontSize: 3 }}></Text>
+      </View>
+      {/* <View style={styles.inicio_Logo} >
         <TouchableOpacity onPress={() => setShouldShow(!shouldShow)}>
           <Text style={styles.inicio_Text}>{filtrarPor}</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
       {shouldShow ? (
         <View>
           <FlatList
@@ -73,7 +76,10 @@ const RevisionGeneral = ({ navigation, route }) => {
               </View>
         </View>
       </View>
-      <View style={{ color: 'blue', height: 300, width: Dimensions.get('window').width, flexDirection: 'row' }}>
+      {/* <View style={{ flexDirection: 'row', width: Dimensions.get('window').width, justifyContent: "center", alignItems: "center" }}>
+        <Text style={{ textAlign: 'center', fontSize: 3 }}></Text>
+      </View> */}
+      <View style={{ color: 'blue', height: 300, width: Dimensions.get('window').width, flexDirection: 'row' ,borderTop:3,borderBottom:3}}>
         <FlatList //lista de localidades en vista con sus nombres y ids y tiempo y posiciones de haber ido
           //data={realm.objects('Juego')}
           data={juego}
@@ -102,17 +108,23 @@ const RevisionGeneral = ({ navigation, route }) => {
           keyExtractor={(item) => item.toString()}
         />
       </View>
-      <View style={[styles.inicio_Logo, { width: Dimensions.get('window').width, top: '-10%', }]}>
+      <View style={{ flexDirection: 'row', width: Dimensions.get('window').width, justifyContent: "center", alignItems: "center" }}>
+        <Text style={{ textAlign: 'center', fontSize: 8 }}></Text>
+      </View>
+      <View style={[ styles.inicio_Logo,{ width: Dimensions.get('window').width,}]}>
 
         <Text style={[styles.inicio_Logo, { backgroundColor: '#B5B5BA', borderRadius: 10 }]}>Tu puntuacion: 10.Gracias por participar</Text>
 
+      </View>
+      <View style={{ flexDirection: 'row', width: Dimensions.get('window').width, justifyContent: "center", alignItems: "center" }}>
+        <Text style={{ textAlign: 'center', fontSize: 8 }}></Text>
       </View>
       <View
         //style={{
         // alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3,
         // marginBottom: 10, width: Dimensions.get('window').width / 2, left: '4%', height: 100
         //}}
-        style={[styles.inicio_Logo, { width: Dimensions.get('window').width }]}
+        style={[styles.inicio_Logo, { width: Dimensions.get('window').width, }]}
       >
         <TouchableOpacity
           style={[styles.inicio_Button, { height: 60, }]}
