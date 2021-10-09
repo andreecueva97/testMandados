@@ -46,17 +46,17 @@ const Juego_Mapa = ({ navigation,route }) => {
   const [zapatero, setZapatero] = useState('   ');
 
   const [matriz, setMatriz] = useState([
-    [{ posicion: ['0'] }, { posicion: ['c', 'b', 'a'] }, { posicion: ['e', 'd', 'c', 'b', 'a'] }, { posicion: ['ae', 'a'] }, { posicion: ['aa', 'ac', 'ad', 'ae', 'a'] }, { posicion: ['s', 'r', 'b', 'a'] }, { posicion: ['z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['x', 'y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['j', 'k', 'v', 'x', 'y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['g', 'f', 'e', 'd', 'c', 'b', 'a'] }],
-    [{ posicion: ['c', 'b', 'a'] }, { posicion: ['0'] }, { posicion: ['e', 'd'] }, { posicion: ['ae', 'b', 'c'] }, { posicion: ['c', 'r', 's', 'ab', 'aa'] }, { posicion: ['c', 'r', 's'] }, { posicion: ['z', 'an', 'ab', 's', 'q', 'p', 'e', 'd'] }, { posicion: ['x', 'v', 'k', 'i', 'h', 'g', 'f', 'e', 'd'] }, { posicion: ['w', 'aa', 'ac', 'am', 'r', 'c'] }, { posicion: ['j', 'i', 'h', 'g', 'f', 'e', 'd'] }, { posicion: ['g', 'f', 'e', 'd','l'] }],
-    [{ posicion: ['e', 'd', 'c', 'b', 'a'] }, { posicion: ['e', 'd'] }, { posicion: ['0'] }, { posicion: ['p', 'q', 'am', 'ad'] }, { posicion: ['p', 'q', 'am', 'ac', 'aa'] }, { posicion: ['p', 'q', 's'] }, { posicion: ['z', 'an', 'ab', 's', 'q', 'p'] }, { posicion: ['x', 'v', 'k', 'i', 'h', 'g', 'f'] }, { posicion: ['w', 'aa', 'ac', 'am', 'q', 'p'] }, { posicion: ['j', 'i', 'h', 'g', 'f'] }, { posicion: ['g', 'f', 'p'] }],
-    [{ posicion: ['ae', 'a'] }, { posicion: ['ae', 'b', 'c'] }, { posicion: ['p', 'q', 'am', 'ad'] }, { posicion: ['0'] }, { posicion: ['ad', 'ac', 'aa'] }, { posicion: ['ad', 'ac', 'ab'] }, { posicion: ['z', 'ag', 'af'] }, { posicion: ['y', 'z', 'ag', 'af'] }, { posicion: ['w', 'aa', 'ac', 'ad'] }, { posicion: ['j', 'k', 'v', 'w', 'aa', 'ac', 'ad'] }, { posicion: ['ah', 'n', 'ak', 'ab', 'ac', 'ad'] }],
-    [{ posicion: ['aa', 'ac', 'ad', 'ae', 'a'] }, { posicion: ['c', 'r', 's', 'ab', 'aa'] }, { posicion: ['p', 'q', 'am', 'ac', 'aa'] }, { posicion: ['ad', 'ac', 'aa'] }, { posicion: ['0'] }, { posicion: ['aa', 'ab'] }, { posicion: ['aa', 'an', 'z'] }, { posicion: ['x', 'w','nlg'] }, { posicion: ['w'] }, { posicion: ['j', 'k', 'v', 'w','nlg'] }, { posicion: ['ah', 'aj', 'u', 'w'] }],
+    [{ posicion: ['0'] }, { posicion: ['c', 'b', 'a'] }, { posicion: ['e', 'd', 'c', 'b', 'a'] }, { posicion: ['ae', 'a'] }, { posicion: ['aa', 'ac', 'ad', 'ae', 'a'] }, { posicion: ['s', 'r', 'b', 'a'] }, { posicion: ['z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['x', 'y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['j', 'k', 'v', 'x', 'y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['g', 'f', 'e', 'd', 'c', 'b', 'a','l'] }],
+    [{ posicion: ['c', 'b', 'a'] }, { posicion: ['0'] }, { posicion: ['e', 'd'] }, { posicion: ['ae', 'b', 'c'] }, { posicion: ['c', 'r', 's', 'ab', 'aa'] }, { posicion: ['c', 'r', 's'] }, { posicion: ['z', 'an', 'ab', 's', 'q', 'p', 'e', 'd'] }, { posicion: ['x', 'v', 'k', 'i', 'h', 'g', 'f', 'e', 'd','l'] }, { posicion: ['w', 'aa', 'ac', 'am', 'r', 'c','nlg'] }, { posicion: ['j', 'i', 'h', 'g', 'f', 'e', 'd','l'] }, { posicion: ['g', 'f', 'e', 'd','l'] }],
+    [{ posicion: ['e', 'd', 'c', 'b', 'a'] }, { posicion: ['e', 'd'] }, { posicion: ['0'] }, { posicion: ['p', 'q', 'am', 'ad'] }, { posicion: ['p', 'q', 'am', 'ac', 'aa'] }, { posicion: ['p', 'q', 's'] }, { posicion: ['z', 'an', 'ab', 's', 'q', 'p'] }, { posicion: ['x', 'v', 'k', 'i', 'h', 'g', 'f','l'] }, { posicion: ['w', 'aa', 'ac', 'am', 'q', 'p','nlg'] }, { posicion: ['j', 'i', 'h', 'g', 'f','l'] }, { posicion: ['g', 'f', 'l'] }],
+    [{ posicion: ['ae', 'a'] }, { posicion: ['ae', 'b', 'c'] }, { posicion: ['p', 'q', 'am', 'ad'] }, { posicion: ['0'] }, { posicion: ['ad', 'ac', 'aa'] }, { posicion: ['ad', 'ac', 'ab'] }, { posicion: ['z', 'ag', 'af'] }, { posicion: ['y', 'z', 'ag', 'af'] }, { posicion: ['w', 'aa', 'ac', 'ad','nlg'] }, { posicion: ['j', 'k', 'v', 'w', 'aa', 'ac', 'ad','nlg'] }, { posicion: ['ah', 'n', 'ak', 'ab', 'ac', 'ad'] }],
+    [{ posicion: ['aa', 'ac', 'ad', 'ae', 'a'] }, { posicion: ['c', 'r', 's', 'ab', 'aa'] }, { posicion: ['p', 'q', 'am', 'ac', 'aa'] }, { posicion: ['ad', 'ac', 'aa'] }, { posicion: ['0'] }, { posicion: ['aa', 'ab'] }, { posicion: ['aa', 'an', 'z'] }, { posicion: ['x', 'w','nlg'] }, { posicion: ['w','nlg'] }, { posicion: ['j', 'k', 'v', 'w','nlg'] }, { posicion: ['ah', 'aj', 'u', 'w'] }],
     [{ posicion: ['s', 'r', 'b', 'a'] }, { posicion: ['c', 'r', 's'] }, { posicion: ['p', 'q', 's'] }, { posicion: ['ad', 'ac', 'ab'] }, { posicion: ['aa', 'ab'] }, { posicion: ['0'] }, { posicion: ['ab', 'an', 'z'] }, { posicion: ['t', 'u', 'x'] }, { posicion: ['t', 'u'] }, { posicion: ['j', 'k', 'v', 'u', 't'] }, { posicion: ['ah', 'aj', 't'] }],
     [{ posicion: ['z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['z', 'an', 'ab', 's', 'q', 'p', 'e', 'd'] }, { posicion: ['z', 'an', 'ab', 's', 'q', 'p'] }, { posicion: ['z', 'ag', 'af'] }, { posicion: ['aa', 'an', 'z'] }, { posicion: ['ab', 'an', 'z'] }, { posicion: ['0'] }, { posicion: ['y'] }, { posicion: ['x', 'y'] }, { posicion: ['j', 'k', 'v', 'x', 'y'] }, { posicion: ['h', 'i', 'k', 'v', 'x', 'y'] }],
-    [{ posicion: ['y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['x', 'v', 'k', 'i', 'h', 'g', 'f', 'e', 'd'] }, { posicion: ['x', 'v', 'k', 'i', 'h', 'g', 'f'] }, { posicion: ['y', 'z', 'ag', 'af'] }, { posicion: ['x', 'w','nlg'] }, { posicion: ['t', 'u', 'x'] }, { posicion: ['y'] }, { posicion: ['0'] }, { posicion: ['x'] }, { posicion: ['j', 'k', 'v', 'x'] }, { posicion: ['h', 'i', 'k', 'v', 'x'] }],
-    [{ posicion: ['x', 'y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['w', 'aa', 'ac', 'am', 'r', 'c'] }, { posicion: ['w', 'aa', 'ac', 'am', 'q', 'p'] }, { posicion: ['w', 'aa', 'ac', 'ad'] }, { posicion: ['w'] }, { posicion: ['t', 'u'] }, { posicion: ['x', 'y'] }, { posicion: ['x'] }, { posicion: ['0'] }, { posicion: ['v', 'k', 'j'] }, { posicion: ['h', 'i', 'k', 'v'] }],
-    [{ posicion: ['j', 'k', 'v', 'x', 'y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['j', 'i', 'h', 'g', 'f', 'e', 'd'] }, { posicion: ['j', 'i', 'h', 'g', 'f'] }, { posicion: ['j', 'k', 'v', 'w', 'aa', 'ac', 'ad'] }, { posicion: ['j', 'k', 'v', 'w','nlg'] }, { posicion: ['j', 'k', 'v', 'u', 't'] }, { posicion: ['j', 'k', 'v', 'x', 'y'] }, { posicion: ['j', 'k', 'v', 'x'] }, { posicion: ['v', 'k', 'j'] }, { posicion: ['0'] }, { posicion: ['h', 'i', 'j'] }],
-    [{ posicion: ['g', 'f', 'e', 'd', 'c', 'b', 'a'] }, { posicion: ['g', 'f', 'e', 'd'] }, { posicion: ['g', 'f', 'p','l'] }, { posicion: ['ah', 'n', 'ak', 'ab', 'ac', 'ad'] }, { posicion: ['ah', 'aj', 'u', 'w'] }, { posicion: ['ah', 'aj', 't'] }, { posicion: ['h', 'i', 'k', 'v', 'x', 'y'] }, { posicion: ['h', 'i', 'k', 'v', 'x'] }, { posicion: ['h', 'i', 'k', 'v'] }, { posicion: ['h', 'i', 'j'] }, { posicion: ['0'] }],
+    [{ posicion: ['y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['x', 'v', 'k', 'i', 'h', 'g', 'f', 'e', 'd','l'] }, { posicion: ['x', 'v', 'k', 'i', 'h', 'g', 'f','l'] }, { posicion: ['y', 'z', 'ag', 'af'] }, { posicion: ['x', 'w','nlg'] }, { posicion: ['t', 'u', 'x'] }, { posicion: ['y'] }, { posicion: ['0'] }, { posicion: ['x'] }, { posicion: ['j', 'k', 'v', 'x'] }, { posicion: ['h', 'i', 'k', 'v', 'x'] }],
+    [{ posicion: ['x', 'y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['w', 'aa', 'ac', 'am', 'r', 'c','nlg'] }, { posicion: ['w', 'aa', 'ac', 'am', 'q', 'p','nlg'] }, { posicion: ['w', 'aa', 'ac', 'ad','nlg'] }, { posicion: ['w','nlg'] }, { posicion: ['t', 'u'] }, { posicion: ['x', 'y'] }, { posicion: ['x'] }, { posicion: ['0'] }, { posicion: ['v', 'k', 'j'] }, { posicion: ['h', 'i', 'k', 'v'] }],
+    [{ posicion: ['j', 'k', 'v', 'x', 'y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['j', 'i', 'h', 'g', 'f', 'e', 'd','l'] }, { posicion: ['j', 'i', 'h', 'g', 'f','l','nlg'] }, { posicion: ['j', 'k', 'v', 'w', 'aa', 'ac', 'ad','nlg'] }, { posicion: ['j', 'k', 'v', 'w','nlg'] }, { posicion: ['j', 'k', 'v', 'u', 't'] }, { posicion: ['j', 'k', 'v', 'x', 'y'] }, { posicion: ['j', 'k', 'v', 'x'] }, { posicion: ['v', 'k', 'j'] }, { posicion: ['0'] }, { posicion: ['h', 'i', 'j'] }],
+    [{ posicion: ['g', 'f', 'e', 'd', 'c', 'b', 'a','l'] }, { posicion: ['g', 'f', 'e', 'd','l'] }, { posicion: ['g', 'f','l'] }, { posicion: ['ah', 'n', 'ak', 'ab', 'ac', 'ad'] }, { posicion: ['ah', 'aj', 'u', 'w'] }, { posicion: ['ah', 'aj', 't'] }, { posicion: ['h', 'i', 'k', 'v', 'x', 'y'] }, { posicion: ['h', 'i', 'k', 'v', 'x'] }, { posicion: ['h', 'i', 'k', 'v'] }, { posicion: ['h', 'i', 'j'] }, { posicion: ['0'] }],
 
 
 
@@ -341,6 +341,20 @@ const Juego_Mapa = ({ navigation,route }) => {
       console.log(estado8+'=>'+estadoT8);
       console.log(estado9+'=>'+estadoT9);
       console.log(estado10+'=>'+estadoT10);
+  }
+  const marcarNumeroLocalidad=(numeroLocalidad)=>{
+     
+               
+                 if(posicionesNumericas.findIndex(element => element ===numeroLocalidad)==-1)
+                 {
+                  return ''; //console.log('no esta en el array1')//array1.push(item) //estadoCx.push(item)
+                 }
+            else
+                 {
+                  return posicionesNumericas.findIndex(element => element ===numeroLocalidad);
+                  //console.log('esta en el array1') // NO AGREGAR AL ARRAY1 principal
+                 };
+  
   }
   const marcarRutaEstado =(estadox1,estadox2)=>{
     //const array1 = [1, 2, 3, 4, 5];//estado 1    estadoCx1
@@ -645,96 +659,114 @@ else
           }
         </>
         <View style={{
-          backgroundColor: 'green',
+          backgroundColor: '#B5B5BA',
           alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
           borderRadius: 30 / 2, height: 30, width: 30,
-          top: -30, left: 640, zIndex: 12
+          top: -40, left: 653, zIndex: 12
         }}>
-          <TouchableOpacity onPress={() => { funcionnOpacity2('zapatero');}}>
-            <Text style={{ fontSize: 10 }}> zapatero </Text>
+          <TouchableOpacity style={{borderRadius: 30 / 2, height: 30, width: 30,}} onPress={() => { funcionnOpacity2('zapatero');}}>
+            <Text style={{ fontSize: 18 ,textAlign:'center'}}>  
+            {marcarNumeroLocalidad(9)}
+            </Text>
           </TouchableOpacity>
 
         </View>
         <View style={{
-          backgroundColor: 'green',
+          backgroundColor: '#B5B5BA',
           alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
           borderRadius: 30 / 2, height: 30, width: 30,
-          top: -96, left: 535, zIndex: 12
+          top: -96, left: 527, zIndex: 12
         }}>
-          <TouchableOpacity onPress={() => { funcionnOpacity2('correo') }}>
-            <Text style={{ fontSize: 10 }}>CORREO</Text>
+          <TouchableOpacity style={{borderRadius: 30 / 2, height: 30, width: 30,}} onPress={() => { funcionnOpacity2('correo') }}>
+          <Text style={{ fontSize: 18 ,textAlign:'center'}}>  
+            {marcarNumeroLocalidad(10)}
+             </Text>
           </TouchableOpacity>
 
         </View>
         <View style={{
-          backgroundColor: 'green',
+          backgroundColor: '#B5B5BA',
           alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
           borderRadius: 30 / 2, height: 30, width: 30,
-          top: -66, left: 342, zIndex: 12
+          top: -73, left: 340, zIndex: 12
         }}>
-          <TouchableOpacity onPress={() => { funcionnOpacity2('cafe') }}>
-            <Text style={{ fontSize: 10 }}>CAFE</Text>
+          <TouchableOpacity style={{borderRadius: 30 / 2, height: 30, width: 30,}} onPress={() => { funcionnOpacity2('cafe') }}>
+          <Text style={{ fontSize: 18 ,textAlign:'center'}}>  
+            {marcarNumeroLocalidad(2)}
+            </Text>
           </TouchableOpacity>
         </View>
         <View style={{
-          backgroundColor: 'green',
+          backgroundColor: '#B5B5BA',
           alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
           borderRadius: 30 / 2, height: 30, width: 30,
-          top: -66, left: 258, zIndex: 12
+          top: -62, left: 252, zIndex: 12
         }}>
-          <TouchableOpacity onPress={() => { funcionnOpacity2('almacen') }}>
-            <Text style={{ fontSize: 10 }}>ALMACEN</Text>
+          <TouchableOpacity style={{borderRadius: 30 / 2, height: 30, width: 30,}} onPress={() => { funcionnOpacity2('almacen') }}>
+          <Text style={{ fontSize: 18 ,textAlign:'center'}}>  
+            {marcarNumeroLocalidad(1)}
+             </Text>
           </TouchableOpacity>
         </View>
         <View style={{
-          backgroundColor: 'green',
+          backgroundColor: '#B5B5BA',
           alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
           borderRadius: 30 / 2, height: 30, width: 30,
-          top: -73, left: 462, zIndex: 12
+          top: -69, left: 461, zIndex: 12
         }}>
-          <TouchableOpacity onPress={() => { funcionnOpacity2('oficina') }}>
-            <Text style={{ fontSize: 10 }}>OFICINA</Text>
+          <TouchableOpacity style={{borderRadius: 30 / 2, height: 30, width: 30,}} onPress={() => { funcionnOpacity2('oficina') }}>
+          <Text style={{ fontSize: 18 ,textAlign:'center'}}>  
+            {marcarNumeroLocalidad(5)}
+             </Text>
           </TouchableOpacity>
         </View>
         <View style={{
-          backgroundColor: 'green',
+          backgroundColor: '#B5B5BA',
           alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
           borderRadius: 30 / 2, height: 30, width: 30,
-          top: -66, left: 650, zIndex: 12
+          top: -78, left: 643, zIndex: 12
         }}>
-          <TouchableOpacity onPress={() => { funcionnOpacity2('estacion') }}>
-            <Text style={{ fontSize: 10 }}>ESTACION</Text>
+          <TouchableOpacity style={{borderRadius: 30 / 2, height: 30, width: 30,}} onPress={() => { funcionnOpacity2('estacion') }}>
+          <Text style={{ fontSize: 18 ,textAlign:'center'}}>  
+            {marcarNumeroLocalidad(8)}
+             </Text>
           </TouchableOpacity>
         </View>
         <View style={{
-          backgroundColor: 'green',
+          backgroundColor: '#B5B5BA',
           alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
           borderRadius: 30 / 2, height: 30, width: 30,
-          top: -46, left: 650, zIndex: 12
+          top: -44, left: 647, zIndex: 12
         }}>
-          <TouchableOpacity onPress={() => { funcionnOpacity2('kiosko') }}>
-            <Text style={{ fontSize: 10 }}>KIOSKO</Text>
+          <TouchableOpacity style={{borderRadius: 30 / 2, height: 30, width: 30,}} onPress={() => { funcionnOpacity2('kiosko') }}>
+          <Text style={{ fontSize: 18 ,textAlign:'center'}}>  
+            {marcarNumeroLocalidad(7)}
+            </Text>
           </TouchableOpacity>
 
         </View>
         <View style={{
-          backgroundColor: 'green',
+          backgroundColor: '#B5B5BA',
           alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
           borderRadius: 30 / 2, height: 30, width: 30,
-          top: -98, left: 520, zIndex: 12
+          top: -102, left: 520, zIndex: 12
         }}>
-          <TouchableOpacity onPress={() => { funcionnOpacity2('amiga') }}>
-            <Text style={{ fontSize: 10 }}>AMIGA</Text>
+          <TouchableOpacity style={{borderRadius: 30 / 2, height: 30, width: 30,}} onPress={() => { funcionnOpacity2('amiga') }}>
+          <Text style={{ fontSize: 18 ,textAlign:'center'}}>  
+            {marcarNumeroLocalidad(4)}
+            </Text>
           </TouchableOpacity>
         </View>
         <View style={{
-          backgroundColor: 'green',
+          backgroundColor: '#B5B5BA',
           alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
           borderRadius: 30 / 2, height: 30, width: 30,
-          top: -45, left: 570, zIndex: 12
+          top: -54, left: 568, zIndex: 12
         }}>
-          <TouchableOpacity onPress={() => { funcionnOpacity2('libreria') }}>
-            <Text style={{ fontSize: 10 }}>LIBRERIA</Text>
+          <TouchableOpacity style={{borderRadius: 30 / 2, height: 30, width: 30,}} onPress={() => { funcionnOpacity2('libreria') }}>
+          <Text style={{ fontSize: 18 ,textAlign:'center'}}>  
+            {marcarNumeroLocalidad(6)}
+            </Text>
           </TouchableOpacity>
 
         </View>
@@ -749,13 +781,15 @@ else
 
       </View>
       <View style={{
-        backgroundColor: 'green',
+        backgroundColor: '#B5B5BA',
         alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
         borderRadius: 30 / 2, height: 30, width: 30,
-        top: 240, left: 390, zIndex: 20
+        top: 233, left: 380, zIndex: 20
       }}>
-        <TouchableOpacity style={{}} onPress={() => { funcionnOpacity2('panaderia') }}>
-          <Text style={{ fontSize: 10 }}>panaderia</Text>
+        <TouchableOpacity style={{borderRadius: 30 / 2, height: 30, width: 30,}} onPress={() => { funcionnOpacity2('panaderia') }}>
+        <Text style={{ fontSize: 18 ,textAlign:'center'}}>  
+          {marcarNumeroLocalidad(3)}
+              </Text>
         </TouchableOpacity>
 
       </View>

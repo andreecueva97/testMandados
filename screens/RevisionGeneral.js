@@ -76,9 +76,6 @@ const RevisionGeneral = ({ navigation, route }) => {
               </View>
         </View>
       </View>
-      {/* <View style={{ flexDirection: 'row', width: Dimensions.get('window').width, justifyContent: "center", alignItems: "center" }}>
-        <Text style={{ textAlign: 'center', fontSize: 3 }}></Text>
-      </View> */}
       <View style={{ color: 'blue', height: 300, width: Dimensions.get('window').width, flexDirection: 'row' ,borderTop:3,borderBottom:3}}>
         <FlatList //lista de localidades en vista con sus nombres y ids y tiempo y posiciones de haber ido
           //data={realm.objects('Juego')}
@@ -120,10 +117,6 @@ const RevisionGeneral = ({ navigation, route }) => {
         <Text style={{ textAlign: 'center', fontSize: 8 }}></Text>
       </View>
       <View
-        //style={{
-        // alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3,
-        // marginBottom: 10, width: Dimensions.get('window').width / 2, left: '4%', height: 100
-        //}}
         style={[styles.inicio_Logo, { width: Dimensions.get('window').width, }]}
       >
         <TouchableOpacity
@@ -161,14 +154,14 @@ const RevisionGeneral = ({ navigation, route }) => {
           visible={modalVisible}
           onRequestClose={() => { Alert.alert("Modal fue cerrado."); }}
         >
-          <View style={{ zIndex: 10, left: 1, top: 300, backgroundColor: 'white' }}>
+          <View style={{ zIndex: 10, left: 1, top:'15%', backgroundColor: 'white' }}>
             <View style={{}}>
-              <Text style={{}}>Esta tarea consiste en hacer varios mandados. Tenés que salir de tu hogar a las 9:15 hs., hacer varios mandados o diligencias y estar de regreso a las 13:00 hs. Para recorrer el camino de tu hogar a la estación, se tardan 30 minutos. La oficina donde se pagan los impuestos cierra a las 10 hs. Los negocios y el correo cierran a las 12:00 hs. y la panadería abre después de las 11:00 hs. Tenés que hacer las siguientes tareas</Text>
+              <Text style={{fontSize:25}}>Esta tarea consiste en hacer varios mandados. Tenés que salir de tu hogar a las 9:15 hs., hacer varios mandados o diligencias y estar de regreso a las 13:00 hs. Para recorrer el camino de tu hogar a la estación, se tardan 30 minutos. La oficina donde se pagan los impuestos cierra a las 10 hs. Los negocios y el correo cierran a las 12:00 hs. y la panadería abre después de las 11:00 hs. Tenés que hacer las siguientes tareas</Text>
               <TouchableHighlight
                 style={{ backgroundColor: "#34495E" }}
                 onPress={() => { setModalVisible(!modalVisible); }}
               >
-                <Text style={{}}>continuar</Text>
+                <Text style={{fontSize:25}}>continuar</Text>
               </TouchableHighlight>
             </View>
           </View>
