@@ -11,6 +11,7 @@ import Datos from './screens/Datos.js';
  import RevisionGeneral from './screens/RevisionGeneral';
 import Juego_Mapa from './screens/Juego_Mapa';
  import Juego_Recorrido from './screens/Juego_Recorrido';
+ import Puntuaciones from './screens/Puntuaciones';
  
  import Instrucciones from './screens/Instrucciones';
 const Stack= createStackNavigator();
@@ -25,6 +26,7 @@ const App= () => {
           <Stack.Screen name="Juego_Mapa" component={Juego_Mapa} />
           <Stack.Screen name="Datos" component={Datos} />
           <Stack.Screen name="Revision_General" component={RevisionGeneral} /> 
+          <Stack.Screen name="Puntuaciones" component={Puntuaciones} /> 
           <Stack.Screen name="Juego_Recorrido" component={Juego_Recorrido} /> 
           <Stack.Screen name="Juego_Instrucciones" component={Instrucciones} />
         </Stack.Navigator>

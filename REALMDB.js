@@ -1,19 +1,6 @@
 'use strict';
-
 import Realm from 'realm';
 
-
-// export class Imagee extends Realm.Object {}//DOG
-// Imagee.schema = {
-//     name: 'Imagee',
-//     properties: {
-//       height: 'int', 
-//       mime: 'string', 
-//       uri: 'string', 
-//       width:'int'
-//     },
-// };
-///////////////////////////////////////////////////////////////
 export class Juego extends Realm.Object {}//DONACION
 Juego.schema = {
     name: 'Juego',
@@ -26,6 +13,38 @@ Juego.schema = {
       posicionesNumericas:'int[]'
     },
 };
+export class User extends Realm.Object {}//PERSONS  USERS
+User.schema = {
+    name: 'User',
+    properties: {
+      id: 'int',
+      name: 'string',
+      apellido:'string',
+      edad:'string',
+      dni:'string',
+      //listDogs:'string[]',
+      //listJuegos:{type: 'list', objectType: 'Juego'},
+     // imagen:'Imagee'       // una persona loggeada debe tener una foto
+    },
+};
+export const version3 ={
+  path:'version6.realm',
+  schema:[User,Juego],
+  schemaVersion:5,
+};
+export default new Realm(version3);
+// export class Imagee extends Realm.Object {}//DOG
+// Imagee.schema = {
+//     name: 'Imagee',
+//     properties: {
+//       height: 'int', 
+//       mime: 'string', 
+//       uri: 'string', 
+//       width:'int'
+//     },
+// };
+///////////////////////////////////////////////////////////////
+
 //////////////////////////////////////////////////////////////
 
 //---------------------------------
@@ -47,20 +66,7 @@ Juego.schema = {
 // };
 
 //////////////////////////////////////
-export class User extends Realm.Object {}//PERSONS  USERS
-User.schema = {
-    name: 'User',
-    properties: {
-      id: 'int',
-      name: 'string',
-      apellido:'string',
-      edad:'string',
-      dni:'string',
-      //listDogs:'string[]',
-      //listJuegos:{type: 'list', objectType: 'Juego'},
-     // imagen:'Imagee'       // una persona loggeada debe tener una foto
-    },
-};
+
 ///////////////////////////////////////
 // export const Schemaa = [Person, Dog];
 // export const databaseOptions = {
@@ -75,12 +81,7 @@ User.schema = {
 //   schema: heheh,
 //   schemaVersion:222,
 // };
-export const version3 ={
-  path:'version5.realm',
-  schema:[User,Juego],
-  schemaVersion:4,
-};
-export default new Realm(version3);
+
 //export default new Realm(heeeqSchema);
 //export default new Realm({schema: [AppSetting, Gps, ...], schemaVersion: 0});
 

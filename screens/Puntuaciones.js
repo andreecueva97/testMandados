@@ -1,3 +1,4 @@
+//https://medium.com/geekculture/how-to-use-realm-local-db-in-react-native-4e9f9dfcbc53
 import React, { useState } from 'react';
 import {
   Dimensions, Modal,
@@ -6,39 +7,26 @@ import {
   View
 } from 'react-native';
 import Realm from 'realm';
-
-// import { YellowBox } from 'react-native';
-
-// YellowBox.ignoreWarnings([
-//   'Non-serializable values were found in the navigation state',
-// ]);
-const RevisionGeneral = ({ navigation, route }) => {
+const Puntuaciones = ({ navigation}) => {
 
   const [shouldShow, setShouldShow] = useState(false);
   const [filtrarPor, setFiltrarPor] = useState('filtrar por');
   const [modalVisible, setModalVisible] = useState(false);
-  console.log('juego id //////////////////////////');
   let realm;
   
   realm = new Realm({ path:'version6.realm' });
- 
-  console.log(route.params.juegoId);
-
-  //console.log(realm.objects('Juego'));
-  const [juego, setJuego] = useState(realm.objects('Juego').filtered('id=' + route.params.juegoId.toString())[0].posiciones);
-  const [juegoTiempo, setJuegoTiempo] = useState(realm.objects('Juego').filtered('id=' + route.params.juegoId.toString())[0].posicionesTiempo);
-  //console.log(realm.objects('User'));
-  // console.log(route.params);
-  // console.log('comparar siguientes-----------------------------');
-  // console.log(realm.objects('Juego').filtered(route.params.juego.id)[0]);
-  // console.log(realm.objects('Juego').filtered('id=7')[0]);
-  //realm.objects('Dogo').filtered('id=2')[0];
-  console.log(juegoTiempo);
-  console.log(juego);
+  console.log('Juegos en Puntuaciones----------------------------------');
+  console.log(realm.objects('Juego'));
+  console.log('Usuarios en Puntuaciones----------------------------------');
+  console.log(realm.objects('User'));
+  //console.log(route.params.juegoId);
+  //const [juego, setJuego] = useState(realm.objects('Juego').filtered('id=' + route.params.juegoId.toString())[0].posiciones);
+  //const [juegoTiempo, setJuegoTiempo] = useState(realm.objects('Juego').filtered('id=' + route.params.juegoId.toString())[0].posicionesTiempo);
+  let juegoRealizadosData =  realm.objects('Juego') ;
   return (
     <View style={styles.inicio_View}>
       <View style={{ flexDirection: 'row', width: Dimensions.get('window').width, justifyContent: "center", alignItems: "center" }}>
-        <Text style={{ textAlign: 'center', fontSize: 30 }}>REVISION GENERAL</Text>
+        <Text style={{ textAlign: 'center', fontSize: 30 }}>PUNTUACIONES</Text>
       </View>
       <View style={{ flexDirection: 'row', width: Dimensions.get('window').width, justifyContent: "center", alignItems: "center" }}>
         <Text style={{ textAlign: 'center', fontSize: 3 }}></Text>
@@ -72,25 +60,35 @@ const RevisionGeneral = ({ navigation, route }) => {
         
         <View style={{ fontSize: 30, backgroundColor: '#3671A3', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row' }}>
               <View>
-              <Text style={{ textAlign: 'center', width: Dimensions.get('window').width / 4, backgroundColor: 'white', fontSize: 25, justifyContent: "center", alignItems: "center" }}>Posicion</Text>
+              <Text style={{ textAlign: 'center', width: Dimensions.get('window').width / 4, backgroundColor: 'white', fontSize: 25, justifyContent: "center", alignItems: "center" }}>Id</Text>
               </View>
               <View>
-              <Text style={{ textAlign: 'center', width: Dimensions.get('window').width / 2, backgroundColor: 'white', fontSize: 25, justifyContent: "center", alignItems: "center" }}>Localidad</Text>
+              <Text style={{ textAlign: 'center', width: Dimensions.get('window').width / 2, backgroundColor: 'white', fontSize: 25, justifyContent: "center", alignItems: "center" }}>DNI</Text>
               </View>
               <View>
               <Text style={{ textAlign: 'center', width: Dimensions.get('window').width / 4, backgroundColor: 'white', fontSize: 25, justifyContent: "center", alignItems: "center" }}>Tiempo</Text>
               </View>
         </View>
       </View>
-      <View style={{ color: 'blue', height: 300, width: Dimensions.get('window').width, flexDirection: 'row' ,borderTop:3,borderBottom:3}}>
+      <View style={{ color: 'blue', height: 400, width: Dimensions.get('window').width, flexDirection: 'row' ,borderTop:3,borderBottom:3}}>
         <FlatList //lista de localidades en vista con sus nombres y ids y tiempo y posiciones de haber ido
           //data={realm.objects('Juego')}
-          data={juego}
+          data={juegoRealizadosData}
           style={{ fontSize: 30, color: 'white' }}
           renderItem={({ item }) =>
             <View style={{ fontSize: 30, backgroundColor: '#3671A3', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', justifyContent: "center" }}>
               {/* {console.log(item), console.log(juego.findIndex((element) => element === item))} */}
-              <View style={{}} >
+              <Text>
+              {item.tipo}
+              
+              </Text>
+              <Text>
+              {item.id.toString()+'  juego|'+item.user.name+'  name|'+item.user.edad+'  edad|'+item.user.dni+'  dni|'}
+
+
+              </Text>
+              
+              {/* <View style={{}} >
                 <Text style={{textAlign: 'center',justifyContent: "center", alignItems: "center", width: Dimensions.get('window').width / 4, fontSize: 30, color: '#371B1F', top: 4, backgroundColor: '#AABECF' }}>
                   {(juego.findIndex((element) => element === item))}
                 </Text>
@@ -104,21 +102,24 @@ const RevisionGeneral = ({ navigation, route }) => {
                 <Text style={{textAlign: 'center', justifyContent: "center", alignItems: "center",width: Dimensions.get('window').width / 4, fontSize: 30, color: '#371B1F', top: 4, backgroundColor: '#AABECF' }}>
                   {juegoTiempo[(juego.findIndex((element) => element === item))]}
                 </Text>
-              </View>
+              </View> */}
             </View>
 
           }
-          keyExtractor={(item) => item.toString()}
+        //  keyExtractor={(item) => item.toString()}
+         keyExtractor={(item) =>  item.id + "_" +item.tipo +"_"+item.user+"_"+item.posiciones+"_"+item.posicionesTiempo+"_"+item.posicionesNumericas}
+        // id: 'int',
+      // tipo:'int',     //posiciones de localidades en la partida
+      // user:'User',
+      // posiciones:'string[]',
+      // posicionesTiempo:'string[]',
+      // posicionesNumericas:'int[]'
         />
       </View>
       <View style={{ flexDirection: 'row', width: Dimensions.get('window').width, justifyContent: "center", alignItems: "center" }}>
         <Text style={{ textAlign: 'center', fontSize: 8 }}></Text>
       </View>
-      <View style={[ styles.inicio_Logo,{ width: Dimensions.get('window').width,}]}>
-
-        <Text style={[styles.inicio_Logo, { backgroundColor: '#B5B5BA', borderRadius: 10 }]}>Tu puntuacion: 10.Gracias por participar</Text>
-
-      </View>
+      
       <View style={{ flexDirection: 'row', width: Dimensions.get('window').width, justifyContent: "center", alignItems: "center" }}>
         <Text style={{ textAlign: 'center', fontSize: 8 }}></Text>
       </View>
@@ -129,10 +130,10 @@ const RevisionGeneral = ({ navigation, route }) => {
           style={[styles.inicio_Button, { height: 60, }]}
           onPress={() => { navigation.navigate('Inicio') }}
         >
-          <Text style={{ fontSize: 25 }}>Terminar</Text>
+          <Text style={{ fontSize: 25 }}>Inicio</Text>
         </TouchableOpacity>
       </View>
-      <View style={{
+      {/* <View style={{
         alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3, top: '3%',
         marginBottom: 10, width: Dimensions.get('window').width, position: 'relative', height: 100, fontSize: 30
       }}>
@@ -142,10 +143,10 @@ const RevisionGeneral = ({ navigation, route }) => {
           }]}
           onPress={() => { navigation.navigate('Datos') }}
         >
-          <Text style={{ fontSize: 25 }}>Repetir Juego</Text>
+          <Text style={{ fontSize: 25 }}>Iniciar Juego</Text>
         </TouchableOpacity>
-      </View>
-      <View style={[styles.RevisionGeneral_Button_info, { left: '2%' }]}>
+      </View> */}
+      <View style={[styles.Puntuaciones_Button_info, { left: '2%' }]}>
         <TouchableOpacity
           style={{ justifyContent: 'center', borderRadius: 40 / 2, height: 40, width: 40, borderWidth: 3, borderColor: 'lightgrey' }}
           onPress={() => { setModalVisible(!modalVisible); }}
@@ -179,7 +180,7 @@ const RevisionGeneral = ({ navigation, route }) => {
 
 
 const styles = StyleSheet.create({
-  RevisionGeneral_Button_info: {
+  Puntuaciones_Button_info: {
     backgroundColor: 'white', alignContent: 'center',
     flexDirection: 'row',
     borderRadius: 40 / 2,
@@ -228,4 +229,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RevisionGeneral;
+export default Puntuaciones;

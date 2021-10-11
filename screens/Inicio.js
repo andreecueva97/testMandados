@@ -37,7 +37,7 @@ const Inicio = ({ navigation }) => {
       }}>
         <TouchableOpacity
           style={styles.inicio_Button}
-          onPress={() => { navigation.navigate('Revision_General', { juego: realm.objects('Juego')[realm.objects('Juego').length - 1] }) }}
+          onPress={() => { navigation.navigate('Puntuaciones') }}
         >
           <Text style={styles.inicio_TextButton}>Puntuaciones</Text>
         </TouchableOpacity>
