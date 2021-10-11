@@ -6,8 +6,8 @@ import Realm from 'realm';
 
 const Juego_Mapa = ({ navigation,route }) => {
   //const {navigation} = this.props;
-  const [minutoMapa, setMinutoMapa] = useState(10);
-  const [segundoMapa, setSegundoMapa] = useState(3);
+  const [minutoMapa, setMinutoMapa] = useState(0);//era 10
+  const [segundoMapa, setSegundoMapa] = useState(45);
   console.log('============================SCREEN JUEGO_MAPA');
   console.log('USER===>'+route.params.user.id);
   console.log('USER===>'+route.params.user.name);
@@ -19,18 +19,31 @@ const Juego_Mapa = ({ navigation,route }) => {
   realm = new Realm({ path:'version6.realm' });
   useEffect(() => {
     const timerId = setInterval(() => {
-      if (segundoMapa <= 0) {
-        if (minutoMapa <= 0) {
-
-          setMinutoMapa(minuto => minuto - 1)
-          setSegundoMapa(59)
-        }
-        else {
-          setMinutoMapa(minuto => minuto - 1)
-          setSegundoMapa(59)
-        }
+      if (segundoMapa < 59) {
+        setSegundoMapa(S => S + 1);
       }
-      else setSegundoMapa(s => s - 1)
+      else {
+        setMinutoMapa(minutoMapa => minutoMapa + 1);
+        setSegundoMapa(0)
+      }
+      // if (minutoMapa == 3) {
+      //   if (segundoMapa == 0) {
+      //     setColor(colorTexto => "#D71313")
+      //     setColorB(color => "red")
+
+      //   }
+      // }
+      // if (segundoMapa <= 0) {
+      //   if (minutoMapa <= 0) {
+      //     //setMinutoMapa(minuto => minuto + 1)
+      //     //setSegundoMapa(59)
+      //   }
+      //   else {
+      //     setMinutoMapa(minuto => minuto + 1)
+      //     setSegundoMapa(59)
+      //   }
+      // }
+      // else setSegundoMapa(s => s + 1)
     }, 1000)
     return () => clearInterval(timerId);
   }, [segundoMapa, minutoMapa]);

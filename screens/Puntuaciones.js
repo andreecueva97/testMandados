@@ -77,17 +77,8 @@ const Puntuaciones = ({ navigation}) => {
           style={{ fontSize: 30, color: 'white' }}
           renderItem={({ item }) =>
             <View style={{ fontSize: 30, backgroundColor: '#3671A3', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', justifyContent: "center" }}>
-              {/* {console.log(item), console.log(juego.findIndex((element) => element === item))} */}
-              {/* <Text>
-              {item.tipo}
-              
-              </Text>
-              <Text>
-              {item.id.toString()+'  juego|'+item.user.name+'  name|'+item.user.edad+'  edad|'+item.user.dni+'  dni|'}
-
-
-              </Text> */}
-              
+          
+              {console.log(item)}
               <View style={{backgroundColor: '#AABECF',height:70,top:4,textAlign: 'center',justifyContent: "center", alignItems: "center",}} >
                 <Text style={{textAlign: 'center',justifyContent: "center", alignItems: "center", width: Dimensions.get('window').width / 5, fontSize: 30, color: '#371B1F',  }}>
                   {/* {(juego.findIndex((element) => element === item))}
@@ -108,9 +99,17 @@ const Puntuaciones = ({ navigation}) => {
               </View>
               <View style={{backgroundColor: '#AABECF',height:70,top:4,textAlign: 'center',justifyContent: "center", alignItems: "center",}} >
                 <Text style={{textAlign: 'center', justifyContent: "center", alignItems: "center",width: Dimensions.get('window').width *( 1/5), fontSize: 30, color: '#371B1F',  backgroundColor: '#AABECF' }}>
-                  11:00
+                  {item.posicionesTiempo[10]}
                 </Text>
+                <TouchableOpacity
+          style={[styles.inicio_Button, { height: 10, width:10, backgroundColor:'white'}]}
+          onPress={() => { navigation.navigate('Juego_Mapa_Recorrido',{juegoId:item.id}) }}
+        >
+          <Text style={{ fontSize: 25 }}>mapa</Text>
+        </TouchableOpacity>
               </View>
+          
+                    
             </View>
 
           }

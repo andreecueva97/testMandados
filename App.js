@@ -14,6 +14,7 @@ import Juego_Mapa from './screens/Juego_Mapa';
  import Puntuaciones from './screens/Puntuaciones';
  
  import Instrucciones from './screens/Instrucciones';
+import Juego_Mapa_Recorrido from './screens/Juego_Mapa_Recorrido.js';
 const Stack= createStackNavigator();
 
 const App= () => {
@@ -24,6 +25,7 @@ const App= () => {
         <Stack.Navigator  screenOptions={{ headerShown: false}}>
           <Stack.Screen name="Inicio" component={Inicio} />
           <Stack.Screen name="Juego_Mapa" component={Juego_Mapa} />
+          <Stack.Screen name="Juego_Mapa_Recorrido" component={Juego_Mapa_Recorrido} />
           <Stack.Screen name="Datos" component={Datos} />
           <Stack.Screen name="Revision_General" component={RevisionGeneral} /> 
           <Stack.Screen name="Puntuaciones" component={Puntuaciones} /> 
