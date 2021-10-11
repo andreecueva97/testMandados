@@ -60,10 +60,10 @@ const Puntuaciones = ({ navigation}) => {
         
         <View style={{ fontSize: 30, backgroundColor: '#3671A3', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row' }}>
               <View>
-              <Text style={{ textAlign: 'center', width: Dimensions.get('window').width / 4, backgroundColor: 'white', fontSize: 25, justifyContent: "center", alignItems: "center" }}>Id</Text>
+              <Text style={{ textAlign: 'center', width: Dimensions.get('window').width / 4, backgroundColor: 'white', fontSize: 25, justifyContent: "center", alignItems: "center" }}>Juego</Text>
               </View>
               <View>
-              <Text style={{ textAlign: 'center', width: Dimensions.get('window').width / 2, backgroundColor: 'white', fontSize: 25, justifyContent: "center", alignItems: "center" }}>DNI</Text>
+              <Text style={{ textAlign: 'center', width: Dimensions.get('window').width / 2, backgroundColor: 'white', fontSize: 25, justifyContent: "center", alignItems: "center" }}>Usuario</Text>
               </View>
               <View>
               <Text style={{ textAlign: 'center', width: Dimensions.get('window').width / 4, backgroundColor: 'white', fontSize: 25, justifyContent: "center", alignItems: "center" }}>Tiempo</Text>
@@ -78,7 +78,7 @@ const Puntuaciones = ({ navigation}) => {
           renderItem={({ item }) =>
             <View style={{ fontSize: 30, backgroundColor: '#3671A3', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', justifyContent: "center" }}>
               {/* {console.log(item), console.log(juego.findIndex((element) => element === item))} */}
-              <Text>
+              {/* <Text>
               {item.tipo}
               
               </Text>
@@ -86,23 +86,31 @@ const Puntuaciones = ({ navigation}) => {
               {item.id.toString()+'  juego|'+item.user.name+'  name|'+item.user.edad+'  edad|'+item.user.dni+'  dni|'}
 
 
-              </Text>
+              </Text> */}
               
-              {/* <View style={{}} >
-                <Text style={{textAlign: 'center',justifyContent: "center", alignItems: "center", width: Dimensions.get('window').width / 4, fontSize: 30, color: '#371B1F', top: 4, backgroundColor: '#AABECF' }}>
-                  {(juego.findIndex((element) => element === item))}
+              <View style={{backgroundColor: '#AABECF',height:70,top:4,textAlign: 'center',justifyContent: "center", alignItems: "center",}} >
+                <Text style={{textAlign: 'center',justifyContent: "center", alignItems: "center", width: Dimensions.get('window').width / 5, fontSize: 30, color: '#371B1F',  }}>
+                  {/* {(juego.findIndex((element) => element === item))}
+                 */}
+                  {item.id.toString()}
                 </Text>
               </View>
-              <View >
-                <Text style={{ textAlign: 'center',justifyContent: "center", alignItems: "center",width: Dimensions.get('window').width / 2, fontSize: 30, color: '#371B1F', top: 4, backgroundColor: '#AABECF' }}>
-                  {item}
+              <View style={{backgroundColor: '#AABECF',height:70,top:4,textAlign: 'center',justifyContent: "center", alignItems: "center",}} >
+                <Text style={{ textAlign: 'center',justifyContent: "center", alignItems: "center",width: Dimensions.get('window').width *( 3/5), fontSize: 15, color: '#371B1F',  backgroundColor: '#AABECF' }}>
+                {'dni  '}{item.user.dni}
+                </Text>
+                <Text style={{ textAlign: 'center',justifyContent: "center", alignItems: "center",width: Dimensions.get('window').width *( 3/5), fontSize: 15, color: '#371B1F', backgroundColor: '#AABECF' }}>
+                  {item.user.apellido}{','}{item.user.name}
+                </Text>
+                <Text style={{ textAlign: 'center',justifyContent: "center", alignItems: "center",width: Dimensions.get('window').width *( 3/5), fontSize: 15, color: '#371B1F', backgroundColor: '#AABECF' }}>
+                {'edad  '}{item.user.edad}
                 </Text>
               </View>
-              <View >
-                <Text style={{textAlign: 'center', justifyContent: "center", alignItems: "center",width: Dimensions.get('window').width / 4, fontSize: 30, color: '#371B1F', top: 4, backgroundColor: '#AABECF' }}>
-                  {juegoTiempo[(juego.findIndex((element) => element === item))]}
+              <View style={{backgroundColor: '#AABECF',height:70,top:4,textAlign: 'center',justifyContent: "center", alignItems: "center",}} >
+                <Text style={{textAlign: 'center', justifyContent: "center", alignItems: "center",width: Dimensions.get('window').width *( 1/5), fontSize: 30, color: '#371B1F',  backgroundColor: '#AABECF' }}>
+                  11:00
                 </Text>
-              </View> */}
+              </View>
             </View>
 
           }
