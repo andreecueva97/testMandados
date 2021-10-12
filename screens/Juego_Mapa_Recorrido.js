@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Image, StyleSheet, Dimensions, Text, View, TouchableHighlight, Modal, Alert, } from 'react-native';
+import { Image, StyleSheet, Dimensions, Text, View, TouchableHighlight, Modal, Alert, FlatList } from 'react-native';
 import Clock from '../components/Clock';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Realm from 'realm';
 
 const Juego_Mapa_Recorrido = ({ navigation, route }) => {
     //const {navigation} = this.props;
-   // const [minutoMapa, setMinutoMapa] = useState(0);//era 10
+    // const [minutoMapa, setMinutoMapa] = useState(0);//era 10
     //const [segundoMapa, setSegundoMapa] = useState(45);
     console.log('============================SCREEN JUEGO_MAPA_Recorrido   ROUTE');
     //console.log(route.params.juegoId);
@@ -423,13 +423,13 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
         else {
             //SI ES EL ULTIMO ELEMENTO SELECCIONADO DEBERIA PODERSE DAR DE BAJA o sea borrarse el ARRAY si es que le doy click de vuelta
             if (posicionSiguiente == posiciones[posiciones.length - 1]) {
-            
+
             }
 
         }
-       // console.log('posiciones==> ' + posiciones);
+        // console.log('posiciones==> ' + posiciones);
         //console.log('posicioNum==> ' + posicionesNumericas);
-       // console.log("___________________________________________________");
+        // console.log("___________________________________________________");
     };
 
 
@@ -445,7 +445,8 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
             console.log(item);
         }
     });
-
+    const [juegoPosiciones, setJuego] = useState(realm.objects('Juego').filtered('id=' + route.params.juegoId.toString())[0].posiciones);
+    const [juegoTiempo, setJuegoTiempo] = useState(realm.objects('Juego').filtered('id=' + route.params.juegoId.toString())[0].posicionesTiempo);
     return (
         <View style={styles.inicio_View}>
             <View style={{ flex: 2, zIndex: 10, paddingTop: 1.5 }}>
@@ -456,7 +457,7 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
                     )
                     }
                 </>
-                <View style={[styles.LocalidadTouchable,{          top: -40, left: 653, zIndex: 12}]}> 
+                <View style={[styles.LocalidadTouchable, { top: -40, left: 653, zIndex: 12 }]}>
                     <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { }}>
                         <Text style={{ fontSize: 18, textAlign: 'center' }}>
                             {marcarNumeroLocalidad(9)}
@@ -464,8 +465,8 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
                     </TouchableOpacity>
 
                 </View>
-                <View style={[styles.LocalidadTouchable,{          top: -96, left: 527, zIndex: 12}]}> 
-              
+                <View style={[styles.LocalidadTouchable, { top: -96, left: 527, zIndex: 12 }]}>
+
                     <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { }}>
                         <Text style={{ fontSize: 18, textAlign: 'center' }}>
                             {marcarNumeroLocalidad(10)}
@@ -473,49 +474,49 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
                     </TouchableOpacity>
 
                 </View>
-                <View style={[styles.LocalidadTouchable,{       top: -73, left: 340, zIndex: 12}]}> 
+                <View style={[styles.LocalidadTouchable, { top: -73, left: 340, zIndex: 12 }]}>
                     <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { }}>
                         <Text style={{ fontSize: 18, textAlign: 'center' }}>
                             {marcarNumeroLocalidad(2)}
                         </Text>
                     </TouchableOpacity>
                 </View>
-                <View style={[styles.LocalidadTouchable,{   top: -62, left: 252, zIndex: 12}]}> 
+                <View style={[styles.LocalidadTouchable, { top: -62, left: 252, zIndex: 12 }]}>
                     <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { }}>
                         <Text style={{ fontSize: 18, textAlign: 'center' }}>
                             {marcarNumeroLocalidad(1)}
                         </Text>
                     </TouchableOpacity>
                 </View>
-                <View style={[styles.LocalidadTouchable,{   top: -69, left: 461, zIndex: 12}]}> 
+                <View style={[styles.LocalidadTouchable, { top: -69, left: 461, zIndex: 12 }]}>
                     <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { }}>
                         <Text style={{ fontSize: 18, textAlign: 'center' }}>
                             {marcarNumeroLocalidad(5)}
                         </Text>
                     </TouchableOpacity>
                 </View>
-                <View style={[styles.LocalidadTouchable,{      top: -78, left: 643, zIndex: 12}]}>  
+                <View style={[styles.LocalidadTouchable, { top: -78, left: 643, zIndex: 12 }]}>
                     <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { }}>
                         <Text style={{ fontSize: 18, textAlign: 'center' }}>
                             {marcarNumeroLocalidad(8)}
                         </Text>
                     </TouchableOpacity>
                 </View>
-                <View style={[styles.LocalidadTouchable,{ top: -44, left: 647, zIndex: 12 }]}> 
+                <View style={[styles.LocalidadTouchable, { top: -44, left: 647, zIndex: 12 }]}>
                     <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { }}>
                         <Text style={{ fontSize: 18, textAlign: 'center' }}>
                             {marcarNumeroLocalidad(7)}
                         </Text>
                     </TouchableOpacity>
                 </View>
-                <View  style={[styles.LocalidadTouchable,{  top: -102, left: 520, zIndex: 12 }]}> 
+                <View style={[styles.LocalidadTouchable, { top: -102, left: 520, zIndex: 12 }]}>
                     <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { }}>
                         <Text style={{ fontSize: 18, textAlign: 'center' }}>
                             {marcarNumeroLocalidad(4)}
                         </Text>
                     </TouchableOpacity>
                 </View>
-                <View style={[styles.LocalidadTouchable,{ top: -54, left: 568, zIndex: 12 }]}> 
+                <View style={[styles.LocalidadTouchable, { top: -54, left: 568, zIndex: 12 }]}>
                     <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { }}>
                         <Text style={{ fontSize: 18, textAlign: 'center' }}>
                             {marcarNumeroLocalidad(6)}
@@ -523,28 +524,60 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
                     </TouchableOpacity>
                 </View>
             </View>
-            <View style={[styles.LocalidadTouchable,{ top: 233, left: 380, zIndex: 20 }]}>
+            <View style={[styles.LocalidadTouchable, { top: 461, left: 380, zIndex: 20 }]}>
                 <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { }}>
                     <Text style={{ fontSize: 18, textAlign: 'center' }}>
                         {marcarNumeroLocalidad(3)}
                     </Text>
                 </TouchableOpacity>
             </View>
-            <View style={{ position: 'relative', zIndex: 10, top: 150, alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3, marginBottom: 10, left: -280 }}>
-                {/* <Clock minuto={minutoMapa} segundo={segundoMapa} /> */}
-                <View style={{
-                    width: 120, zIndex: 1,
-                    height: 120, textShadowRadius: 30,
-                    borderRadius: 120 / 2, backgroundColor: "green", justifyContent: 'center', alignItems: 'center', borderColor: 'lightgreen',
-                    borderWidth: 5
-                }}>
-                    <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+            <View style={{
+                zIndex: 10, top: 170, alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3,
+                marginBottom: 10, left: -277
+            }}>
+                <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                        <FlatList //lista de localidades en vista con sus nombres y ids y tiempo y posiciones de haber ido
+                            //data={realm.objects('Juego')}
 
+                            data={juegoPosiciones}
+                            style={{ fontSize: 0, color: 'white', width: 180, }}
+                            renderItem={({ item }) =>
+                                <View style={{ fontSize: 13, backgroundColor: '#3671A3', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', justifyContent: "center" }}>
+                                    {/* {console.log(item), console.log(juego.findIndex((element) => element === item))} */}
+                                    <View style={{}} >
+                                        <Text style={{ textAlign: 'center', justifyContent: "center", alignItems: "center", width: 40, fontSize: 15, color: '#371B1F', top: 4, backgroundColor: '#AABECF' }}>
+                                            {(juegoPosiciones.findIndex((element) => element === item))}
+                                        </Text>
+                                    </View>
+                                    <View >
+                                        <Text style={{ textAlign: 'center', justifyContent: "center", alignItems: "center", width: 40, fontSize: 15, color: '#371B1F', top: 4, backgroundColor: '#AABECF' }}>
+                                            {juegoTiempo[(juegoPosiciones.findIndex((element) => element === item))]}
+
+                                        </Text>
+                                    </View>
+                                </View>
+
+                            }
+                            keyExtractor={(item) => item.toString()}
+                        />
+                    </View>
+
+            </View>
+            <View style={{ position: 'relative', zIndex: 10, top: 160, alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3, marginBottom: 10, left: -280 }}>
+                {/* <Clock minuto={minutoMapa} segundo={segundoMapa} /> */}
+                <View style={{ zIndex: 1, alignContent: 'center', justifyContent: 'center', top: 20 }}>
+
+
+                </View>
+                <View style={{ width: 120, zIndex: 1, height: 120, textShadowRadius: 30, borderRadius: 120 / 2, backgroundColor: "green", justifyContent: 'center', alignItems: 'center', borderColor: 'lightgreen', borderWidth: 5 }}>
+                    <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                         <Text style={{ fontSize: 40, color: 'black' }}>
                             {juego.posicionesTiempo[10]}
                         </Text>
                     </View>
+                    <Text>FINALIZADO</Text>
                 </View>
+                
             </View>
 
             <View style={{ zIndex: 10, top: 150, alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3, marginBottom: 10, left: -277 }}>
@@ -559,13 +592,7 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
                 </TouchableOpacity>
             </View>
 
-            <View style={{
-                zIndex: 10, top: -110, alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3,
-                marginBottom: 10, left: -277
-            }}>
-                {/* informacion */}
-
-            </View>
+            
             <View style={[styles.RevisionGeneral_Button_Calle, { top: 41, zIndex: 10 }]}>
                 {/* <TouchableOpacity 
                 style={{justifyContent:'center',borderRadius: 40/2, height:40,width:40,borderWidth: 3,borderColor:'lightgrey'}}
@@ -601,13 +628,13 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
 
 
 const styles = StyleSheet.create({
-    LocalidadTouchable:{ 
+    LocalidadTouchable: {
         backgroundColor: '#B5B5BA',
-        alignContent: 'center', 
-        justifyContent: 'center', 
+        alignContent: 'center',
+        justifyContent: 'center',
         flexDirection: 'row',
-        borderRadius: 30 / 2, 
-        height: 30, 
+        borderRadius: 30 / 2,
+        height: 30,
         width: 30,
     },
     imagenMapa: { top: 350, left: 195, opacity: 1 },
