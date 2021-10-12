@@ -6,20 +6,17 @@ import Realm from 'realm';
 
 const Juego_Mapa_Recorrido = ({ navigation, route }) => {
     //const {navigation} = this.props;
-    const [minutoMapa, setMinutoMapa] = useState(0);//era 10
-    const [segundoMapa, setSegundoMapa] = useState(45);
+   // const [minutoMapa, setMinutoMapa] = useState(0);//era 10
+    //const [segundoMapa, setSegundoMapa] = useState(45);
     console.log('============================SCREEN JUEGO_MAPA_Recorrido   ROUTE');
-    console.log(route.params.juegoId);
-
+    //console.log(route.params.juegoId);
     // console.log('USER===>' + route.params.user.id);
     // console.log('USER===>' + route.params.user.name);
     // console.log('USER===>' + route.params.user.apellido);
     // console.log('USER===>' + route.params.user.edad);
     const [modalVisible, setModalVisible] = useState(false);
     let realm;
-
     realm = new Realm({ path: 'version6.realm' });
-
 
     const [posiciones, setPosiciones] = useState(['la casa']);
     const [estado0, setEstado0] = useState([]); const [estado1, setEstado1] = useState([]); const [estado2, setEstado2] = useState([]); const [estado3, setEstado3] = useState([]);
@@ -29,10 +26,7 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
     const [estadoC4, setEstadoC4] = useState([]); const [estadoC5, setEstadoC5] = useState([]); const [estadoC6, setEstadoC6] = useState([]); const [estadoC7, setEstadoC7] = useState([]);
     const [estadoC8, setEstadoC8] = useState([]); const [estadoC9, setEstadoC9] = useState([]); const [estadoC10, setEstadoC10] = useState([]); const [estadoC11, setEstadoC11] = useState([]);
     const [posicionesNumericas, setPosicionesNumericas] = useState([0]);
-    //[['la casa'],[],[],[],[],[],[],[],[],[],[]]
     const [estadoPosiciones, setEstadoPosiciones] = useState([['la casa']]);
-
-    //console.log(estadoPosiciones);
 
     const [matriz, setMatriz] = useState([
         [{ posicion: ['0'] }, { posicion: ['c', 'b', 'a'] }, { posicion: ['e', 'd', 'c', 'b', 'a'] }, { posicion: ['ae', 'a'] }, { posicion: ['aa', 'ac', 'ad', 'ae', 'a'] }, { posicion: ['s', 'r', 'b', 'a'] }, { posicion: ['z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['x', 'y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['j', 'k', 'v', 'x', 'y', 'z', 'ag', 'af', 'ae', 'a'] }, { posicion: ['g', 'f', 'e', 'd', 'c', 'b', 'a', 'l'] }],
@@ -99,15 +93,12 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
     );
 
     const funca = (a) => {
-
         let ia = images.map(el => (
             el.name === a ? { ...el, opacity: 1 } : el
         ));
-
         setImages(images => images.map(el => (
             el.name === a ? { ...el, opacity: 1 } : el
         )));
-
     };
     const getOc = (array, value) => {
         var count = 0;
@@ -147,60 +138,7 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
             posicionesNumericas.push(10);
         }
     }
-    // const [juegoId, setJuegoId] = useState(0);
-    // useEffect(() => {
-    //     // action on update of userId
-    //     setJuegoId(realm.objects('Juego').length + 1);
 
-    // }, [juegoId]);
-    // const agregarJuego_User = () => {
-    //     if (posicionesNumericas.length == 11) {
-    //         let timePosition = [];
-    //       //  estadoT0.map((item) => timePosition.push(item));
-    //       //  estadoT1.map((item) => timePosition.push(item));
-    //       //  estadoT2.map((item) => timePosition.push(item));
-    //      //   estadoT3.map((item) => timePosition.push(item));
-    //     //    estadoT4.map((item) => timePosition.push(item));
-    //       //  estadoT5.map((item) => timePosition.push(item));
-    //       //  estadoT6.map((item) => timePosition.push(item));
-    //       //  estadoT7.map((item) => timePosition.push(item));
-    //      //   estadoT8.map((item) => timePosition.push(item));
-    //     //    estadoT9.map((item) => timePosition.push(item));
-    //        // estadoT10.map((item) => timePosition.push(item));
-    //         //   realm.write(() => {
-    //         //     realm.deleteAll();
-    //         // });
-    //         let last = realm.objects('Juego').length + 1;
-    //         console.log('User Nuevo');
-    //         console.log(route.params.user);
-    //         console.log('Users ---------------------------------------------');
-    //         console.log(realm.objects('User'));
-    //         console.log('JuegoLast--------------------');
-    //         console.log(last);
-    //         console.log('timePosition');
-    //         console.log(timePosition);
-    //         console.log('juegos realizados---------------------------------------------');
-    //         console.log(realm.objects('Juego'));
-    //         realm.write(() => {
-    //             realm.create('Juego', {
-    //                 id: last,
-    //                 tipo: 0,     //posiciones de localidades en la partida
-    //                 user: route.params.user,
-
-    //                 posiciones: posiciones,
-    //                 posicionesTiempo: timePosition,
-    //                 posicionesNumericas: posicionesNumericas,
-
-    //             });
-
-    //         });
-    //         console.log('Juego agregado');
-    //         console.log(realm.objects('Juego'));
-    //         Alert.alert('Juego Terminado');
-    //         navigation.navigate('Revision_General', { juegoId: last });
-
-    //     }
-    // }
     const asignarNumero = (posicionSiguiente) => {
         if ('almacen' == posicionSiguiente) {
             return 1;
@@ -368,7 +306,6 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
         for (let index = 0; index < estadox2.length; index++) {
             const element = estadox2[index];
             funca(element);
-            //console.log(element);
         }
     }
 
@@ -377,25 +314,17 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
             estado0.push('la casa');
             estado1.push('casa');
             estado1.push(value);
-
-            // estadoT0.push(minutoMapa.toString() + ':' + segundoMapa.toString());
-            // estadoT1.push(minutoMapa.toString() + ':' + segundoMapa.toString());
-            // estadoC1.push(matriz[0][asignarNumero(value)].posicion);
             (matriz[0][asignarNumero(value)].posicion).map((item) => estadoC1.push(item))
             console.log('estadoC1 ~~~~~~~' + estadoC1);
             console.log(estadoC1);
             for (let index = 0; index < estadoC1.length; index++) {
                 const element = estadoC1[index];
                 funca(element);
-                //console.log(element);
             }
-            //console.log(matriz[0][0].posicion)
         }
         if (array.length == 2) {//ESTADO 1 => ESTADO 2
             estado1.map((item) => estado2.push(item))
             estado2.push(value);
-            // estadoT2.push(minutoMapa.toString() + ':' + segundoMapa.toString());
-            //estadoC2.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
             (matriz[posicionesNumericas[array.length - 1]][asignarNumero(value)].posicion).map((item) => estadoC2.push(item))
             console.log('estadoC2 ~~~~~~~' + estadoC2);
             marcarRutaEstado(estadoC1, estadoC2);
@@ -403,8 +332,6 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
         if (array.length == 3) {//ESTADO 2 => ESTADO 3
             estado2.map((item) => estado3.push(item))
             estado3.push(value);
-            //  estadoT3.push(minutoMapa.toString() + ':' + segundoMapa.toString());
-            //estadoC3.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
             (matriz[posicionesNumericas[array.length - 1]][asignarNumero(value)].posicion).map((item) => estadoC3.push(item))
             console.log('estadoC3 ~~~~~~~' + estadoC3);
             marcarRutaEstado(estadoC2, estadoC3);
@@ -412,8 +339,6 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
         if (array.length == 4) {//ESTADO 3 => ESTADO 4
             estado3.map((item) => estado4.push(item))
             estado4.push(value);
-            // estadoT4.push(minutoMapa.toString() + ':' + segundoMapa.toString());
-            //estadoC4.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
             (matriz[posicionesNumericas[array.length - 1]][asignarNumero(value)].posicion).map((item) => estadoC4.push(item))
             console.log('estadoC4 ~~~~~~~' + estadoC4);
             marcarRutaEstado(estadoC3, estadoC4);
@@ -421,8 +346,6 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
         if (array.length == 5) {//ESTADO 4 => ESTADO 5
             estado4.map((item) => estado5.push(item))
             estado5.push(value);
-            // estadoT5.push(minutoMapa.toString() + ':' + segundoMapa.toString());
-            //estadoC5.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
             (matriz[posicionesNumericas[array.length - 1]][asignarNumero(value)].posicion).map((item) => estadoC5.push(item))
             console.log('estadoC5 ~~~~~~~' + estadoC5);
             marcarRutaEstado(estadoC4, estadoC5);
@@ -430,19 +353,13 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
         if (array.length == 6) {//ESTADO 5 => ESTADO 6
             estado5.map((item) => estado6.push(item))
             estado6.push(value);
-            //  estadoT6.push(minutoMapa.toString() + ':' + segundoMapa.toString());
-            //estadoC6.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
             (matriz[posicionesNumericas[array.length - 1]][asignarNumero(value)].posicion).map((item) => estadoC6.push(item))
             console.log('estadoC6 ~~~~~~~' + estadoC6);
             marcarRutaEstado(estadoC5, estadoC6);
         }
         if (array.length == 7) {//ESTADO 6 => ESTADO 7
             estado6.map((item) => estado7.push(item))
-
             estado7.push(value);
-
-            //  estadoT7.push(minutoMapa.toString() + ':' + segundoMapa.toString());
-            //estadoC7.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
             (matriz[posicionesNumericas[array.length - 1]][asignarNumero(value)].posicion).map((item) => estadoC7.push(item))
             console.log('estadoC7 ~~~~~~~' + estadoC7);
             marcarRutaEstado(estadoC6, estadoC7);
@@ -450,8 +367,6 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
         if (array.length == 8) {//ESTADO 7 => ESTADO 8
             estado7.map((item) => estado8.push(item))
             estado8.push(value);
-            //    estadoT8.push(minutoMapa.toString() + ':' + segundoMapa.toString());
-            //estadoC8.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
             (matriz[posicionesNumericas[array.length - 1]][asignarNumero(value)].posicion).map((item) => estadoC8.push(item))
             console.log('estadoC8 ~~~~~~~' + estadoC8);
             marcarRutaEstado(estadoC7, estadoC8);
@@ -459,8 +374,6 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
         if (array.length == 9) {//ESTADO 8 => ESTADO 9
             estado8.map((item) => estado9.push(item))
             estado9.push(value);
-            //     estadoT9.push(minutoMapa.toString() + ':' + segundoMapa.toString());
-            // estadoC9.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
             (matriz[posicionesNumericas[array.length - 1]][asignarNumero(value)].posicion).map((item) => estadoC9.push(item))
             console.log('estadoC9 ~~~~~~~' + estadoC9);
             marcarRutaEstado(estadoC8, estadoC9);
@@ -468,31 +381,17 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
         if (array.length == 10) {//ESTADO 9 => ESTADO 10
             estado9.map((item) => estado10.push(item))
             estado10.push(value);
-            //     estadoT10.push(minutoMapa.toString() + ':' + segundoMapa.toString());
-            //estadoC10.push(matriz[posicionesNumericas[array.length-1]][asignarNumero(value)].posicion);
             (matriz[posicionesNumericas[array.length - 1]][asignarNumero(value)].posicion).map((item) => estadoC10.push(item))
-            console.log('estadoC2 ~~~~~~~' + estadoC10);
+            console.log('estadoC10 ~~~~~~~' + estadoC10);
             marcarRutaEstado(estadoC9, estadoC10);
         }
-        // console.log(estado1 + '=>' + estadoT1);
-        // console.log(estado2 + '=>' + estadoT2);
-        // console.log(estado3 + '=>' + estadoT3);
-        // console.log(estado4 + '=>' + estadoT4);
-        // console.log(estado5 + '=>' + estadoT5);
-        // console.log(estado6 + '=>' + estadoT6);
-        // console.log(estado7 + '=>' + estadoT7);
-        // console.log(estado8 + '=>' + estadoT8);
-        // console.log(estado9 + '=>' + estadoT9);
-        // console.log(estado10 + '=>' + estadoT10);
     }
 
-    const funcionnOpacity2 = (posicionSiguiente) => {                          //change and passing parameter and ceros for value parameter
-        console.log('funcionOpacity2...');                     //en vez de pasarle 'b' LE PASAS POR PARAMETRO UN VALOR
+    const agregarPosicionNueva = (posicionSiguiente) => {                          //change and passing parameter and ceros for value parameter
+        //console.log('agregarPosicionNueva...');                     //en vez de pasarle 'b' LE PASAS POR PARAMETRO UN VALOR
 
         const aa = [];
         const exists = getOc(posiciones, posicionSiguiente);
-        //console.log('veces repetidas posicionSiguiente:');
-        // console.log(exists);
 
         if (exists == 0) {
             if (posiciones.length == 2) { //condicion de dos localidades unicamente inicialmente
@@ -502,71 +401,35 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
                 else {
                     asociarArray(posiciones, posicionSiguiente);
                     asignarCaminoNumerico(posicionSiguiente);
-                    //----------------------------------------------------------------------------- OPACITY DE IMAGENES -------------------------------
-                    // for (let index = 0; index < camino.length; index++) {
-                    //   const element = camino[index];
-                    //   funca(element);
-                    //   //console.log(element);
-                    // }
-                    //----------------------------------------------------------------------------------------------------------------------------------
-                    //agregar posicion
                     posiciones.push(posicionSiguiente);
                     aa.push(posiciones);
                     console.log("posicion agregada =>" + posiciones[posiciones.length - 1]);
-                    //estadoPosiciones[posiciones.length-1]=posiciones;
-                    // console.log("estado => ");
                     setEstadoPosiciones([...estadoPosiciones, aa]);
-                    //estadoPosiciones.push(posiciones);
-                    // console.log(estadoPosiciones);
                 }
             }
             else {
                 if (posiciones[posiciones.length - 1] == posicionSiguiente) {
-
                 }
                 else {
                     asociarArray(posiciones, posicionSiguiente);
                     asignarCaminoNumerico(posicionSiguiente);
-                    //----------------------------------------------------------------------------- OPACITY DE IMAGENES -------------------------------
-                    // for (let index = 0; index < camino.length; index++) {
-                    //   const element = camino[index];
-                    //   funca(element);
-                    //   //console.log(element);
-                    // }
-                    //---------------------------------------------------------------------------------------------------------------------------------
-                    //agregar posicion
                     posiciones.push(posicionSiguiente);
-
                     console.log("posicion agregada =>" + posiciones[posiciones.length - 1]);
                     aa.push(posiciones);
                     setEstadoPosiciones(old => [...old, aa]);
-                    //console.log("estado => ");
-
-                    //estadoPosiciones[0].push(posiciones);
-                    // console.log(estadoPosiciones);
                 }
             }
         }
         else {
             //SI ES EL ULTIMO ELEMENTO SELECCIONADO DEBERIA PODERSE DAR DE BAJA o sea borrarse el ARRAY si es que le doy click de vuelta
             if (posicionSiguiente == posiciones[posiciones.length - 1]) {
-                // console.log('posicion final y nueva son iguales:');
-                // console.log('posicionFinal ==>' + posiciones[posiciones.length - 1]);
-                // console.log('posicionSiguiente ==>' + posicionSiguiente);
-                //popEstado(posiciones);
-                // posiciones.pop();
-                //posicionesNumericas.pop();
-                // console.log('posicionesActualizadas==>' + posiciones);
-                //console.log("estado => ");
-                // estadoPosiciones.pop();
-                //console.log(estadoPosiciones);
+            
             }
 
         }
-        console.log('posiciones==> ' + posiciones);
-        console.log('posicioNum==> ' + posicionesNumericas);
-        //console.log(estadoPosiciones);
-        console.log("___________________________________________________");
+       // console.log('posiciones==> ' + posiciones);
+        //console.log('posicioNum==> ' + posicionesNumericas);
+       // console.log("___________________________________________________");
     };
 
 
@@ -576,13 +439,11 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
     console.log(posicionesTraidasdelaDB);
     posicionesTraidasdelaDB.map((item) => {
         if (item == "la casa") {
-
         }
         else {
-            funcionnOpacity2(item)
+            agregarPosicionNueva(item)
             console.log(item);
         }
-
     });
 
     return (
@@ -595,12 +456,7 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
                     )
                     }
                 </>
-                <View style={{
-                    backgroundColor: '#B5B5BA',
-                    alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
-                    borderRadius: 30 / 2, height: 30, width: 30,
-                    top: -40, left: 653, zIndex: 12
-                }}>
+                <View style={[styles.LocalidadTouchable,{          top: -40, left: 653, zIndex: 12}]}> 
                     <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { }}>
                         <Text style={{ fontSize: 18, textAlign: 'center' }}>
                             {marcarNumeroLocalidad(9)}
@@ -608,12 +464,8 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
                     </TouchableOpacity>
 
                 </View>
-                <View style={{
-                    backgroundColor: '#B5B5BA',
-                    alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
-                    borderRadius: 30 / 2, height: 30, width: 30,
-                    top: -96, left: 527, zIndex: 12
-                }}>
+                <View style={[styles.LocalidadTouchable,{          top: -96, left: 527, zIndex: 12}]}> 
+              
                     <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { }}>
                         <Text style={{ fontSize: 18, textAlign: 'center' }}>
                             {marcarNumeroLocalidad(10)}
@@ -621,109 +473,62 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
                     </TouchableOpacity>
 
                 </View>
-                <View style={{
-                    backgroundColor: '#B5B5BA',
-                    alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
-                    borderRadius: 30 / 2, height: 30, width: 30,
-                    top: -73, left: 340, zIndex: 12
-                }}>
+                <View style={[styles.LocalidadTouchable,{       top: -73, left: 340, zIndex: 12}]}> 
                     <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { }}>
                         <Text style={{ fontSize: 18, textAlign: 'center' }}>
                             {marcarNumeroLocalidad(2)}
                         </Text>
                     </TouchableOpacity>
                 </View>
-                <View style={{
-                    backgroundColor: '#B5B5BA',
-                    alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
-                    borderRadius: 30 / 2, height: 30, width: 30,
-                    top: -62, left: 252, zIndex: 12
-                }}>
+                <View style={[styles.LocalidadTouchable,{   top: -62, left: 252, zIndex: 12}]}> 
                     <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { }}>
                         <Text style={{ fontSize: 18, textAlign: 'center' }}>
                             {marcarNumeroLocalidad(1)}
                         </Text>
                     </TouchableOpacity>
                 </View>
-                <View style={{
-                    backgroundColor: '#B5B5BA',
-                    alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
-                    borderRadius: 30 / 2, height: 30, width: 30,
-                    top: -69, left: 461, zIndex: 12
-                }}>
+                <View style={[styles.LocalidadTouchable,{   top: -69, left: 461, zIndex: 12}]}> 
                     <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { }}>
                         <Text style={{ fontSize: 18, textAlign: 'center' }}>
                             {marcarNumeroLocalidad(5)}
                         </Text>
                     </TouchableOpacity>
                 </View>
-                <View style={{
-                    backgroundColor: '#B5B5BA',
-                    alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
-                    borderRadius: 30 / 2, height: 30, width: 30,
-                    top: -78, left: 643, zIndex: 12
-                }}>
+                <View style={[styles.LocalidadTouchable,{      top: -78, left: 643, zIndex: 12}]}>  
                     <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { }}>
                         <Text style={{ fontSize: 18, textAlign: 'center' }}>
                             {marcarNumeroLocalidad(8)}
                         </Text>
                     </TouchableOpacity>
                 </View>
-                <View style={{
-                    backgroundColor: '#B5B5BA',
-                    alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
-                    borderRadius: 30 / 2, height: 30, width: 30,
-                    top: -44, left: 647, zIndex: 12
-                }}>
+                <View style={[styles.LocalidadTouchable,{ top: -44, left: 647, zIndex: 12 }]}> 
                     <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { }}>
                         <Text style={{ fontSize: 18, textAlign: 'center' }}>
                             {marcarNumeroLocalidad(7)}
                         </Text>
                     </TouchableOpacity>
-
                 </View>
-                <View style={{
-                    backgroundColor: '#B5B5BA',
-                    alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
-                    borderRadius: 30 / 2, height: 30, width: 30,
-                    top: -102, left: 520, zIndex: 12
-                }}>
+                <View  style={[styles.LocalidadTouchable,{  top: -102, left: 520, zIndex: 12 }]}> 
                     <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { }}>
                         <Text style={{ fontSize: 18, textAlign: 'center' }}>
                             {marcarNumeroLocalidad(4)}
                         </Text>
                     </TouchableOpacity>
                 </View>
-                <View style={{
-                    backgroundColor: '#B5B5BA',
-                    alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
-                    borderRadius: 30 / 2, height: 30, width: 30,
-                    top: -54, left: 568, zIndex: 12
-                }}>
+                <View style={[styles.LocalidadTouchable,{ top: -54, left: 568, zIndex: 12 }]}> 
                     <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { }}>
                         <Text style={{ fontSize: 18, textAlign: 'center' }}>
                             {marcarNumeroLocalidad(6)}
                         </Text>
                     </TouchableOpacity>
-
                 </View>
-
-
-
-
             </View>
-            <View style={{
-                backgroundColor: '#B5B5BA',
-                alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
-                borderRadius: 30 / 2, height: 30, width: 30,
-                top: 233, left: 380, zIndex: 20
-            }}>
+            <View style={[styles.LocalidadTouchable,{ top: 233, left: 380, zIndex: 20 }]}>
                 <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { }}>
                     <Text style={{ fontSize: 18, textAlign: 'center' }}>
                         {marcarNumeroLocalidad(3)}
                     </Text>
                 </TouchableOpacity>
-
             </View>
             <View style={{ position: 'relative', zIndex: 10, top: 150, alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3, marginBottom: 10, left: -280 }}>
                 {/* <Clock minuto={minutoMapa} segundo={segundoMapa} /> */}
@@ -761,14 +566,6 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
                 {/* informacion */}
 
             </View>
-
-
-
-
-
-
-
-
             <View style={[styles.RevisionGeneral_Button_Calle, { top: 41, zIndex: 10 }]}>
                 {/* <TouchableOpacity 
                 style={{justifyContent:'center',borderRadius: 40/2, height:40,width:40,borderWidth: 3,borderColor:'lightgrey'}}
@@ -804,6 +601,15 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
 
 
 const styles = StyleSheet.create({
+    LocalidadTouchable:{ 
+        backgroundColor: '#B5B5BA',
+        alignContent: 'center', 
+        justifyContent: 'center', 
+        flexDirection: 'row',
+        borderRadius: 30 / 2, 
+        height: 30, 
+        width: 30,
+    },
     imagenMapa: { top: 350, left: 195, opacity: 1 },
     RevisionGeneral_Button_info: {
         backgroundColor: 'lightblue', alignContent: 'center',

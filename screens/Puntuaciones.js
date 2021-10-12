@@ -78,7 +78,7 @@ const Puntuaciones = ({ navigation}) => {
           renderItem={({ item }) =>
             <View style={{ fontSize: 30, backgroundColor: '#3671A3', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', justifyContent: "center" }}>
           
-              {console.log(item)}
+              {/* {console.log(item)} */}
               <View style={{backgroundColor: '#AABECF',height:70,top:4,textAlign: 'center',justifyContent: "center", alignItems: "center",}} >
                 <Text style={{textAlign: 'center',justifyContent: "center", alignItems: "center", width: Dimensions.get('window').width / 5, fontSize: 30, color: '#371B1F',  }}>
                   {/* {(juego.findIndex((element) => element === item))}
