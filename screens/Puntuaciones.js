@@ -58,7 +58,7 @@ const Puntuaciones = ({ navigation}) => {
       ) : null}
       <View style={{ flexDirection: 'row', width: Dimensions.get('window').width, justifyContent: "center", alignItems: "center" }}>
         
-        <View style={{ fontSize: 30, backgroundColor: '#3671A3', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row' }}>
+        <View style={{ fontSize: 30, backgroundColor: '#B5B5BA', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row' }}>
               <View>
               <Text style={{ textAlign: 'center', width: Dimensions.get('window').width / 4, backgroundColor: 'white', fontSize: 25, justifyContent: "center", alignItems: "center" }}>Juego</Text>
               </View>
@@ -76,8 +76,11 @@ const Puntuaciones = ({ navigation}) => {
           data={juegoRealizadosData}
           style={{ fontSize: 30, color: 'white' }}
           renderItem={({ item }) =>
-            <View style={{ fontSize: 30, backgroundColor: '#3671A3', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', justifyContent: "center" }}>
-          
+            <View style={{ fontSize: 30, backgroundColor: '#B5B5BA', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', justifyContent: "center" }}>
+          <TouchableOpacity
+         style={{ fontSize: 30, backgroundColor: '#B5B5BA', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', justifyContent: "center" }}
+          onPress={() => { navigation.navigate('Juego_Mapa_Recorrido',{juegoId:item.id}) }}
+        >
               {/* {console.log(item)} */}
               <View style={{backgroundColor: '#AABECF',height:70,top:4,textAlign: 'center',justifyContent: "center", alignItems: "center",}} >
                 <Text style={{textAlign: 'center',justifyContent: "center", alignItems: "center", width: Dimensions.get('window').width / 5, fontSize: 30, color: '#371B1F',  }}>
@@ -97,19 +100,19 @@ const Puntuaciones = ({ navigation}) => {
                 {'edad  '}{item.user.edad}
                 </Text>
               </View>
-              <View style={{backgroundColor: '#AABECF',height:70,top:4,textAlign: 'center',justifyContent: "center", alignItems: "center",}} >
+              <View style={{backgroundColor: '#AABECF',height:70,top:4,textAlign: 'center',justifyContent: "center", alignItems: "center"}} >
                 <Text style={{textAlign: 'center', justifyContent: "center", alignItems: "center",width: Dimensions.get('window').width *( 1/5), fontSize: 30, color: '#371B1F',  backgroundColor: '#AABECF' }}>
                   {item.posicionesTiempo[10]}
                 </Text>
-                <TouchableOpacity
+                {/* <TouchableOpacity
           style={[styles.inicio_Button, { height: 10, width:10, backgroundColor:'white'}]}
           onPress={() => { navigation.navigate('Juego_Mapa_Recorrido',{juegoId:item.id}) }}
         >
           <Text style={{ fontSize: 25 }}>mapa</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
               </View>
           
-                    
+              </TouchableOpacity> 
             </View>
 
           }
@@ -153,16 +156,16 @@ const Puntuaciones = ({ navigation}) => {
           <Text style={{ fontSize: 25 }}>Iniciar Juego</Text>
         </TouchableOpacity>
       </View> */}
-      <View style={[styles.Puntuaciones_Button_info, { left: '2%' }]}>
-        <TouchableOpacity
+      <View style={[ { left: '2%' }]}>
+        {/* <TouchableOpacity
           style={{ justifyContent: 'center', borderRadius: 40 / 2, height: 40, width: 40, borderWidth: 3, borderColor: 'lightgrey' }}
           onPress={() => { setModalVisible(!modalVisible); }}
         >
           <Text style={{ fontSize: 14, textAlign: 'center' }}> i </Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
       <View styles={{}}>
-        <Modal
+        {/* <Modal
           animationType="none"
           transparent={true}
           visible={modalVisible}
@@ -179,7 +182,7 @@ const Puntuaciones = ({ navigation}) => {
               </TouchableHighlight>
             </View>
           </View>
-        </Modal>
+        </Modal> */}
       </View>
     </View>
   )
@@ -195,7 +198,8 @@ const styles = StyleSheet.create({
 
   },
   inicio_View: {
-    backgroundColor: '#3671A3',
+    //backgroundColor: '#3671A3',
+    backgroundColor:'#B5B5BA',
     flex: 1,
     alignContent: 'center',
     flexDirection: 'column', justifyContent: 'center'

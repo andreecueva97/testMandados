@@ -155,7 +155,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   inicio_View: {
-    flexDirection: 'column', backgroundColor: '#3671A3',
+    flexDirection: 'column', 
+    //backgroundColor: '#3671A3',
+    backgroundColor:'#B5B5BA',
     flex: 1,
     alignContent: 'center', justifyContent: 'center',
     paddingTop: 0,
@@ -166,7 +168,7 @@ const styles = StyleSheet.create({
     alignItems: 'center', textAlign: 'center',
   },
   inicio_Text: {
-    backgroundColor: '#3671A3', fontSize: 30,
+    backgroundColor: '#B5B5BA', fontSize: 30,
     alignContent: 'center', justifyContent: 'center',
     alignItems: 'center', textAlign: 'center'
   },

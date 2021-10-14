@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { Image, StyleSheet, Dimensions, Text, View, TouchableHighlight, Modal, Alert, } from 'react-native';
+import { Image, StyleSheet, Dimensions, Text, View, TouchableHighlight, Modal, Alert, FlatList } from 'react-native';
 import Clock from '../components/Clock';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Realm from 'realm';
 
-const Juego_Mapa = ({ navigation,route }) => {
+const Juego_Mapa = ({ navigation, route }) => {
   //const {navigation} = this.props;
   const [minutoMapa, setMinutoMapa] = useState(0);//era 10
   const [segundoMapa, setSegundoMapa] = useState(45);
   console.log('============================SCREEN JUEGO_MAPA');
-  console.log('USER===>'+route.params.user.id);
-  console.log('USER===>'+route.params.user.name);
-  console.log('USER===>'+route.params.user.apellido);
-  console.log('USER===>'+route.params.user.edad);
+  // console.log('USER===>' + route.params.user.id);
+  // console.log('USER===>' + route.params.user.name);
+  // console.log('USER===>' + route.params.user.apellido);
+  // console.log('USER===>' + route.params.user.edad);
   const [modalVisible, setModalVisible] = useState(false);
   let realm;
-  
-  realm = new Realm({ path:'version6.realm' });
+
+  realm = new Realm({ path: 'version6.realm' });
   useEffect(() => {
     const timerId = setInterval(() => {
       if (segundoMapa < 59) {
@@ -47,6 +47,7 @@ const Juego_Mapa = ({ navigation,route }) => {
     }, 1000)
     return () => clearInterval(timerId);
   }, [segundoMapa, minutoMapa]);
+  let timePosition = [];
   const [posiciones, setPosiciones] = useState(['la casa']);
   const [estado0, setEstado0] = useState([]); const [estado1, setEstado1] = useState([]); const [estado2, setEstado2] = useState([]); const [estado3, setEstado3] = useState([]);
   const [estado4, setEstado4] = useState([]); const [estado5, setEstado5] = useState([]); const [estado6, setEstado6] = useState([]); const [estado7, setEstado7] = useState([]);
@@ -186,7 +187,7 @@ const Juego_Mapa = ({ navigation,route }) => {
   }, [juegoId]);
   const agregarJuego_User = () => {
     if (posicionesNumericas.length == 11) {
-      let timePosition = [];
+      
       estadoT0.map((item) => timePosition.push(item));
       estadoT1.map((item) => timePosition.push(item));
       estadoT2.map((item) => timePosition.push(item));
@@ -198,12 +199,12 @@ const Juego_Mapa = ({ navigation,route }) => {
       estadoT8.map((item) => timePosition.push(item));
       estadoT9.map((item) => timePosition.push(item));
       estadoT10.map((item) => timePosition.push(item));
-    //   realm.write(() => {
-    //     realm.deleteAll();
-    // });
+      //   realm.write(() => {
+      //     realm.deleteAll();
+      // });
       let last = realm.objects('Juego').length + 1;
       console.log('User Nuevo');
-      console.log( route.params.user);
+      console.log(route.params.user);
       console.log('Users ---------------------------------------------');
       console.log(realm.objects('User'));
       console.log('JuegoLast--------------------');
@@ -229,7 +230,7 @@ const Juego_Mapa = ({ navigation,route }) => {
       console.log(realm.objects('Juego'));
       Alert.alert('Juego Terminado');
       navigation.navigate('Revision_General', { juegoId: last });
-    
+
     }
   }
   const asignarNumero = (posicionSiguiente) => {
@@ -810,7 +811,7 @@ const Juego_Mapa = ({ navigation,route }) => {
         backgroundColor: '#B5B5BA',
         alignContent: 'center', justifyContent: 'center', flexDirection: 'row',
         borderRadius: 30 / 2, height: 30, width: 30,
-        top: 233, left: 380, zIndex: 20
+        top: 393, left: 380, zIndex: 20
       }}>
         <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { funcionnOpacity2('panaderia') }}>
           <Text style={{ fontSize: 18, textAlign: 'center' }}>
@@ -819,11 +820,48 @@ const Juego_Mapa = ({ navigation,route }) => {
         </TouchableOpacity>
 
       </View>
-      <View style={{ position: 'relative', zIndex: 10, top: 150, alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3, marginBottom: 10, left: -280 }}>
+      <View style={{ zIndex: -10, top: 120, alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3, marginBottom: 10, left: -280 }}>
         <Clock minuto={minutoMapa} segundo={segundoMapa} />
       </View>
 
+      <View style={{ zIndex: -10, top:120, alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3, marginBottom: 10, left: -280 }}>
+
+        <View style={{ justifyContent: 'center', alignItems: 'center', }}>
+          <FlatList //lista de localidades en vista con sus nombres y ids y tiempo y posiciones de haber ido
+            //data={realm.objects('Juego')}
+
+            data={posiciones}
+            style={{ fontSize: 0, color: 'white', height: 150, }}
+            renderItem={({ item }) =>
+              <View style={{ fontSize: 13, backgroundColor: 'lightgrey', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', justifyContent: "center" }}>
+                {/* {console.log(item), console.log(juego.findIndex((element) => element === item))} */}
+                <View style={{}} >
+                  <Text style={{ textAlign: 'center', justifyContent: "center", alignItems: "center", width: 40, fontSize: 15, color: '#371B1F', top: 4, backgroundColor: '#AABECF' }}>
+                    {/* {(juegoPosiciones.findIndex((element) => element === item))} */}
+                    {posiciones.findIndex(element=>element ===item)}
+                  </Text>
+                </View>
+                <View >
+                  <Text style={{ textAlign: 'center', justifyContent: "center", alignItems: "center", width: 70, fontSize: 15, color: '#371B1F', top: 4, backgroundColor: '#AABECF' }}>
+                    {item}
+
+                  </Text>
+                </View>
+                <View >
+                  <Text style={{ textAlign: 'center', justifyContent: "center", alignItems: "center", width: 40, fontSize: 15, color: '#371B1F', top: 4, backgroundColor: '#AABECF' }}>
+                    {/* {juegoTiempo[(juegoPosiciones.findIndex((element) => element === item))]} */}
+                    {timePosition[posiciones.findIndex((element)=>element===item)]}
+                  </Text>
+                </View>
+              </View>
+
+            }
+            keyExtractor={(item) => item.toString()}
+          />
+        </View>
+      </View>
       <View style={{ zIndex: 10, top: 150, alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3, marginBottom: 10, left: -277 }}>
+
         <TouchableOpacity
           style={[styles.inicio_Button,]}
           onPress={() => {

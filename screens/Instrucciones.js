@@ -18,7 +18,7 @@ const Instrucciones = ({ navigation }) => {
                     style={{ width: 300, height: 300 }}
                     source={require('@img/logo.png')}
                 /> */}
-                <Text style={{fontSize:25,textAlign:'center'}}>Esta tarea consiste en hacer varios mandados. Tenés que salir de tu hogar a las 9:15 hs., hacer varios mandados o diligencias y estar de regreso a las 13:00 hs. Para recorrer el camino de tu hogar a la estación, se tardan 30 minutos. La oficina donde se pagan los impuestos cierra a las 10 hs. Los negocios y el correo cierran a las 12:00 hs. y la panadería abre después de las 11:00 hs. Tenés que hacer las siguientes tareas</Text>
+                <Text style={{fontSize:25,textAlign:'justify'}}>Esta tarea consiste en hacer varios mandados. Tenés que salir de tu hogar a las 9:15 hs., hacer varios mandados o diligencias y estar de regreso a las 13:00 hs. Para recorrer el camino de tu hogar a la estación, se tardan 30 minutos. La oficina donde se pagan los impuestos cierra a las 10 hs. Los negocios y el correo cierran a las 12:00 hs. y la panadería abre después de las 11:00 hs. Tenés que hacer las siguientes tareas</Text>
                             
             </View>
             <View style={{
@@ -50,7 +50,9 @@ const Instrucciones = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     Instrucciones_View: {
-        flexDirection: 'column', backgroundColor: '#3671A3',
+        flexDirection: 'column', 
+        //backgroundColor: '#3671A3',
+        backgroundColor:'#B5B5BA',
         flex: 1,
         alignContent: 'center', justifyContent: 'center'
     },
@@ -68,7 +70,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         color: 'yellow',
         alignContent: 'center', justifyContent: 'center',
-        backgroundColor: '#3671A3', textAlign: 'center',paddingBottom:'10%'
+        backgroundColor: '#B5B5BA', textAlign: 'center',paddingBottom:'10%'
     },
     Instrucciones_Logo: {
         fontSize: 30,

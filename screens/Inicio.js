@@ -49,7 +49,9 @@ const Inicio = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   inicio_View: {
-    flexDirection: 'column', backgroundColor: '#3671A3',
+    flexDirection: 'column', 
+    //backgroundColor: '#3671A3',
+    backgroundColor:'#B5B5BA',
     flex: 1,
     alignContent: 'center', justifyContent: 'center'
   },
@@ -67,7 +69,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: 'yellow',
     alignContent: 'center', justifyContent: 'center',
-    backgroundColor: '#3671A3', textAlign: 'center',
+    backgroundColor: '#B5B5BA', textAlign: 'center',
   },
   inicio_Logo: {
     fontSize: 30,

@@ -445,8 +445,11 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
             console.log(item);
         }
     });
+
     const [juegoPosiciones, setJuego] = useState(realm.objects('Juego').filtered('id=' + route.params.juegoId.toString())[0].posiciones);
     const [juegoTiempo, setJuegoTiempo] = useState(realm.objects('Juego').filtered('id=' + route.params.juegoId.toString())[0].posicionesTiempo);
+    
+    //const [juegoLocalidades, setJuegoTiempo] = useState(realm.objects('Juego').filtered('id=' + route.params.juegoId.toString())[0].posiciones);
     return (
         <View style={styles.inicio_View}>
             <View style={{ flex: 2, zIndex: 10, paddingTop: 1.5 }}>
@@ -524,7 +527,7 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
                     </TouchableOpacity>
                 </View>
             </View>
-            <View style={[styles.LocalidadTouchable, { top: 461, left: 380, zIndex: 20 }]}>
+            <View style={[styles.LocalidadTouchable, { top: 340, left: 380, zIndex: 20 }]}>
                 <TouchableOpacity style={{ borderRadius: 30 / 2, height: 30, width: 30, }} onPress={() => { }}>
                     <Text style={{ fontSize: 18, textAlign: 'center' }}>
                         {marcarNumeroLocalidad(3)}
@@ -532,7 +535,7 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
                 </TouchableOpacity>
             </View>
             <View style={{
-                zIndex: 10, top: 170, alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3,
+                zIndex: 10, top: 130, alignContent: 'center', justifyContent: 'center', flexDirection: 'row', borderRadius: 3,
                 marginBottom: 10, left: -277
             }}>
                 <View style={{ justifyContent: 'center', alignItems: 'center' }}>
@@ -542,11 +545,17 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
                             data={juegoPosiciones}
                             style={{ fontSize: 0, color: 'white', width: 180, }}
                             renderItem={({ item }) =>
-                                <View style={{ fontSize: 13, backgroundColor: '#3671A3', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', justifyContent: "center" }}>
+                                <View style={{ fontSize: 13, backgroundColor: 'lightgrey', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', justifyContent: "center" }}>
                                     {/* {console.log(item), console.log(juego.findIndex((element) => element === item))} */}
                                     <View style={{}} >
                                         <Text style={{ textAlign: 'center', justifyContent: "center", alignItems: "center", width: 40, fontSize: 15, color: '#371B1F', top: 4, backgroundColor: '#AABECF' }}>
                                             {(juegoPosiciones.findIndex((element) => element === item))}
+                                        </Text>
+                                    </View>
+                                    <View >
+                                        <Text style={{ textAlign: 'center', justifyContent: "center", alignItems: "center", width: 70, fontSize: 15, color: '#371B1F', top: 4, backgroundColor: '#AABECF' }}>
+                                        {item}
+
                                         </Text>
                                     </View>
                                     <View >
@@ -569,14 +578,14 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
 
 
                 </View>
-                <View style={{ width: 120, zIndex: 1, height: 120, textShadowRadius: 30, borderRadius: 120 / 2, backgroundColor: "green", justifyContent: 'center', alignItems: 'center', borderColor: 'lightgreen', borderWidth: 5 }}>
+                {/* <View style={{ width: 120, zIndex: 1, height: 120, textShadowRadius: 30, borderRadius: 120 / 2, backgroundColor: "green", justifyContent: 'center', alignItems: 'center', borderColor: 'lightgreen', borderWidth: 5 }}>
                     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                         <Text style={{ fontSize: 40, color: 'black' }}>
                             {juego.posicionesTiempo[10]}
                         </Text>
                     </View>
                     <Text>FINALIZADO</Text>
-                </View>
+                </View> */}
                 
             </View>
 
@@ -588,7 +597,7 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
                         navigation.navigate('Puntuaciones');
                         //console.log(matriz[0][0].posicion)
                     }}>
-                    <Text style={styles.inicio_Text}>Terminar</Text>
+                    <Text style={styles.inicio_Text}>Volver</Text>
                 </TouchableOpacity>
             </View>
 

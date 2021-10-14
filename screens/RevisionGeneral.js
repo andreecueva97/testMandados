@@ -70,15 +70,15 @@ const RevisionGeneral = ({ navigation, route }) => {
       ) : null}
       <View style={{ flexDirection: 'row', width: Dimensions.get('window').width, justifyContent: "center", alignItems: "center" }}>
         
-        <View style={{ fontSize: 30, backgroundColor: '#3671A3', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row' }}>
+        <View style={{ fontSize: 30, backgroundColor: '#B5B5BA', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row' }}>
               <View>
-              <Text style={{ textAlign: 'center', width: Dimensions.get('window').width / 4, backgroundColor: 'white', fontSize: 25, justifyContent: "center", alignItems: "center" }}>Posicion</Text>
+              <Text style={{ textAlign: 'center', width: Dimensions.get('window').width / 4,fontSize: 25, justifyContent: "center", alignItems: "center" }}>Posicion</Text>
               </View>
               <View>
-              <Text style={{ textAlign: 'center', width: Dimensions.get('window').width / 2, backgroundColor: 'white', fontSize: 25, justifyContent: "center", alignItems: "center" }}>Localidad</Text>
+              <Text style={{ textAlign: 'center', width: Dimensions.get('window').width / 2, fontSize: 25, justifyContent: "center", alignItems: "center" }}>Localidad</Text>
               </View>
               <View>
-              <Text style={{ textAlign: 'center', width: Dimensions.get('window').width / 4, backgroundColor: 'white', fontSize: 25, justifyContent: "center", alignItems: "center" }}>Tiempo</Text>
+              <Text style={{ textAlign: 'center', width: Dimensions.get('window').width / 4,fontSize: 25, justifyContent: "center", alignItems: "center" }}>Tiempo</Text>
               </View>
         </View>
       </View>
@@ -88,7 +88,7 @@ const RevisionGeneral = ({ navigation, route }) => {
           data={juego}
           style={{ fontSize: 30, color: 'white' }}
           renderItem={({ item }) =>
-            <View style={{ fontSize: 30, backgroundColor: '#3671A3', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', justifyContent: "center" }}>
+            <View style={{ fontSize: 30, backgroundColor: '#B5B5BA', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', justifyContent: "center" }}>
               {/* {console.log(item), console.log(juego.findIndex((element) => element === item))} */}
               <View style={{}} >
                 <Text style={{textAlign: 'center',justifyContent: "center", alignItems: "center", width: Dimensions.get('window').width / 4, fontSize: 30, color: '#371B1F', top: 4, backgroundColor: '#AABECF' }}>
@@ -145,16 +145,16 @@ const RevisionGeneral = ({ navigation, route }) => {
           <Text style={{ fontSize: 25 }}>Repetir Juego</Text>
         </TouchableOpacity>
       </View>
-      <View style={[styles.RevisionGeneral_Button_info, { left: '2%' }]}>
-        <TouchableOpacity
+      <View style={[ { left: '2%' }]}>
+        {/* <TouchableOpacity
           style={{ justifyContent: 'center', borderRadius: 40 / 2, height: 40, width: 40, borderWidth: 3, borderColor: 'lightgrey' }}
           onPress={() => { setModalVisible(!modalVisible); }}
         >
           <Text style={{ fontSize: 14, textAlign: 'center' }}> i </Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
       <View styles={{}}>
-        <Modal
+        {/* <Modal
           animationType="none"
           transparent={true}
           visible={modalVisible}
@@ -171,7 +171,7 @@ const RevisionGeneral = ({ navigation, route }) => {
               </TouchableHighlight>
             </View>
           </View>
-        </Modal>
+        </Modal> */}
       </View>
     </View>
   )
@@ -187,7 +187,8 @@ const styles = StyleSheet.create({
 
   },
   inicio_View: {
-    backgroundColor: '#3671A3',
+    //backgroundColor: '#3671A3',
+    backgroundColor:'#B5B5BA',
     flex: 1,
     alignContent: 'center',
     flexDirection: 'column', justifyContent: 'center'
