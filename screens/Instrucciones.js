@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     Instrucciones_View: {
         flexDirection: 'column', 
         //backgroundColor: '#3671A3',
-        backgroundColor:'#B5B5BA',
+        backgroundColor:'#DFDFE2',
         flex: 1,
         alignContent: 'center', justifyContent: 'center'
     },
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         color: 'yellow',
         alignContent: 'center', justifyContent: 'center',
-        backgroundColor: '#B5B5BA', textAlign: 'center',paddingBottom:'10%'
+        backgroundColor: '#DFDFE2', textAlign: 'center',paddingBottom:'10%'
     },
     Instrucciones_Logo: {
         fontSize: 30,

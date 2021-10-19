@@ -58,7 +58,7 @@ const Puntuaciones = ({ navigation}) => {
       ) : null}
       <View style={{ flexDirection: 'row', width: Dimensions.get('window').width, justifyContent: "center", alignItems: "center" }}>
         
-        <View style={{ fontSize: 30, backgroundColor: '#B5B5BA', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row' }}>
+        <View style={{ fontSize: 30, backgroundColor: '#DFDFE2', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row' }}>
               <View>
               <Text style={{ textAlign: 'center', width: Dimensions.get('window').width / 4, backgroundColor: 'white', fontSize: 25, justifyContent: "center", alignItems: "center" }}>Juego</Text>
               </View>
@@ -76,32 +76,32 @@ const Puntuaciones = ({ navigation}) => {
           data={juegoRealizadosData}
           style={{ fontSize: 30, color: 'white' }}
           renderItem={({ item }) =>
-            <View style={{ fontSize: 30, backgroundColor: '#B5B5BA', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', justifyContent: "center" }}>
+            <View style={{ fontSize: 30, backgroundColor: '#AABECF', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', justifyContent: "center" }}>
           <TouchableOpacity
-         style={{ fontSize: 30, backgroundColor: '#B5B5BA', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', justifyContent: "center" }}
+         style={{ fontSize: 30, backgroundColor: 'white', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', justifyContent: "center" }}
           onPress={() => { navigation.navigate('Juego_Mapa_Recorrido',{juegoId:item.id}) }}
         >
               {/* {console.log(item)} */}
-              <View style={{backgroundColor: '#AABECF',height:70,top:4,textAlign: 'center',justifyContent: "center", alignItems: "center",}} >
+              <View style={{backgroundColor: '#DFDFE2',height:70,top:4,textAlign: 'center',justifyContent: "center", alignItems: "center",}} >
                 <Text style={{textAlign: 'center',justifyContent: "center", alignItems: "center", width: Dimensions.get('window').width / 5, fontSize: 30, color: '#371B1F',  }}>
                   {/* {(juego.findIndex((element) => element === item))}
                  */}
                   {item.id.toString()}
                 </Text>
               </View>
-              <View style={{backgroundColor: '#AABECF',height:70,top:4,textAlign: 'center',justifyContent: "center", alignItems: "center",}} >
-                <Text style={{ textAlign: 'center',justifyContent: "center", alignItems: "center",width: Dimensions.get('window').width *( 3/5), fontSize: 15, color: '#371B1F',  backgroundColor: '#AABECF' }}>
+              <View style={{backgroundColor: '#DFDFE2',height:70,top:4,textAlign: 'center',justifyContent: "center", alignItems: "center",}} >
+                <Text style={{ textAlign: 'center',justifyContent: "center", alignItems: "center",width: Dimensions.get('window').width *( 3/5), fontSize: 15, color: '#371B1F',  backgroundColor: '#DFDFE2' }}>
                 {'dni  '}{item.user.dni}
                 </Text>
-                <Text style={{ textAlign: 'center',justifyContent: "center", alignItems: "center",width: Dimensions.get('window').width *( 3/5), fontSize: 15, color: '#371B1F', backgroundColor: '#AABECF' }}>
+                <Text style={{ textAlign: 'center',justifyContent: "center", alignItems: "center",width: Dimensions.get('window').width *( 3/5), fontSize: 15, color: '#371B1F', backgroundColor: '#DFDFE2' }}>
                   {item.user.apellido}{','}{item.user.name}
                 </Text>
-                <Text style={{ textAlign: 'center',justifyContent: "center", alignItems: "center",width: Dimensions.get('window').width *( 3/5), fontSize: 15, color: '#371B1F', backgroundColor: '#AABECF' }}>
+                <Text style={{ textAlign: 'center',justifyContent: "center", alignItems: "center",width: Dimensions.get('window').width *( 3/5), fontSize: 15, color: '#371B1F', backgroundColor: '#DFDFE2' }}>
                 {'edad  '}{item.user.edad}
                 </Text>
               </View>
-              <View style={{backgroundColor: '#AABECF',height:70,top:4,textAlign: 'center',justifyContent: "center", alignItems: "center"}} >
-                <Text style={{textAlign: 'center', justifyContent: "center", alignItems: "center",width: Dimensions.get('window').width *( 1/5), fontSize: 30, color: '#371B1F',  backgroundColor: '#AABECF' }}>
+              <View style={{backgroundColor: '#DFDFE2',height:70,top:4,textAlign: 'center',justifyContent: "center", alignItems: "center"}} >
+                <Text style={{textAlign: 'center', justifyContent: "center", alignItems: "center",width: Dimensions.get('window').width *( 1/5), fontSize: 30, color: '#371B1F',  backgroundColor: '#DFDFE2' }}>
                   {item.posicionesTiempo[10]}
                 </Text>
                 {/* <TouchableOpacity
@@ -199,13 +199,13 @@ const styles = StyleSheet.create({
   },
   inicio_View: {
     //backgroundColor: '#3671A3',
-    backgroundColor:'#B5B5BA',
+    backgroundColor:'#DFDFE2',
     flex: 1,
     alignContent: 'center',
     flexDirection: 'column', justifyContent: 'center'
   },
   inicio_Text: {
-    backgroundColor: '#B5B5BA', fontSize: 25,
+    backgroundColor: '#DFDFE2', fontSize: 25,
     alignContent: 'center', justifyContent: 'center',
     borderWidth: 1, alignItems: 'center', textAlign: 'center',
   },

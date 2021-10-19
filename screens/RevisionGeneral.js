@@ -70,7 +70,7 @@ const RevisionGeneral = ({ navigation, route }) => {
       ) : null}
       <View style={{ flexDirection: 'row', width: Dimensions.get('window').width, justifyContent: "center", alignItems: "center" }}>
         
-        <View style={{ fontSize: 30, backgroundColor: '#B5B5BA', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row' }}>
+        <View style={{ fontSize: 30, backgroundColor: '#DFDFE2', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row' }}>
               <View>
               <Text style={{ textAlign: 'center', width: Dimensions.get('window').width / 4,fontSize: 25, justifyContent: "center", alignItems: "center" }}>Posicion</Text>
               </View>
@@ -88,20 +88,20 @@ const RevisionGeneral = ({ navigation, route }) => {
           data={juego}
           style={{ fontSize: 30, color: 'white' }}
           renderItem={({ item }) =>
-            <View style={{ fontSize: 30, backgroundColor: '#B5B5BA', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', justifyContent: "center" }}>
+            <View style={{ fontSize: 30, backgroundColor: '#DFDFE2', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', justifyContent: "center" }}>
               {/* {console.log(item), console.log(juego.findIndex((element) => element === item))} */}
-              <View style={{}} >
-                <Text style={{textAlign: 'center',justifyContent: "center", alignItems: "center", width: Dimensions.get('window').width / 4, fontSize: 30, color: '#371B1F', top: 4, backgroundColor: '#AABECF' }}>
+              <View style={{backgroundColor:'#AABECF'}} >
+                <Text style={{textAlign: 'center',justifyContent: "center", alignItems: "center", width: Dimensions.get('window').width / 4, fontSize: 30, color: '#371B1F', top: 4, backgroundColor: '#DFDFE2' }}>
                   {(juego.findIndex((element) => element === item))}
                 </Text>
               </View>
-              <View >
-                <Text style={{ textAlign: 'center',justifyContent: "center", alignItems: "center",width: Dimensions.get('window').width / 2, fontSize: 30, color: '#371B1F', top: 4, backgroundColor: '#AABECF' }}>
+              <View style={{backgroundColor:'#AABECF'}} >
+                <Text style={{ textAlign: 'center',justifyContent: "center", alignItems: "center",width: Dimensions.get('window').width / 2, fontSize: 30, color: '#371B1F', top: 4, backgroundColor: '#DFDFE2' }}>
                   {item}
                 </Text>
               </View>
-              <View >
-                <Text style={{textAlign: 'center', justifyContent: "center", alignItems: "center",width: Dimensions.get('window').width / 4, fontSize: 30, color: '#371B1F', top: 4, backgroundColor: '#AABECF' }}>
+              <View style={{backgroundColor:'#AABECF'}} >
+                <Text style={{textAlign: 'center', justifyContent: "center", alignItems: "center",width: Dimensions.get('window').width / 4, fontSize: 30, color: '#371B1F', top: 4, backgroundColor: '#DFDFE2' }}>
                   {juegoTiempo[(juego.findIndex((element) => element === item))]}
                 </Text>
               </View>
@@ -116,7 +116,7 @@ const RevisionGeneral = ({ navigation, route }) => {
       </View>
       <View style={[ styles.inicio_Logo,{ width: Dimensions.get('window').width,}]}>
 
-        <Text style={[styles.inicio_Logo, { backgroundColor: '#B5B5BA', borderRadius: 10 }]}>Tu puntuacion: 10.Gracias por participar</Text>
+        <Text style={[styles.inicio_Logo, { backgroundColor: '#DFDFE2', borderRadius: 10 }]}>Tu puntuacion: 10.Gracias por participar</Text>
 
       </View>
       <View style={{ flexDirection: 'row', width: Dimensions.get('window').width, justifyContent: "center", alignItems: "center" }}>
@@ -188,13 +188,13 @@ const styles = StyleSheet.create({
   },
   inicio_View: {
     //backgroundColor: '#3671A3',
-    backgroundColor:'#B5B5BA',
+    backgroundColor:'#DFDFE2',
     flex: 1,
     alignContent: 'center',
     flexDirection: 'column', justifyContent: 'center'
   },
   inicio_Text: {
-    backgroundColor: '#B5B5BA', fontSize: 25,
+    backgroundColor: '#DFDFE2', fontSize: 25,
     alignContent: 'center', justifyContent: 'center',
     borderWidth: 1, alignItems: 'center', textAlign: 'center',
   },

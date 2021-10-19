@@ -545,21 +545,21 @@ const Juego_Mapa_Recorrido = ({ navigation, route }) => {
                             data={juegoPosiciones}
                             style={{ fontSize: 0, color: 'white', width: 180, }}
                             renderItem={({ item }) =>
-                                <View style={{ fontSize: 13, backgroundColor: 'lightgrey', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', justifyContent: "center" }}>
+                                <View style={{ fontSize: 13, backgroundColor: '#DFDFE2', justifyContent: 'space-between', alignItems: "center", flexDirection: 'row', justifyContent: "center" }}>
                                     {/* {console.log(item), console.log(juego.findIndex((element) => element === item))} */}
-                                    <View style={{}} >
-                                        <Text style={{ textAlign: 'center', justifyContent: "center", alignItems: "center", width: 40, fontSize: 15, color: '#371B1F', top: 4, backgroundColor: '#AABECF' }}>
+                                    <View style={{backgroundColor:'#AABECF'}} >
+                                        <Text style={{ textAlign: 'center', justifyContent: "center", alignItems: "center", width: 40, fontSize: 15, color: '#371B1F', top: 4, backgroundColor: '#DFDFE2' }}>
                                             {(juegoPosiciones.findIndex((element) => element === item))}
                                         </Text>
                                     </View>
-                                    <View >
-                                        <Text style={{ textAlign: 'center', justifyContent: "center", alignItems: "center", width: 70, fontSize: 15, color: '#371B1F', top: 4, backgroundColor: '#AABECF' }}>
+                                    <View style={{backgroundColor:'#AABECF'}} >
+                                        <Text style={{ textAlign: 'center', justifyContent: "center", alignItems: "center", width: 70, fontSize: 15, color: '#371B1F', top: 4, backgroundColor: '#DFDFE2' }}>
                                         {item}
 
                                         </Text>
                                     </View>
-                                    <View >
-                                        <Text style={{ textAlign: 'center', justifyContent: "center", alignItems: "center", width: 40, fontSize: 15, color: '#371B1F', top: 4, backgroundColor: '#AABECF' }}>
+                                    <View style={{backgroundColor:'#AABECF'}} >
+                                        <Text style={{ textAlign: 'center', justifyContent: "center", alignItems: "center", width: 40, fontSize: 15, color: '#371B1F', top: 4, backgroundColor: '#DFDFE2' }}>
                                             {juegoTiempo[(juegoPosiciones.findIndex((element) => element === item))]}
 
                                         </Text>
@@ -663,7 +663,7 @@ const styles = StyleSheet.create({
     },
     inicio_View: {
         //flexDirection:'column',
-        backgroundColor: 'lightgrey',
+        backgroundColor: '#DFDFE2',
         flex: 1,                                          // volver a colocar
         alignContent: 'center', justifyContent: 'center',
         transform: [{ rotate: '90 deg' }],

@@ -72,7 +72,7 @@ const Datos = ({ navigation }) => {
     <View style={styles.inicio_View}>
       {/* <Text style ={{textAlign:'center',backgroundColor:'white',alignContent:'center',justifyContent:'center'}}>ACA DATOS</Text> */}
       <View style={styles.inicio_Title}>
-        <Text style={styles.inicio_Text}>Nombre</Text>
+        <Text style={styles.inicio_Text}>Para comenzar, debe ingresar los siguientes datos</Text>
       </View>
       <TextInput style={styles.datos_textinput}
         //ref={"textInput1"}
@@ -86,7 +86,7 @@ const Datos = ({ navigation }) => {
 
       />
       <View style={styles.inicio_Title}>
-        <Text style={styles.inicio_Text}>Apellido</Text>
+        <Text style={styles.inicio_Text}></Text>
       </View>
       <TextInput style={styles.datos_textinput}
         // ref={"apellido"}
@@ -98,7 +98,7 @@ const Datos = ({ navigation }) => {
         onChangeText={setApellido}
       />
       <View style={styles.inicio_Title}>
-        <Text style={styles.inicio_Text}>Edad</Text>
+        <Text style={styles.inicio_Text}></Text>
       </View>
       <TextInput style={styles.datos_textinput}
         //  ref={"edad"}
@@ -112,7 +112,7 @@ const Datos = ({ navigation }) => {
         maxLength={3}
       />
       <View style={styles.inicio_Title}>
-        <Text style={styles.inicio_Text}>DNI</Text>
+        <Text style={styles.inicio_Text}></Text>
       </View>
       <TextInput style={styles.datos_textinput}
         // ref={"dni"}
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
   inicio_View: {
     flexDirection: 'column', 
     //backgroundColor: '#3671A3',
-    backgroundColor:'#B5B5BA',
+    backgroundColor:'#DFDFE2',
     flex: 1,
     alignContent: 'center', justifyContent: 'center',
     paddingTop: 0,
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     alignItems: 'center', textAlign: 'center',
   },
   inicio_Text: {
-    backgroundColor: '#B5B5BA', fontSize: 30,
+    backgroundColor: '#DFDFE2', fontSize: 30,
     alignContent: 'center', justifyContent: 'center',
     alignItems: 'center', textAlign: 'center'
   },
